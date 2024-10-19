@@ -1,0 +1,233 @@
+[gd_scene load_steps=11 format=3 uid="uid://cittvud8kr0gi"]
+
+[ext_resource type="Texture2D" uid="uid://cjbl5b2d0rt8j" path="res://assets/progres.png" id="1_a76q2"]
+[ext_resource type="Script" path="res://scrips/die.gd" id="1_llbux"]
+[ext_resource type="PackedScene" uid="uid://c8ehulp2lp6es" path="res://esenas/menu_cambios.tscn" id="3_2kh0y"]
+[ext_resource type="Theme" uid="uid://qbghq2o1iiep" path="res://dEFAULT.tres" id="3_a6bmv"]
+
+[sub_resource type="SystemFont" id="SystemFont_xtn1n"]
+font_names = PackedStringArray("Techno Hideo")
+subpixel_positioning = 0
+
+[sub_resource type="SystemFont" id="SystemFont_qwsdq"]
+font_names = PackedStringArray("Minecraft")
+subpixel_positioning = 0
+
+[sub_resource type="SystemFont" id="SystemFont_4yclu"]
+font_names = PackedStringArray("Minecraft")
+subpixel_positioning = 0
+
+[sub_resource type="Animation" id="Animation_o6o0d"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Progres:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.290196, 0.290196, 0.290196, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Progres:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("moriste/Label:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(128, 248)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("moriste/VBoxContainer/retry:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(824, 656)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("moriste/VBoxContainer/main menu:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(632, 920)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath(".:f")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_livuk"]
+resource_name = "new_animation"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Progres:modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(0.290196, 0.290196, 0.290196, 0), Color(1, 1, 1, 1), Color(0, 0, 0, 0.545098)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Progres:visible")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("moriste/Label:position")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(128, 248), Vector2(128, -1352), Vector2(128, -1032)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("moriste/VBoxContainer/retry:position")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.2, 0.7, 1.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(632, 656), Vector2(632, -1048), Vector2(632, -696)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("moriste/VBoxContainer/main menu:position")
+tracks/4/interp = 2
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.3, 0.7, 1.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(632, 920), Vector2(632, -896), Vector2(632, -408)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath(".:f")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_r6srt"]
+_data = {
+"RESET": SubResource("Animation_o6o0d"),
+"new_animation": SubResource("Animation_livuk")
+}
+
+[node name="Die" type="CanvasLayer"]
+script = ExtResource("1_llbux")
+
+[node name="Progres" type="Sprite2D" parent="."]
+visible = false
+modulate = Color(0.290196, 0.290196, 0.290196, 0)
+position = Vector2(1160, 772)
+scale = Vector2(38.75, 98.5)
+texture = ExtResource("1_a76q2")
+
+[node name="moriste" type="Node2D" parent="."]
+position = Vector2(8, 640)
+scale = Vector2(0.5, 0.5)
+
+[node name="Label" type="Label" parent="moriste"]
+offset_left = 128.0
+offset_top = 248.0
+offset_right = 3682.0
+offset_bottom = 689.0
+scale = Vector2(0.557154, 0.671552)
+theme_override_fonts/font = SubResource("SystemFont_xtn1n")
+theme_override_font_sizes/font_size = 700
+text = "YOU DIED"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="moriste"]
+offset_left = -288.0
+offset_top = 136.0
+offset_right = 1400.0
+offset_bottom = 756.0
+theme = ExtResource("3_a6bmv")
+
+[node name="retry" type="Button" parent="moriste/VBoxContainer" groups=["mi"]]
+layout_mode = 2
+focus_neighbor_bottom = NodePath("../main menu")
+theme_override_fonts/font = SubResource("SystemFont_qwsdq")
+theme_override_font_sizes/font_size = 200
+text = "Retry"
+
+[node name="main menu" type="Button" parent="moriste/VBoxContainer"]
+layout_mode = 2
+focus_neighbor_top = NodePath("../retry")
+theme_override_fonts/font = SubResource("SystemFont_4yclu")
+theme_override_font_sizes/font_size = 200
+text = "Main Menu"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_r6srt")
+}
+
+[node name="menu_cambios" parent="." instance=ExtResource("3_2kh0y")]
+focus_neighbor_left = NodePath("../Button")
+focus_neighbor_bottom = NodePath("../OptionButton")
+focus_next = NodePath("../Button")
+
+[connection signal="pressed" from="moriste/VBoxContainer/retry" to="." method="_on_retry_pressed"]
+[connection signal="pressed" from="moriste/VBoxContainer/main menu" to="." method="_on_main_menu_pressed"]

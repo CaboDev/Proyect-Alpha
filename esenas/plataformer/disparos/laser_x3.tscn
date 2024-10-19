@@ -1,0 +1,109 @@
+[gd_scene load_steps=11 format=3 uid="uid://dnyevur8ghglx"]
+
+[ext_resource type="Script" path="res://scrips/bala_normal.gd" id="1_onbhh"]
+[ext_resource type="Texture2D" uid="uid://bhqjedgag0k34" path="res://assets/arms.png" id="2_mxnjq"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_nr7e4"]
+radius = 24.0
+
+[sub_resource type="BoxMesh" id="BoxMesh_bw7rt"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ek3a0"]
+atlas = ExtResource("2_mxnjq")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g730m"]
+atlas = ExtResource("2_mxnjq")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6u0pw"]
+atlas = ExtResource("2_mxnjq")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0ew6p"]
+atlas = ExtResource("2_mxnjq")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xcfnb"]
+atlas = ExtResource("2_mxnjq")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2hljc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ek3a0")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g730m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6u0pw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0ew6p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xcfnb")
+}],
+"loop": false,
+"name": &"salir",
+"speed": 9.0
+}]
+
+[node name="bala normal" type="RigidBody2D" groups=["bala_player"]]
+scale = Vector2(0.25, 0.25)
+mass = 0.01
+gravity_scale = 0.0
+script = ExtResource("1_onbhh")
+laser = true
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_mask = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_nr7e4")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="."]
+visible = false
+modulate = Color(1, 1, 0, 0.294118)
+position = Vector2(-3, 0.999999)
+rotation = -0.783973
+scale = Vector2(47.3437, 46.5587)
+mesh = SubResource("BoxMesh_bw7rt")
+
+[node name="MeshInstance2D2" type="MeshInstance2D" parent="."]
+visible = false
+modulate = Color(1, 1, 0, 0.294118)
+position = Vector2(-24.9384, -0.0192605)
+rotation = 1.57011
+scale = Vector2(23.9605, 52.6058)
+mesh = SubResource("BoxMesh_bw7rt")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(-1.90735e-06, 4)
+scale = Vector2(4, 3.6)
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.15
+autostart = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(-20, 3.8147e-06)
+rotation = 1.55691
+scale = Vector2(3.375, 3.5)
+sprite_frames = SubResource("SpriteFrames_2hljc")
+animation = &"salir"
+autoplay = "default"
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

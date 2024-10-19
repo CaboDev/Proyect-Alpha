@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://v5p08ejo7c3l"
+path="res://.godot/imported/Arachno Puppet.ogg-a54f4802858827b89935b08625adb82a.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/auds/Arachno Puppet.ogg"
+dest_files=["res://.godot/imported/Arachno Puppet.ogg-a54f4802858827b89935b08625adb82a.oggvorbisstr"]
+
+[params]
+
+loop=true
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4

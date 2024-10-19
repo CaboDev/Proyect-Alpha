@@ -1,0 +1,15 @@
+¡Hey!
+join Flame (enojado) right [animation="Slide In Right" length="1.0"]
+Flame (enojado): ¡Alto ahí intruso!
+Flame: ¡Sal de la nave!...
+[wait time="1.0" hide_text="false"]
+Flame (timido): Por favor 
+Flame (timido): veras hoy es mi primer dia de guardia y no se como se hace esto asi que...
+Flame (default): agradeceria mucho que te salieras
+- Nope
+- Me quedaré
+Flame (enojado): mmm
+Flame (timido): El manual dice que debemos iniciar un enfrentamiento
+Flame (en combate): Asi que perdon por esto
+leave Flame [animation="Slide Out Left" length="1.0"]
+<Empty Text Event>

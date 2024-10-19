@@ -1,0 +1,42 @@
+[gd_resource type="AnimationNodeStateMachine" load_steps=10 format=3 uid="uid://dwlo8fiqjwf87"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_wi4pc"]
+animation = &"fin de fase"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ue8fy"]
+animation = &"inicio"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_rlvpj"]
+animation = &"normal 2"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_gqeng"]
+animation = &"normal"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_lvyh8"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_dj2bt"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ccv8n"]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_rufcp"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_71cq4"]
+switch_mode = 2
+advance_mode = 2
+
+[resource]
+"states/fin de fase/node" = SubResource("AnimationNodeAnimation_wi4pc")
+"states/fin de fase/position" = Vector2(703, 100)
+states/inicio/node = SubResource("AnimationNodeAnimation_ue8fy")
+states/inicio/position = Vector2(319, 100)
+states/normal/node = SubResource("AnimationNodeAnimation_gqeng")
+states/normal/position = Vector2(522, 100)
+"states/normal 2/node" = SubResource("AnimationNodeAnimation_rlvpj")
+"states/normal 2/position" = Vector2(523, 0)
+transitions = ["Start", "inicio", SubResource("AnimationNodeStateMachineTransition_lvyh8"), "inicio", "normal", SubResource("AnimationNodeStateMachineTransition_dj2bt"), "normal", "fin de fase", SubResource("AnimationNodeStateMachineTransition_ccv8n"), "normal", "normal 2", SubResource("AnimationNodeStateMachineTransition_rufcp"), "normal 2", "normal", SubResource("AnimationNodeStateMachineTransition_71cq4")]

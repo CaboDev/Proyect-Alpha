@@ -1,0 +1,587 @@
+[gd_scene load_steps=13 format=3 uid="uid://cfo127hcatj0p"]
+
+[ext_resource type="PackedScene" uid="uid://dpvt4kw074afs" path="res://esenas/plataformer/player_h.tscn" id="1_avb6r"]
+[ext_resource type="AudioStream" uid="uid://dj4qcekc7agpd" path="res://assets/auds/Master Joker.ogg" id="2_22kpr"]
+[ext_resource type="Script" path="res://scrips/Camara.gd" id="3_ea8pg"]
+[ext_resource type="Texture2D" uid="uid://ct0jnllhrx6ix" path="res://icon.svg" id="4_bdvw1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3hat4"]
+size = Vector2(16786, 26)
+
+[sub_resource type="Animation" id="Animation_v8ttf"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(50, 1590)]
+}
+
+[sub_resource type="Animation" id="Animation_818q8"]
+resource_name = "new_animation"
+length = 20.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 10),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(50, 1590), Vector2(-8448, 736)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_khc07"]
+_data = {
+"RESET": SubResource("Animation_v8ttf"),
+"new_animation": SubResource("Animation_818q8")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j4koo"]
+size = Vector2(390, 64.875)
+
+[sub_resource type="Animation" id="Animation_4jgo8"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(328, 960)]
+}
+
+[sub_resource type="Animation" id="Animation_ngb77"]
+resource_name = "new_animation"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(328, 960), Vector2(328, 680)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xp3wd"]
+_data = {
+"RESET": SubResource("Animation_4jgo8"),
+"new_animation": SubResource("Animation_ngb77")
+}
+
+[node name="nivel" type="Node2D" groups=["nivel"]]
+
+[node name="player_h" parent="." instance=ExtResource("1_avb6r")]
+sonido = ExtResource("2_22kpr")
+
+[node name="Camera2D" type="Camera2D" parent="player_h"]
+position = Vector2(-16, 56)
+zoom = Vector2(0.355, 0.355)
+limit_left = -24
+limit_top = -264
+limit_right = 3720
+limit_bottom = 2112
+position_smoothing_enabled = true
+script = ExtResource("3_ea8pg")
+
+[node name="StaticBody2D" type="AnimatableBody2D" parent="."]
+position = Vector2(50, 1590)
+collision_layer = 33
+
+[node name="Icon" type="Sprite2D" parent="StaticBody2D"]
+position = Vector2(7638.68, 10)
+scale = Vector2(130.625, 0.4375)
+texture = ExtResource("4_bdvw1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(7615, 3)
+shape = SubResource("RectangleShape2D_3hat4")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="StaticBody2D"]
+libraries = {
+"": SubResource("AnimationLibrary_khc07")
+}
+autoplay = "new_animation"
+
+[node name="Node2D" type="Node2D" parent="StaticBody2D"]
+position = Vector2(2941.3, -1289.39)
+
+[node name="StaticBody2D5" type="AnimatableBody2D" parent="StaticBody2D/Node2D" groups=["no_saltable"]]
+position = Vector2(328, 960)
+
+[node name="Icon" type="Sprite2D" parent="StaticBody2D/Node2D/StaticBody2D5"]
+position = Vector2(2120, 13.9999)
+scale = Vector2(3, 0.4375)
+texture = ExtResource("4_bdvw1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D/Node2D/StaticBody2D5"]
+position = Vector2(2120, 24)
+shape = SubResource("RectangleShape2D_j4koo")
+one_way_collision = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="StaticBody2D/Node2D/StaticBody2D5"]
+libraries = {
+"": SubResource("AnimationLibrary_xp3wd")
+}
+autoplay = "new_animation"
+
+[node name="Node2D2" type="Node2D" parent="StaticBody2D"]
+position = Vector2(1941.3, -1289.39)
+
+[node name="StaticBody2D5" type="AnimatableBody2D" parent="StaticBody2D/Node2D2" groups=["no_saltable"]]
+position = Vector2(328, 960)
+
+[node name="Icon" type="Sprite2D" parent="StaticBody2D/Node2D2/StaticBody2D5"]
+position = Vector2(2120, 13.9999)
+scale = Vector2(3, 0.4375)
+texture = ExtResource("4_bdvw1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D/Node2D2/StaticBody2D5"]
+position = Vector2(2120, 24)
+shape = SubResource("RectangleShape2D_j4koo")
+one_way_collision = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="StaticBody2D/Node2D2/StaticBody2D5"]
+libraries = {
+"": SubResource("AnimationLibrary_xp3wd")
+}
+autoplay = "new_animation"
+
+[node name="Node2D3" type="Node2D" parent="StaticBody2D"]
+position = Vector2(989.296, -1289.39)
+
+[node name="StaticBody2D5" type="AnimatableBody2D" parent="StaticBody2D/Node2D3" groups=["no_saltable"]]
+position = Vector2(328, 960)
+
+[node name="Icon" type="Sprite2D" parent="StaticBody2D/Node2D3/StaticBody2D5"]
+position = Vector2(2120, 13.9999)
+scale = Vector2(3, 0.4375)
+texture = ExtResource("4_bdvw1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D/Node2D3/StaticBody2D5"]
+position = Vector2(2120, 24)
+shape = SubResource("RectangleShape2D_j4koo")
+one_way_collision = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="StaticBody2D/Node2D3/StaticBody2D5"]
+libraries = {
+"": SubResource("AnimationLibrary_xp3wd")
+}
+autoplay = "new_animation"
+
+[node name="Node2D4" type="Node2D" parent="StaticBody2D"]
+position = Vector2(302, -1289.39)
+
+[node name="StaticBody2D5" type="AnimatableBody2D" parent="StaticBody2D/Node2D4" groups=["no_saltable"]]
+position = Vector2(328, 960)
+
+[node name="Icon" type="Sprite2D" parent="StaticBody2D/Node2D4/StaticBody2D5"]
+position = Vector2(2120, 13.9999)
+scale = Vector2(3, 0.4375)
+texture = ExtResource("4_bdvw1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D/Node2D4/StaticBody2D5"]
+position = Vector2(2120, 24)
+shape = SubResource("RectangleShape2D_j4koo")
+one_way_collision = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="StaticBody2D/Node2D4/StaticBody2D5"]
+libraries = {
+"": SubResource("AnimationLibrary_xp3wd")
+}
+autoplay = "new_animation"
+
+[node name="Node2D5" type="Node2D" parent="StaticBody2D"]
+position = Vector2(-698, -1289.39)
+
+[node name="StaticBody2D5" type="AnimatableBody2D" parent="StaticBody2D/Node2D5" groups=["no_saltable"]]
+position = Vector2(328, 960)
+
+[node name="Icon" type="Sprite2D" parent="StaticBody2D/Node2D5/StaticBody2D5"]
+position = Vector2(2120, 13.9999)
+scale = Vector2(3, 0.4375)
+texture = ExtResource("4_bdvw1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D/Node2D5/StaticBody2D5"]
+position = Vector2(2120, 24)
+shape = SubResource("RectangleShape2D_j4koo")
+one_way_collision = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="StaticBody2D/Node2D5/StaticBody2D5"]
+libraries = {
+"": SubResource("AnimationLibrary_xp3wd")
+}
+autoplay = "new_animation"
+
+[node name="Node2D6" type="Node2D" parent="StaticBody2D"]
+position = Vector2(-1650, -1289.39)
+
+[node name="StaticBody2D5" type="AnimatableBody2D" parent="StaticBody2D/Node2D6" groups=["no_saltable"]]
+position = Vector2(328, 960)
+
+[node name="Icon" type="Sprite2D" parent="StaticBody2D/Node2D6/StaticBody2D5"]
+position = Vector2(2120, 13.9999)
+scale = Vector2(3, 0.4375)
+texture = ExtResource("4_bdvw1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D/Node2D6/StaticBody2D5"]
+position = Vector2(2120, 24)
+shape = SubResource("RectangleShape2D_j4koo")
+one_way_collision = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="StaticBody2D/Node2D6/StaticBody2D5"]
+libraries = {
+"": SubResource("AnimationLibrary_xp3wd")
+}
+autoplay = "new_animation"
+
+[node name="Node2D7" type="Node2D" parent="StaticBody2D"]
+position = Vector2(-2946, -1289.39)
+
+[node name="StaticBody2D5" type="AnimatableBody2D" parent="StaticBody2D/Node2D7" groups=["no_saltable"]]
+position = Vector2(328, 960)
+
+[node name="Icon" type="Sprite2D" parent="StaticBody2D/Node2D7/StaticBody2D5"]
+position = Vector2(2120, 13.9999)
+scale = Vector2(3, 0.4375)
+texture = ExtResource("4_bdvw1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D/Node2D7/StaticBody2D5"]
+position = Vector2(2120, 24)
+shape = SubResource("RectangleShape2D_j4koo")
+one_way_collision = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="StaticBody2D/Node2D7/StaticBody2D5"]
+libraries = {
+"": SubResource("AnimationLibrary_xp3wd")
+}
+autoplay = "new_animation"
+
+[node name="Node2D8" type="Node2D" parent="StaticBody2D"]
+position = Vector2(-3946, -1289.39)
+
+[node name="StaticBody2D5" type="AnimatableBody2D" parent="StaticBody2D/Node2D8" groups=["no_saltable"]]
+position = Vector2(328, 960)
+
+[node name="Icon" type="Sprite2D" parent="StaticBody2D/Node2D8/StaticBody2D5"]
+position = Vector2(2120, 13.9999)
+scale = Vector2(3, 0.4375)
+texture = ExtResource("4_bdvw1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D/Node2D8/StaticBody2D5"]
+position = Vector2(2120, 24)
+shape = SubResource("RectangleShape2D_j4koo")
+one_way_collision = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="StaticBody2D/Node2D8/StaticBody2D5"]
+libraries = {
+"": SubResource("AnimationLibrary_xp3wd")
+}
+autoplay = "new_animation"
+
+[node name="Node2D9" type="Node2D" parent="StaticBody2D"]
+position = Vector2(-4898, -1289.39)
+
+[node name="StaticBody2D5" type="AnimatableBody2D" parent="StaticBody2D/Node2D9" groups=["no_saltable"]]
+position = Vector2(328, 960)
+
+[node name="Icon" type="Sprite2D" parent="StaticBody2D/Node2D9/StaticBody2D5"]
+position = Vector2(2120, 13.9999)
+scale = Vector2(3, 0.4375)
+texture = ExtResource("4_bdvw1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D/Node2D9/StaticBody2D5"]
+position = Vector2(2120, 24)
+shape = SubResource("RectangleShape2D_j4koo")
+one_way_collision = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="StaticBody2D/Node2D9/StaticBody2D5"]
+libraries = {
+"": SubResource("AnimationLibrary_xp3wd")
+}
+autoplay = "new_animation"
+
+[node name="Node2D10" type="Node2D" parent="StaticBody2D"]
+position = Vector2(5662, -1289.39)
+
+[node name="StaticBody2D5" type="AnimatableBody2D" parent="StaticBody2D/Node2D10" groups=["no_saltable"]]
+position = Vector2(328, 960)
+
+[node name="Icon" type="Sprite2D" parent="StaticBody2D/Node2D10/StaticBody2D5"]
+position = Vector2(2120, 13.9999)
+scale = Vector2(3, 0.4375)
+texture = ExtResource("4_bdvw1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D/Node2D10/StaticBody2D5"]
+position = Vector2(2120, 24)
+shape = SubResource("RectangleShape2D_j4koo")
+one_way_collision = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="StaticBody2D/Node2D10/StaticBody2D5"]
+libraries = {
+"": SubResource("AnimationLibrary_xp3wd")
+}
+autoplay = "new_animation"
+
+[node name="Node2D11" type="Node2D" parent="StaticBody2D"]
+position = Vector2(4662, -1289.39)
+
+[node name="StaticBody2D5" type="AnimatableBody2D" parent="StaticBody2D/Node2D11" groups=["no_saltable"]]
+position = Vector2(328, 960)
+
+[node name="Icon" type="Sprite2D" parent="StaticBody2D/Node2D11/StaticBody2D5"]
+position = Vector2(2120, 13.9999)
+scale = Vector2(3, 0.4375)
+texture = ExtResource("4_bdvw1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D/Node2D11/StaticBody2D5"]
+position = Vector2(2120, 24)
+shape = SubResource("RectangleShape2D_j4koo")
+one_way_collision = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="StaticBody2D/Node2D11/StaticBody2D5"]
+libraries = {
+"": SubResource("AnimationLibrary_xp3wd")
+}
+autoplay = "new_animation"
+
+[node name="Node2D12" type="Node2D" parent="StaticBody2D"]
+position = Vector2(3710, -1289.39)
+
+[node name="StaticBody2D5" type="AnimatableBody2D" parent="StaticBody2D/Node2D12" groups=["no_saltable"]]
+position = Vector2(328, 960)
+
+[node name="Icon" type="Sprite2D" parent="StaticBody2D/Node2D12/StaticBody2D5"]
+position = Vector2(2120, 13.9999)
+scale = Vector2(3, 0.4375)
+texture = ExtResource("4_bdvw1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D/Node2D12/StaticBody2D5"]
+position = Vector2(2120, 24)
+shape = SubResource("RectangleShape2D_j4koo")
+one_way_collision = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="StaticBody2D/Node2D12/StaticBody2D5"]
+libraries = {
+"": SubResource("AnimationLibrary_xp3wd")
+}
+autoplay = "new_animation"
+
+[node name="Node2D13" type="Node2D" parent="StaticBody2D"]
+position = Vector2(8350, -1289.39)
+
+[node name="StaticBody2D5" type="AnimatableBody2D" parent="StaticBody2D/Node2D13" groups=["no_saltable"]]
+position = Vector2(328, 960)
+
+[node name="Icon" type="Sprite2D" parent="StaticBody2D/Node2D13/StaticBody2D5"]
+position = Vector2(2120, 13.9999)
+scale = Vector2(3, 0.4375)
+texture = ExtResource("4_bdvw1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D/Node2D13/StaticBody2D5"]
+position = Vector2(2120, 24)
+shape = SubResource("RectangleShape2D_j4koo")
+one_way_collision = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="StaticBody2D/Node2D13/StaticBody2D5"]
+libraries = {
+"": SubResource("AnimationLibrary_xp3wd")
+}
+autoplay = "new_animation"
+
+[node name="Node2D14" type="Node2D" parent="StaticBody2D"]
+position = Vector2(7350, -1289.39)
+
+[node name="StaticBody2D5" type="AnimatableBody2D" parent="StaticBody2D/Node2D14" groups=["no_saltable"]]
+position = Vector2(328, 960)
+
+[node name="Icon" type="Sprite2D" parent="StaticBody2D/Node2D14/StaticBody2D5"]
+position = Vector2(2120, 13.9999)
+scale = Vector2(3, 0.4375)
+texture = ExtResource("4_bdvw1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D/Node2D14/StaticBody2D5"]
+position = Vector2(2120, 24)
+shape = SubResource("RectangleShape2D_j4koo")
+one_way_collision = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="StaticBody2D/Node2D14/StaticBody2D5"]
+libraries = {
+"": SubResource("AnimationLibrary_xp3wd")
+}
+autoplay = "new_animation"
+
+[node name="Node2D15" type="Node2D" parent="StaticBody2D"]
+position = Vector2(6398, -1289.39)
+
+[node name="StaticBody2D5" type="AnimatableBody2D" parent="StaticBody2D/Node2D15" groups=["no_saltable"]]
+position = Vector2(328, 960)
+
+[node name="Icon" type="Sprite2D" parent="StaticBody2D/Node2D15/StaticBody2D5"]
+position = Vector2(2120, 13.9999)
+scale = Vector2(3, 0.4375)
+texture = ExtResource("4_bdvw1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D/Node2D15/StaticBody2D5"]
+position = Vector2(2120, 24)
+shape = SubResource("RectangleShape2D_j4koo")
+one_way_collision = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="StaticBody2D/Node2D15/StaticBody2D5"]
+libraries = {
+"": SubResource("AnimationLibrary_xp3wd")
+}
+autoplay = "new_animation"
+
+[node name="Node2D16" type="Node2D" parent="StaticBody2D"]
+position = Vector2(11086, -1289.39)
+
+[node name="StaticBody2D5" type="AnimatableBody2D" parent="StaticBody2D/Node2D16" groups=["no_saltable"]]
+position = Vector2(328, 960)
+
+[node name="Icon" type="Sprite2D" parent="StaticBody2D/Node2D16/StaticBody2D5"]
+position = Vector2(2120, 13.9999)
+scale = Vector2(3, 0.4375)
+texture = ExtResource("4_bdvw1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D/Node2D16/StaticBody2D5"]
+position = Vector2(2120, 24)
+shape = SubResource("RectangleShape2D_j4koo")
+one_way_collision = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="StaticBody2D/Node2D16/StaticBody2D5"]
+libraries = {
+"": SubResource("AnimationLibrary_xp3wd")
+}
+autoplay = "new_animation"
+
+[node name="Node2D17" type="Node2D" parent="StaticBody2D"]
+position = Vector2(10086, -1289.39)
+
+[node name="StaticBody2D5" type="AnimatableBody2D" parent="StaticBody2D/Node2D17" groups=["no_saltable"]]
+position = Vector2(328, 960)
+
+[node name="Icon" type="Sprite2D" parent="StaticBody2D/Node2D17/StaticBody2D5"]
+position = Vector2(2120, 13.9999)
+scale = Vector2(3, 0.4375)
+texture = ExtResource("4_bdvw1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D/Node2D17/StaticBody2D5"]
+position = Vector2(2120, 24)
+shape = SubResource("RectangleShape2D_j4koo")
+one_way_collision = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="StaticBody2D/Node2D17/StaticBody2D5"]
+libraries = {
+"": SubResource("AnimationLibrary_xp3wd")
+}
+autoplay = "new_animation"
+
+[node name="Node2D18" type="Node2D" parent="StaticBody2D"]
+position = Vector2(9134, -1289.39)
+
+[node name="StaticBody2D5" type="AnimatableBody2D" parent="StaticBody2D/Node2D18" groups=["no_saltable"]]
+position = Vector2(328, 960)
+
+[node name="Icon" type="Sprite2D" parent="StaticBody2D/Node2D18/StaticBody2D5"]
+position = Vector2(2120, 13.9999)
+scale = Vector2(3, 0.4375)
+texture = ExtResource("4_bdvw1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D/Node2D18/StaticBody2D5"]
+position = Vector2(2120, 24)
+shape = SubResource("RectangleShape2D_j4koo")
+one_way_collision = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="StaticBody2D/Node2D18/StaticBody2D5"]
+libraries = {
+"": SubResource("AnimationLibrary_xp3wd")
+}
+autoplay = "new_animation"
+
+[node name="Node2D19" type="Node2D" parent="StaticBody2D"]
+position = Vector2(13798, -1289.39)
+
+[node name="StaticBody2D5" type="AnimatableBody2D" parent="StaticBody2D/Node2D19" groups=["no_saltable"]]
+position = Vector2(328, 960)
+
+[node name="Icon" type="Sprite2D" parent="StaticBody2D/Node2D19/StaticBody2D5"]
+position = Vector2(2120, 13.9999)
+scale = Vector2(3, 0.4375)
+texture = ExtResource("4_bdvw1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D/Node2D19/StaticBody2D5"]
+position = Vector2(2120, 24)
+shape = SubResource("RectangleShape2D_j4koo")
+one_way_collision = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="StaticBody2D/Node2D19/StaticBody2D5"]
+libraries = {
+"": SubResource("AnimationLibrary_xp3wd")
+}
+autoplay = "new_animation"
+
+[node name="Node2D20" type="Node2D" parent="StaticBody2D"]
+position = Vector2(12798, -1289.39)
+
+[node name="StaticBody2D5" type="AnimatableBody2D" parent="StaticBody2D/Node2D20" groups=["no_saltable"]]
+position = Vector2(328, 960)
+
+[node name="Icon" type="Sprite2D" parent="StaticBody2D/Node2D20/StaticBody2D5"]
+position = Vector2(2120, 13.9999)
+scale = Vector2(3, 0.4375)
+texture = ExtResource("4_bdvw1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D/Node2D20/StaticBody2D5"]
+position = Vector2(2120, 24)
+shape = SubResource("RectangleShape2D_j4koo")
+one_way_collision = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="StaticBody2D/Node2D20/StaticBody2D5"]
+libraries = {
+"": SubResource("AnimationLibrary_xp3wd")
+}
+autoplay = "new_animation"
+
+[node name="Node2D21" type="Node2D" parent="StaticBody2D"]
+position = Vector2(11846, -1289.39)
+
+[node name="StaticBody2D5" type="AnimatableBody2D" parent="StaticBody2D/Node2D21" groups=["no_saltable"]]
+position = Vector2(328, 960)
+
+[node name="Icon" type="Sprite2D" parent="StaticBody2D/Node2D21/StaticBody2D5"]
+position = Vector2(2120, 13.9999)
+scale = Vector2(3, 0.4375)
+texture = ExtResource("4_bdvw1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D/Node2D21/StaticBody2D5"]
+position = Vector2(2120, 24)
+shape = SubResource("RectangleShape2D_j4koo")
+one_way_collision = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="StaticBody2D/Node2D21/StaticBody2D5"]
+libraries = {
+"": SubResource("AnimationLibrary_xp3wd")
+}
+autoplay = "new_animation"
+
+[node name="Node2D" type="Node2D" parent="."]
+position = Vector2(1760, 2112)

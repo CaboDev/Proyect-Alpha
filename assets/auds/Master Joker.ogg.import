@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://dj4qcekc7agpd"
+path="res://.godot/imported/Master Joker.ogg-a4b49ea49c534689702af771178113f4.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/auds/Master Joker.ogg"
+dest_files=["res://.godot/imported/Master Joker.ogg-a4b49ea49c534689702af771178113f4.oggvorbisstr"]
+
+[params]
+
+loop=true
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://d03n25hy2rotq"
+path="res://.godot/imported/Plataforms Down.ogg-318f8647412caef8d4e9decfc20d0481.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/auds/Plataforms Down.ogg"
+dest_files=["res://.godot/imported/Plataforms Down.ogg-318f8647412caef8d4e9decfc20d0481.oggvorbisstr"]
+
+[params]
+
+loop=true
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4

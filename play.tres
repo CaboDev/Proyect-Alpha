@@ -1,0 +1,9 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://csvxw4ego7hua"]
+
+[ext_resource type="Shader" path="res://esenas/plataformer/prueba.gdshader" id="1_ryfgq"]
+
+[resource]
+shader = ExtResource("1_ryfgq")
+shader_parameter/resX = 65
+shader_parameter/resY = 66
+shader_parameter/rgb255 = Vector3(0.100392, 0.100392, 0.100392)

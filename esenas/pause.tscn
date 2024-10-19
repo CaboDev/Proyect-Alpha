@@ -1,0 +1,178 @@
+[gd_scene load_steps=7 format=3 uid="uid://c81cow1e68km2"]
+
+[ext_resource type="Script" path="res://scrips/pause.gd" id="1_qdpws"]
+[ext_resource type="Theme" uid="uid://qbghq2o1iiep" path="res://dEFAULT.tres" id="2_yfw1j"]
+[ext_resource type="Texture2D" uid="uid://c3xuh5mgj3321" path="res://assets/Boss_Rush_Mode/ui1.png" id="3_ruq82"]
+[ext_resource type="Script" path="res://scrips/nivelels_selector.gd" id="4_bklm6"]
+[ext_resource type="Texture2D" uid="uid://s2jirpwshlaj" path="res://assets/Lucid V1.2/Spritesheet/Flat/160/IconsFlat-16-Sheet.png" id="4_bot07"]
+
+[sub_resource type="SystemFont" id="SystemFont_4yp1l"]
+font_names = PackedStringArray("Minecraft")
+subpixel_positioning = 0
+
+[node name="pause" type="CanvasLayer"]
+process_mode = 3
+visible = false
+scale = Vector2(2, 2)
+transform = Transform2D(2, 0, 0, 2, 0, 0)
+script = ExtResource("1_qdpws")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_yfw1j")
+
+[node name="Panel" type="Panel" parent="Control"]
+layout_mode = 0
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 632.0
+offset_bottom = 336.0
+
+[node name="Panel2" type="Panel" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.01
+anchor_bottom = 0.988
+offset_right = -632.26
+offset_bottom = -320.112
+
+[node name="Button1" type="Sprite2D" parent="Control/Panel2"]
+modulate = Color(0, 1, 1, 1)
+position = Vector2(312, 162)
+scale = Vector2(5.033, 4.8125)
+texture = ExtResource("3_ruq82")
+
+[node name="retri" type="Button" parent="Control"]
+process_mode = 3
+process_priority = 2
+layout_mode = 0
+offset_left = 172.5
+offset_top = 88.595
+offset_right = 724.5
+offset_bottom = 166.595
+scale = Vector2(0.46, 0.605)
+pivot_offset = Vector2(0, 39)
+focus_neighbor_bottom = NodePath("../cont")
+theme = ExtResource("2_yfw1j")
+theme_override_fonts/font = SubResource("SystemFont_4yp1l")
+theme_override_font_sizes/font_size = 70
+text = "  Retry"
+alignment = 0
+script = ExtResource("4_bklm6")
+Max_Scale = Vector2(0.578, 0.76)
+Min_Scale = Vector2(0.46, 0.605)
+
+[node name="Sprite2D" type="Sprite2D" parent="Control/retri"]
+position = Vector2(502.87, 38.0165)
+scale = Vector2(5.25, 3.495)
+texture = ExtResource("4_bot07")
+hframes = 10
+vframes = 10
+frame = 63
+
+[node name="cont" type="Button" parent="Control"]
+process_mode = 3
+process_priority = 2
+layout_mode = 0
+offset_left = 172.5
+offset_top = 135.69
+offset_right = 724.5
+offset_bottom = 213.69
+scale = Vector2(0.46, 0.605)
+pivot_offset = Vector2(0, 39)
+focus_neighbor_top = NodePath("../retri")
+focus_neighbor_bottom = NodePath("../menu")
+theme = ExtResource("2_yfw1j")
+theme_override_fonts/font = SubResource("SystemFont_4yp1l")
+theme_override_font_sizes/font_size = 70
+text = "  continue"
+alignment = 0
+script = ExtResource("4_bklm6")
+Max_Scale = Vector2(0.578, 0.76)
+Min_Scale = Vector2(0.46, 0.605)
+
+[node name="Sprite2D" type="Sprite2D" parent="Control/cont"]
+position = Vector2(502.87, 38.0165)
+scale = Vector2(5.25, 3.495)
+texture = ExtResource("4_bot07")
+hframes = 10
+vframes = 10
+frame = 10
+
+[node name="menu" type="Button" parent="Control"]
+process_mode = 3
+process_priority = 2
+top_level = true
+layout_mode = 0
+offset_left = 172.0
+offset_top = 182.595
+offset_right = 724.0
+offset_bottom = 260.595
+scale = Vector2(0.46, 0.605)
+pivot_offset = Vector2(0, 39)
+focus_neighbor_top = NodePath("../cont")
+focus_neighbor_bottom = NodePath("../quit")
+theme = ExtResource("2_yfw1j")
+theme_override_fonts/font = SubResource("SystemFont_4yp1l")
+theme_override_font_sizes/font_size = 70
+text = "  Main Menu"
+alignment = 0
+script = ExtResource("4_bklm6")
+Max_Scale = Vector2(0.578, 0.76)
+Min_Scale = Vector2(0.46, 0.605)
+
+[node name="Sprite2D" type="Sprite2D" parent="Control/menu"]
+position = Vector2(502.87, 38.0165)
+scale = Vector2(5.25, 3.495)
+texture = ExtResource("4_bot07")
+hframes = 10
+vframes = 10
+frame = 13
+
+[node name="quit" type="Button" parent="Control"]
+process_mode = 3
+process_priority = 2
+top_level = true
+layout_mode = 0
+offset_left = 172.0
+offset_top = 229.595
+offset_right = 724.0
+offset_bottom = 307.595
+scale = Vector2(0.46, 0.605)
+pivot_offset = Vector2(0, 39)
+focus_neighbor_top = NodePath("../menu")
+theme = ExtResource("2_yfw1j")
+theme_override_fonts/font = SubResource("SystemFont_4yp1l")
+theme_override_font_sizes/font_size = 70
+text = "  Quit"
+alignment = 0
+script = ExtResource("4_bklm6")
+Max_Scale = Vector2(0.578, 0.76)
+Min_Scale = Vector2(0.46, 0.605)
+
+[node name="Sprite2D" type="Sprite2D" parent="Control/quit"]
+position = Vector2(502.87, 38.0165)
+scale = Vector2(5.25, 3.495)
+texture = ExtResource("4_bot07")
+hframes = 10
+vframes = 10
+frame = 83
+
+[node name="Label" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 188.5
+offset_top = 32.0
+offset_right = 396.5
+offset_bottom = 104.0
+theme_override_font_sizes/font_size = 46
+text = "Pause"
+horizontal_alignment = 1
+
+[connection signal="pressed" from="Control/retri" to="." method="_on_retri_pressed"]
+[connection signal="pressed" from="Control/cont" to="." method="_on_cont_pressed"]
+[connection signal="pressed" from="Control/menu" to="." method="_on_menu_pressed"]
+[connection signal="pressed" from="Control/quit" to="." method="_on_quit_pressed"]

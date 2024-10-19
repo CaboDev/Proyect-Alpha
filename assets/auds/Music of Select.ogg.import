@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://21jqta63003v"
+path="res://.godot/imported/Music of Select.ogg-6cc82555bfd80af51707512a9f024874.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/auds/Music of Select.ogg"
+dest_files=["res://.godot/imported/Music of Select.ogg-6cc82555bfd80af51707512a9f024874.oggvorbisstr"]
+
+[params]
+
+loop=true
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4

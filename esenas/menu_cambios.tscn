@@ -1,0 +1,1130 @@
+[gd_scene load_steps=26 format=3 uid="uid://c8ehulp2lp6es"]
+
+[ext_resource type="Script" path="res://scrips/menu_cambios.gd" id="1_ofltq"]
+[ext_resource type="Texture2D" uid="uid://7y564t1t4huh" path="res://assets/habs/hab0007.png" id="2_htdu2"]
+[ext_resource type="Theme" uid="uid://qbghq2o1iiep" path="res://dEFAULT.tres" id="2_vq5k5"]
+[ext_resource type="Script" path="res://scrips/object.gd" id="3_rvle7"]
+[ext_resource type="Texture2D" uid="uid://cjbl5b2d0rt8j" path="res://assets/progres.png" id="3_v0cn3"]
+[ext_resource type="Texture2D" uid="uid://dksnw6d3pha5" path="res://assets/habs/hab0002.png" id="5_26rud"]
+[ext_resource type="Texture2D" uid="uid://jfxe2e6iqoab" path="res://assets/habs/hab0004.png" id="6_iax8q"]
+[ext_resource type="Texture2D" uid="uid://cjmjoeud2pncx" path="res://assets/habs/hab0006.png" id="7_b8a1y"]
+[ext_resource type="Texture2D" uid="uid://ofdssajcs8r5" path="res://assets/habs/hab0000.png" id="8_xbcwt"]
+[ext_resource type="Texture2D" uid="uid://b3uy1b4q5l4m5" path="res://assets/habs/hab0001.png" id="9_o70qi"]
+[ext_resource type="Texture2D" uid="uid://dad5exdl37ftb" path="res://assets/habs/hab0003.png" id="10_cawx4"]
+[ext_resource type="Texture2D" uid="uid://c7auw6e64ip2j" path="res://assets/habs/focus0015.png" id="11_ltxnd"]
+[ext_resource type="Texture2D" uid="uid://dlqlkomy5nm4a" path="res://assets/habs/hab0005.png" id="11_yohdk"]
+[ext_resource type="Texture2D" uid="uid://bjsaxnonwk4n" path="res://assets/habs/focus0010.png" id="13_lee8m"]
+[ext_resource type="Texture2D" uid="uid://djqy6oxb5y7mp" path="res://assets/habs/focus0012.png" id="14_6w27q"]
+[ext_resource type="Texture2D" uid="uid://t7juefhuetyn" path="res://assets/habs/focus0014.png" id="15_3ygot"]
+[ext_resource type="Texture2D" uid="uid://dwhsjp0msr7iu" path="res://assets/habs/focus0008.png" id="16_nkqmw"]
+[ext_resource type="Texture2D" uid="uid://ge58dpboensp" path="res://assets/habs/focus0009.png" id="17_3hhkj"]
+[ext_resource type="Texture2D" uid="uid://bfs2vl51d0p8f" path="res://assets/habs/focus0011.png" id="18_7t3kc"]
+[ext_resource type="Texture2D" uid="uid://chpaabh8xv6ei" path="res://assets/habs/focus0013.png" id="19_fp4tj"]
+
+[sub_resource type="Animation" id="Animation_13cix"]
+resource_name = "IRSE"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("p:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(440, 352), Vector2(440, -248), Vector2(440, 1840)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:activa")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_l3qph"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:activa")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_i64mw"]
+resource_name = "VENIR"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("p:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(440, 1856), Vector2(440, -216), Vector2(440, 352)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:activa")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.1, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ktwot"]
+_data = {
+"IRSE": SubResource("Animation_13cix"),
+"RESET": SubResource("Animation_l3qph"),
+"VENIR": SubResource("Animation_i64mw")
+}
+
+[sub_resource type="SystemFont" id="SystemFont_hwd3m"]
+font_names = PackedStringArray("Minecraft")
+subpixel_positioning = 0
+
+[node name="menu_cambios" type="Control" groups=["menu_cambios"]]
+layout_mode = 3
+anchors_preset = 0
+scale = Vector2(0.5, 0.5)
+script = ExtResource("1_ofltq")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_ktwot")
+}
+
+[node name="p" type="Node2D" parent="."]
+position = Vector2(440, 1840)
+scale = Vector2(0.8, 0.8)
+
+[node name="Button" type="Button" parent="p" groups=["m"]]
+self_modulate = Color(0, 1, 1, 1)
+offset_left = 1850.0
+offset_top = 220.0
+offset_right = 2310.0
+offset_bottom = 460.0
+theme_override_fonts/font = SubResource("SystemFont_hwd3m")
+theme_override_font_sizes/font_size = 176
+text = "OK!"
+
+[node name="TabContainer" type="TabContainer" parent="p"]
+offset_left = -350.0
+offset_top = -320.0
+offset_right = 1810.0
+offset_bottom = 1360.0
+theme = ExtResource("2_vq5k5")
+tab_alignment = 1
+
+[node name="Arma Principal" type="TabBar" parent="p/TabContainer"]
+layout_mode = 2
+focus_neighbor_bottom = NodePath("armas/basica")
+
+[node name="armas" type="GridContainer" parent="p/TabContainer/Arma Principal"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -762.0
+offset_top = -484.0
+offset_right = 1.0
+offset_bottom = 502.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_constants/h_separation = 34
+theme_override_constants/v_separation = 34
+columns = 2
+
+[node name="basica" type="TextureButton" parent="p/TabContainer/Arma Principal/armas"]
+layout_mode = 2
+texture_normal = ExtResource("8_xbcwt")
+texture_pressed = ExtResource("3_v0cn3")
+texture_focused = ExtResource("16_nkqmw")
+stretch_mode = 0
+script = ExtResource("3_rvle7")
+type = "gun_2"
+gun = "Arma_basica"
+
+[node name="Control" type="Control" parent="p/TabContainer/Arma Principal/armas/basica"]
+visible = false
+layout_mode = 1
+anchor_left = -4.26
+anchor_top = -0.447
+anchor_right = -0.527
+anchor_bottom = -0.447
+offset_left = 0.00012207
+offset_top = 0.100006
+offset_right = 0.100006
+offset_bottom = 1140.1
+
+[node name="Label" type="Label" parent="p/TabContainer/Arma Principal/armas/basica/Control"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 24.0
+theme_override_font_sizes/font_size = 86
+text = "Disparo Basico"
+
+[node name="Label2" type="RichTextLabel" parent="p/TabContainer/Arma Principal/armas/basica/Control"]
+layout_mode = 0
+offset_top = 160.0
+offset_right = 800.0
+offset_bottom = 820.0
+theme_override_font_sizes/normal_font_size = 36
+bbcode_enabled = true
+text = "Usa balas anticuadas del año 2035, muy basico porque hay opciones mucho mejores, lo unico bueno de este tipo de disparo es la cadencia de disparo
+
+
+[color=#ff0000]Daño por bala: 0.9 [color=#00ffff]
+Cadencia de disparo:  0.1s[color=#ff00ff]
+[wave]Daño por segundo: 9
+
+
+"
+
+[node name="bomba" type="TextureButton" parent="p/TabContainer/Arma Principal/armas"]
+layout_mode = 2
+texture_normal = ExtResource("8_xbcwt")
+texture_pressed = ExtResource("3_v0cn3")
+texture_focused = ExtResource("16_nkqmw")
+stretch_mode = 0
+script = ExtResource("3_rvle7")
+type = "gun_2"
+gun = "bomba"
+
+[node name="Control" type="Control" parent="p/TabContainer/Arma Principal/armas/bomba"]
+visible = false
+layout_mode = 1
+anchor_left = -4.26
+anchor_top = -0.447
+anchor_right = -0.527
+anchor_bottom = -0.447
+offset_left = -334.0
+offset_top = 0.100006
+offset_right = -333.9
+offset_bottom = 1240.1
+
+[node name="Label" type="Label" parent="p/TabContainer/Arma Principal/armas/bomba/Control"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 24.0
+theme_override_font_sizes/font_size = 86
+text = "Bombas"
+
+[node name="Label2" type="RichTextLabel" parent="p/TabContainer/Arma Principal/armas/bomba/Control"]
+layout_mode = 0
+offset_top = 160.0
+offset_right = 800.0
+offset_bottom = 900.0
+theme_override_font_sizes/normal_font_size = 36
+bbcode_enabled = true
+text = "Usa bombas poderosas teniendo en cuenta lo baratas que son de fabricar lo que se traduce en una cadencia de disparo relativamente rapida teniendo en cuenta el daño que hace
+
+
+[color=#ff0000]Daño por bala: 8 [color=#00ffff]
+Cadencia de disparo:  0.5s[color=#ff00ff]
+[wave]Daño por segundo: 16
+
+
+"
+
+[node name="3" type="TextureButton" parent="p/TabContainer/Arma Principal/armas"]
+layout_mode = 2
+texture_normal = ExtResource("9_o70qi")
+texture_pressed = ExtResource("3_v0cn3")
+texture_focused = ExtResource("17_3hhkj")
+stretch_mode = 0
+script = ExtResource("3_rvle7")
+type = "gun_2"
+gun = "Arma_basicax3"
+
+[node name="Control" type="Control" parent="p/TabContainer/Arma Principal/armas/3"]
+visible = false
+layout_mode = 1
+anchor_left = -4.26
+anchor_top = -0.447
+anchor_right = -0.527
+anchor_bottom = -0.447
+offset_left = 0.00012207
+offset_top = -333.9
+offset_right = 0.100006
+offset_bottom = 806.1
+
+[node name="Label" type="Label" parent="p/TabContainer/Arma Principal/armas/3/Control"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 24.0
+theme_override_font_sizes/font_size = 86
+text = "Balas teledirigidas"
+
+[node name="Label2" type="RichTextLabel" parent="p/TabContainer/Arma Principal/armas/3/Control"]
+layout_mode = 0
+offset_top = 160.0
+offset_right = 800.0
+offset_bottom = 900.0
+theme_override_font_sizes/normal_font_size = 36
+bbcode_enabled = true
+text = "Son balas inteligentes de energía. Cuando detectan a un enemigo potencial, estas balas proceden a seguir a su objetivo pero suelen confundirse cuando hay muchos enemigos en pantalla 
+
+
+[color=#ff0000]Daño por bala: 0.7 [color=#00ffff]
+Cadencia de disparo:  0.15s[color=#ff00ff]
+[wave]Daño por segundo: 4.6
+
+
+"
+
+[node name="laser" type="TextureButton" parent="p/TabContainer/Arma Principal/armas"]
+layout_mode = 2
+texture_normal = ExtResource("10_cawx4")
+texture_pressed = ExtResource("3_v0cn3")
+texture_focused = ExtResource("18_7t3kc")
+stretch_mode = 0
+script = ExtResource("3_rvle7")
+type = "gun_2"
+gun = "Arma_laser"
+
+[node name="Control" type="Control" parent="p/TabContainer/Arma Principal/armas/laser"]
+visible = false
+layout_mode = 1
+anchor_left = -4.26
+anchor_top = -0.447
+anchor_right = -0.527
+anchor_bottom = -0.447
+offset_left = -334.0
+offset_top = -333.9
+offset_right = -333.9
+offset_bottom = 806.1
+
+[node name="Label" type="Label" parent="p/TabContainer/Arma Principal/armas/laser/Control"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 24.0
+theme_override_font_sizes/font_size = 86
+text = "Laser"
+
+[node name="Label2" type="RichTextLabel" parent="p/TabContainer/Arma Principal/armas/laser/Control"]
+layout_mode = 0
+offset_top = 160.0
+offset_right = 800.0
+offset_bottom = 900.0
+theme_override_font_sizes/normal_font_size = 36
+bbcode_enabled = true
+text = "Es un az de luz muy potente que atraviesa absolutamente todo pero esto requiere de mucha energia por lo que su cadencia de disparo decae un poco. es perfeca para enemigos que se juntan en fila
+
+
+[color=#ff0000]Daño por bala: 6 [color=#00ffff]
+Cadencia de disparo:  0.5s[color=#ff00ff]
+[wave]Daño por segundo: 12
+
+
+"
+
+[node name="laser 3" type="TextureButton" parent="p/TabContainer/Arma Principal/armas"]
+layout_mode = 2
+texture_normal = ExtResource("11_yohdk")
+texture_pressed = ExtResource("3_v0cn3")
+texture_focused = ExtResource("19_fp4tj")
+stretch_mode = 0
+script = ExtResource("3_rvle7")
+type = "gun_2"
+gun = "Arma_laserx3"
+
+[node name="Control" type="Control" parent="p/TabContainer/Arma Principal/armas/laser 3"]
+visible = false
+layout_mode = 1
+anchor_left = -4.26
+anchor_top = -0.447
+anchor_right = -0.527
+anchor_bottom = -0.447
+offset_left = 0.00012207
+offset_top = -667.9
+offset_right = 0.100006
+offset_bottom = 472.1
+
+[node name="Label" type="Label" parent="p/TabContainer/Arma Principal/armas/laser 3/Control"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 24.0
+theme_override_font_sizes/font_size = 86
+text = "Escopeta de energía"
+
+[node name="Label2" type="RichTextLabel" parent="p/TabContainer/Arma Principal/armas/laser 3/Control"]
+layout_mode = 0
+offset_top = 160.0
+offset_right = 800.0
+offset_bottom = 900.0
+theme_override_font_sizes/normal_font_size = 36
+bbcode_enabled = true
+text = "Usa balas basicas pero reforsadas con energía esto hace que tenga mucho mas daño pero como consecuencia las balas no resisten mucho por lo que se funden al cabo de unos milisegundos. Dispara por tres cañones
+
+
+[color=#ff0000]Daño por bala: 0.5 [color=#00ffff]
+Cadencia de disparo:  0.1s[color=#ff00ff]
+[wave]Daño por segundo: 15
+
+
+"
+
+[node name="laser 4" type="TextureButton" parent="p/TabContainer/Arma Principal/armas"]
+layout_mode = 2
+texture_normal = ExtResource("11_yohdk")
+texture_pressed = ExtResource("3_v0cn3")
+texture_focused = ExtResource("19_fp4tj")
+stretch_mode = 0
+script = ExtResource("3_rvle7")
+type = "gun_2"
+gun = "carga"
+
+[node name="Control" type="Control" parent="p/TabContainer/Arma Principal/armas/laser 4"]
+visible = false
+layout_mode = 1
+anchor_left = -4.26
+anchor_top = -0.447
+anchor_right = -0.527
+anchor_bottom = -0.447
+offset_left = -334.0
+offset_top = -667.9
+offset_right = -333.9
+offset_bottom = 472.1
+
+[node name="Label" type="Label" parent="p/TabContainer/Arma Principal/armas/laser 4/Control"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 24.0
+theme_override_font_sizes/font_size = 86
+text = "Disparo Cargado"
+
+[node name="Label2" type="RichTextLabel" parent="p/TabContainer/Arma Principal/armas/laser 4/Control"]
+layout_mode = 0
+offset_top = 160.0
+offset_right = 800.0
+offset_bottom = 900.0
+theme_override_font_sizes/normal_font_size = 36
+bbcode_enabled = true
+text = "Es un tipo de disparo muy poderoso. Entre mas tiempo lo sostienes mas daño inflinge. Esta arma viola las leyes fundamentales de este universo, lo que indica que esta arma no pertenese a este mundo.
+
+
+[color=#ff0000]Daño por bala: indefinido [color=#00ffff]
+Cadencia de disparo:  indefinido[color=#ff00ff]
+[wave]Daño por segundo: indefinido
+
+
+"
+
+[node name="Arma Secundaria" type="TabBar" parent="p/TabContainer"]
+visible = false
+layout_mode = 2
+focus_neighbor_bottom = NodePath("GridContainer")
+
+[node name="GridContainer" type="GridContainer" parent="p/TabContainer/Arma Secundaria"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -760.0
+offset_top = -484.0
+offset_bottom = 484.0
+grow_horizontal = 0
+grow_vertical = 2
+focus_neighbor_bottom = NodePath("basica")
+theme_override_constants/h_separation = 34
+theme_override_constants/v_separation = 34
+columns = 2
+
+[node name="basica" type="TextureButton" parent="p/TabContainer/Arma Secundaria/GridContainer"]
+layout_mode = 2
+texture_normal = ExtResource("8_xbcwt")
+texture_pressed = ExtResource("3_v0cn3")
+texture_focused = ExtResource("16_nkqmw")
+stretch_mode = 0
+script = ExtResource("3_rvle7")
+type = "gun"
+gun = "Arma_basica"
+
+[node name="Control" type="Control" parent="p/TabContainer/Arma Secundaria/GridContainer/basica"]
+visible = false
+layout_mode = 1
+anchor_left = -4.26
+anchor_top = -0.447
+anchor_right = -0.527
+anchor_bottom = -0.447
+offset_left = 0.00012207
+offset_top = 0.100006
+offset_right = 0.100006
+offset_bottom = 1140.1
+
+[node name="Label" type="Label" parent="p/TabContainer/Arma Secundaria/GridContainer/basica/Control"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 24.0
+theme_override_font_sizes/font_size = 86
+text = "Disparo Basico"
+
+[node name="Label2" type="RichTextLabel" parent="p/TabContainer/Arma Secundaria/GridContainer/basica/Control"]
+layout_mode = 0
+offset_top = 160.0
+offset_right = 800.0
+offset_bottom = 820.0
+theme_override_font_sizes/normal_font_size = 36
+bbcode_enabled = true
+text = "Usa balas anticuadas del año 2035, muy basico porque hay opciones mucho mejores, lo unico bueno de este tipo de disparo es la cadencia de disparo
+
+
+[color=#ff0000]Daño por bala: 0.9 [color=#00ffff]
+Cadencia de disparo:  0.1s[color=#ff00ff]
+[wave]Daño por segundo: 9
+
+
+"
+
+[node name="bomba" type="TextureButton" parent="p/TabContainer/Arma Secundaria/GridContainer"]
+layout_mode = 2
+texture_normal = ExtResource("8_xbcwt")
+texture_pressed = ExtResource("3_v0cn3")
+texture_focused = ExtResource("16_nkqmw")
+stretch_mode = 0
+script = ExtResource("3_rvle7")
+type = "gun"
+gun = "bomba"
+
+[node name="Control" type="Control" parent="p/TabContainer/Arma Secundaria/GridContainer/bomba"]
+visible = false
+layout_mode = 1
+anchor_left = -4.26
+anchor_top = -0.447
+anchor_right = -0.527
+anchor_bottom = -0.447
+offset_left = -334.0
+offset_top = 0.100006
+offset_right = -333.9
+offset_bottom = 1240.1
+
+[node name="Label" type="Label" parent="p/TabContainer/Arma Secundaria/GridContainer/bomba/Control"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 24.0
+theme_override_font_sizes/font_size = 86
+text = "Bombas"
+
+[node name="Label2" type="RichTextLabel" parent="p/TabContainer/Arma Secundaria/GridContainer/bomba/Control"]
+layout_mode = 0
+offset_top = 160.0
+offset_right = 800.0
+offset_bottom = 900.0
+theme_override_font_sizes/normal_font_size = 36
+bbcode_enabled = true
+text = "Usa bombas poderosas teniendo en cuenta lo baratas que son de fabricar lo que se traduce en una cadencia de disparo relativamente rapida teniendo en cuenta el daño que hace
+
+
+[color=#ff0000]Daño por bala: 8 [color=#00ffff]
+Cadencia de disparo:  0.5s[color=#ff00ff]
+[wave]Daño por segundo: 16
+
+
+"
+
+[node name="3" type="TextureButton" parent="p/TabContainer/Arma Secundaria/GridContainer"]
+layout_mode = 2
+texture_normal = ExtResource("9_o70qi")
+texture_pressed = ExtResource("3_v0cn3")
+texture_focused = ExtResource("17_3hhkj")
+stretch_mode = 0
+script = ExtResource("3_rvle7")
+type = "gun"
+gun = "Arma_basicax3"
+
+[node name="Control" type="Control" parent="p/TabContainer/Arma Secundaria/GridContainer/3"]
+visible = false
+layout_mode = 1
+anchor_left = -4.26
+anchor_top = -0.447
+anchor_right = -0.527
+anchor_bottom = -0.447
+offset_left = 0.00012207
+offset_top = -333.9
+offset_right = 0.100006
+offset_bottom = 806.1
+
+[node name="Label" type="Label" parent="p/TabContainer/Arma Secundaria/GridContainer/3/Control"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 24.0
+theme_override_font_sizes/font_size = 86
+text = "Balas teledirigidas"
+
+[node name="Label2" type="RichTextLabel" parent="p/TabContainer/Arma Secundaria/GridContainer/3/Control"]
+layout_mode = 0
+offset_top = 160.0
+offset_right = 800.0
+offset_bottom = 900.0
+theme_override_font_sizes/normal_font_size = 36
+bbcode_enabled = true
+text = "Son balas inteligentes de energía. Cuando detectan a un enemigo potencial, estas balas proceden a seguir a su objetivo pero suelen confundirse cuando hay muchos enemigos en pantalla 
+
+
+[color=#ff0000]Daño por bala: 0.7 [color=#00ffff]
+Cadencia de disparo:  0.15s[color=#ff00ff]
+[wave]Daño por segundo: 4.6
+
+
+"
+
+[node name="laser" type="TextureButton" parent="p/TabContainer/Arma Secundaria/GridContainer"]
+layout_mode = 2
+texture_normal = ExtResource("10_cawx4")
+texture_pressed = ExtResource("3_v0cn3")
+texture_focused = ExtResource("18_7t3kc")
+stretch_mode = 0
+script = ExtResource("3_rvle7")
+type = "gun"
+gun = "Arma_laser"
+
+[node name="Control" type="Control" parent="p/TabContainer/Arma Secundaria/GridContainer/laser"]
+visible = false
+layout_mode = 1
+anchor_left = -4.26
+anchor_top = -0.447
+anchor_right = -0.527
+anchor_bottom = -0.447
+offset_left = -334.0
+offset_top = -333.9
+offset_right = -333.9
+offset_bottom = 806.1
+
+[node name="Label" type="Label" parent="p/TabContainer/Arma Secundaria/GridContainer/laser/Control"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 24.0
+theme_override_font_sizes/font_size = 86
+text = "Laser"
+
+[node name="Label2" type="RichTextLabel" parent="p/TabContainer/Arma Secundaria/GridContainer/laser/Control"]
+layout_mode = 0
+offset_top = 160.0
+offset_right = 800.0
+offset_bottom = 900.0
+theme_override_font_sizes/normal_font_size = 36
+bbcode_enabled = true
+text = "Es un az de luz muy potente que atraviesa absolutamente todo pero esto requiere de mucha energia por lo que su cadencia de disparo decae un poco. es perfeca para enemigos que se juntan en fila
+
+
+[color=#ff0000]Daño por bala: 6 [color=#00ffff]
+Cadencia de disparo:  0.5s[color=#ff00ff]
+[wave]Daño por segundo: 12
+
+
+"
+
+[node name="laser 3" type="TextureButton" parent="p/TabContainer/Arma Secundaria/GridContainer"]
+layout_mode = 2
+texture_normal = ExtResource("11_yohdk")
+texture_pressed = ExtResource("3_v0cn3")
+texture_focused = ExtResource("19_fp4tj")
+stretch_mode = 0
+script = ExtResource("3_rvle7")
+type = "gun"
+gun = "Arma_laserx3"
+
+[node name="Control" type="Control" parent="p/TabContainer/Arma Secundaria/GridContainer/laser 3"]
+visible = false
+layout_mode = 1
+anchor_left = -4.26
+anchor_top = -0.447
+anchor_right = -0.527
+anchor_bottom = -0.447
+offset_left = 0.00012207
+offset_top = -667.9
+offset_right = 0.100006
+offset_bottom = 472.1
+
+[node name="Label" type="Label" parent="p/TabContainer/Arma Secundaria/GridContainer/laser 3/Control"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 24.0
+theme_override_font_sizes/font_size = 86
+text = "Escopeta de energía"
+
+[node name="Label2" type="RichTextLabel" parent="p/TabContainer/Arma Secundaria/GridContainer/laser 3/Control"]
+layout_mode = 0
+offset_top = 160.0
+offset_right = 800.0
+offset_bottom = 900.0
+theme_override_font_sizes/normal_font_size = 36
+bbcode_enabled = true
+text = "Usa balas basicas pero reforsadas con energía esto hace que tenga mucho mas daño pero como consecuencia las balas no resisten mucho por lo que se funden al cabo de unos milisegundos. Dispara por tres cañones
+
+
+[color=#ff0000]Daño por bala: 0.5 [color=#00ffff]
+Cadencia de disparo:  0.1s[color=#ff00ff]
+[wave]Daño por segundo: 15
+
+
+"
+
+[node name="laser 4" type="TextureButton" parent="p/TabContainer/Arma Secundaria/GridContainer"]
+layout_mode = 2
+texture_normal = ExtResource("11_yohdk")
+texture_pressed = ExtResource("3_v0cn3")
+texture_focused = ExtResource("19_fp4tj")
+stretch_mode = 0
+script = ExtResource("3_rvle7")
+type = "gun"
+gun = "carga"
+
+[node name="Control" type="Control" parent="p/TabContainer/Arma Secundaria/GridContainer/laser 4"]
+visible = false
+layout_mode = 1
+anchor_left = -4.26
+anchor_top = -0.447
+anchor_right = -0.527
+anchor_bottom = -0.447
+offset_left = -334.0
+offset_top = -667.9
+offset_right = -333.9
+offset_bottom = 472.1
+
+[node name="Label" type="Label" parent="p/TabContainer/Arma Secundaria/GridContainer/laser 4/Control"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 24.0
+theme_override_font_sizes/font_size = 86
+text = "Disparo Cargado"
+
+[node name="Label2" type="RichTextLabel" parent="p/TabContainer/Arma Secundaria/GridContainer/laser 4/Control"]
+layout_mode = 0
+offset_top = 160.0
+offset_right = 800.0
+offset_bottom = 900.0
+theme_override_font_sizes/normal_font_size = 36
+bbcode_enabled = true
+text = "Es un tipo de disparo muy poderoso. Entre mas tiempo lo sostienes mas daño inflinge. Esta arma viola las leyes fundamentales de este universo, lo que indica que esta arma no pertenese a este mundo.
+
+
+[color=#ff0000]Daño por bala: indefinido [color=#00ffff]
+Cadencia de disparo:  indefinido[color=#ff00ff]
+[wave]Daño por segundo: indefinido
+
+
+"
+
+[node name="Objetos" type="TabBar" parent="p/TabContainer"]
+visible = false
+layout_mode = 2
+focus_neighbor_bottom = NodePath("GridContainer2/evacion")
+
+[node name="GridContainer2" type="GridContainer" parent="p/TabContainer/Objetos"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -760.0
+offset_top = -484.0
+offset_bottom = 484.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_constants/h_separation = 34
+theme_override_constants/v_separation = 34
+columns = 2
+
+[node name="evacion" type="TextureButton" parent="p/TabContainer/Objetos/GridContainer2"]
+layout_mode = 2
+texture_normal = ExtResource("2_htdu2")
+texture_pressed = ExtResource("3_v0cn3")
+texture_focused = ExtResource("11_ltxnd")
+stretch_mode = 0
+script = ExtResource("3_rvle7")
+type = "objeto"
+objeto = "Amuleto_maniobra_evasiva"
+
+[node name="Control" type="Control" parent="p/TabContainer/Objetos/GridContainer2/evacion"]
+visible = false
+layout_mode = 1
+anchor_left = -4.26
+anchor_top = -0.447
+anchor_right = -0.527
+anchor_bottom = -0.447
+offset_left = 0.500122
+offset_top = 0.0998688
+offset_right = 0.600006
+offset_bottom = 1140.1
+
+[node name="Label" type="Label" parent="p/TabContainer/Objetos/GridContainer2/evacion/Control"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 24.0
+theme_override_font_sizes/font_size = 86
+text = "Campo protector"
+
+[node name="Label2" type="RichTextLabel" parent="p/TabContainer/Objetos/GridContainer2/evacion/Control"]
+layout_mode = 0
+offset_top = 160.0
+offset_right = 800.0
+offset_bottom = 900.0
+theme_override_font_sizes/normal_font_size = 36
+bbcode_enabled = true
+text = "Es un dispositivo pequeño que se activa cuando detecta una fuerte aceleracion. Tiene el sello de calidad de Fobos
+
+[color=#ff00ff]
+[wave]
+Te vuelve invulnerable durante el Dash
+
+"
+
+[node name="5 corazones" type="TextureButton" parent="p/TabContainer/Objetos/GridContainer2"]
+layout_mode = 2
+texture_normal = ExtResource("5_26rud")
+texture_pressed = ExtResource("3_v0cn3")
+texture_focused = ExtResource("13_lee8m")
+stretch_mode = 0
+script = ExtResource("3_rvle7")
+type = "objeto"
+objeto = "Amuleto_5_vidas"
+
+[node name="Control" type="Control" parent="p/TabContainer/Objetos/GridContainer2/5 corazones"]
+visible = false
+layout_mode = 1
+anchor_left = -4.26
+anchor_top = -0.447
+anchor_right = -0.527
+anchor_bottom = -0.447
+offset_left = -333.5
+offset_top = 0.0998688
+offset_right = -333.4
+offset_bottom = 1140.1
+
+[node name="Label" type="Label" parent="p/TabContainer/Objetos/GridContainer2/5 corazones/Control"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 24.0
+theme_override_font_sizes/font_size = 86
+text = "Aumento de defensa"
+
+[node name="Label2" type="RichTextLabel" parent="p/TabContainer/Objetos/GridContainer2/5 corazones/Control"]
+layout_mode = 0
+offset_top = 160.0
+offset_right = 800.0
+offset_bottom = 900.0
+theme_override_font_sizes/normal_font_size = 36
+bbcode_enabled = true
+text = "Es una cantimplora con un liquido extraño brillante que aumenta la cantidad de golpes que puedes recibir. Tiene el sello de calidad de Mike
+
+[color=#ff00ff]
+[wave]
+Puedes recibir dos golpes mas
+
+"
+
+[node name="curacion_holow" type="TextureButton" parent="p/TabContainer/Objetos/GridContainer2"]
+layout_mode = 2
+texture_normal = ExtResource("5_26rud")
+texture_pressed = ExtResource("3_v0cn3")
+texture_focused = ExtResource("13_lee8m")
+stretch_mode = 0
+script = ExtResource("3_rvle7")
+type = "objeto"
+objeto = "Amuleto_Curacion_hollow_knight"
+
+[node name="Control" type="Control" parent="p/TabContainer/Objetos/GridContainer2/curacion_holow"]
+visible = false
+layout_mode = 1
+anchor_left = -4.26
+anchor_top = -0.447
+anchor_right = -0.527
+anchor_bottom = -0.447
+offset_left = -1.99988
+offset_top = -333.9
+offset_right = -1.89999
+offset_bottom = 806.1
+
+[node name="Label" type="Label" parent="p/TabContainer/Objetos/GridContainer2/curacion_holow/Control"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 24.0
+theme_override_font_sizes/font_size = 86
+text = "Curación de insecto"
+
+[node name="Label2" type="RichTextLabel" parent="p/TabContainer/Objetos/GridContainer2/curacion_holow/Control"]
+layout_mode = 0
+offset_top = 160.0
+offset_right = 800.0
+offset_bottom = 900.0
+theme_override_font_sizes/normal_font_size = 36
+bbcode_enabled = true
+text = "Está hecho de la cabeza de un insecto extraño  y reune conocimentos de un reino en miniatura perdido en el tiempo. Contiene una sustancia oscura en el interior
+
+[color=#ff00ff]
+[wave]
+Puedes curarte oprimiendo \"b\" por dos segundos
+[/wave][color=#ff0000]Solo te puedes curar tres veces por nivel
+
+"
+
+[node name="50 dano" type="TextureButton" parent="p/TabContainer/Objetos/GridContainer2"]
+layout_mode = 2
+texture_normal = ExtResource("6_iax8q")
+texture_pressed = ExtResource("3_v0cn3")
+texture_focused = ExtResource("14_6w27q")
+stretch_mode = 0
+script = ExtResource("3_rvle7")
+type = "objeto"
+objeto = "Amuleto_50_mas daño"
+
+[node name="Control" type="Control" parent="p/TabContainer/Objetos/GridContainer2/50 dano"]
+visible = false
+layout_mode = 1
+anchor_left = -4.26
+anchor_top = -0.447
+anchor_right = -0.527
+anchor_bottom = -0.447
+offset_left = -336.0
+offset_top = -333.9
+offset_right = -335.9
+offset_bottom = 806.1
+
+[node name="Label" type="Label" parent="p/TabContainer/Objetos/GridContainer2/50 dano/Control"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 24.0
+theme_override_font_sizes/font_size = 86
+text = "Sobrecarga"
+
+[node name="Label2" type="RichTextLabel" parent="p/TabContainer/Objetos/GridContainer2/50 dano/Control"]
+layout_mode = 0
+offset_top = 160.0
+offset_right = 800.0
+offset_bottom = 900.0
+theme_override_font_sizes/normal_font_size = 36
+bbcode_enabled = true
+text = "Son baterias cuanticas puestas en serie para aumentar la fuerza con la que el arma dispara las balas y aumentar el daño inflingido pero consume la energia por lo que no se pueden usar ultis. Tiene el sello de calidad de Fobos
+
+[color=#ff00ff]
+[wave]
+Aumenta en un x2 el daño inflingido
+[/wave][color=#ff0000]No se pueden usar ultis con este amuleto equipado
+
+"
+
+[node name="escudo orbital" type="TextureButton" parent="p/TabContainer/Objetos/GridContainer2"]
+layout_mode = 2
+texture_normal = ExtResource("7_b8a1y")
+texture_pressed = ExtResource("3_v0cn3")
+texture_focused = ExtResource("15_3ygot")
+stretch_mode = 0
+script = ExtResource("3_rvle7")
+type = "objeto"
+objeto = "Amuleto_escudo_orbital"
+
+[node name="Control" type="Control" parent="p/TabContainer/Objetos/GridContainer2/escudo orbital"]
+visible = false
+layout_mode = 1
+anchor_left = -4.26
+anchor_top = -0.447
+anchor_right = -0.527
+anchor_bottom = -0.447
+offset_left = -1.99988
+offset_top = -667.9
+offset_right = -1.89999
+offset_bottom = 472.1
+
+[node name="Label" type="Label" parent="p/TabContainer/Objetos/GridContainer2/escudo orbital/Control"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 24.0
+theme_override_font_sizes/font_size = 86
+text = "Escudos Orbitales"
+
+[node name="Label2" type="RichTextLabel" parent="p/TabContainer/Objetos/GridContainer2/escudo orbital/Control"]
+layout_mode = 0
+offset_top = 160.0
+offset_right = 800.0
+offset_bottom = 1060.0
+theme_override_font_sizes/normal_font_size = 36
+bbcode_enabled = true
+text = "Son bolas de fuego morado que son capaces de detener cualquier tipo de disparo del enemigo aparte de causar daño a los enemigos que se acerquen pero solo funciona con proyectiles, con rayos o lasers no funciona. Tiene el sello de calidad de Mike
+
+[color=#ff00ff]
+[wave]
+Te protege de proyectiles
+Puede hacer daño pasivo
+[/wave][color=#ff0000]No sirve con rayos o lasers
+
+"
+
+[node name="Ulti 1" type="TabBar" parent="p/TabContainer"]
+visible = false
+layout_mode = 2
+focus_neighbor_bottom = NodePath("armas/5 corazones")
+
+[node name="armas" type="GridContainer" parent="p/TabContainer/Ulti 1"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -760.0
+offset_top = -484.0
+offset_bottom = 484.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_constants/h_separation = 34
+theme_override_constants/v_separation = 34
+columns = 2
+
+[node name="5 corazones" type="TextureButton" parent="p/TabContainer/Ulti 1/armas"]
+layout_mode = 2
+texture_normal = ExtResource("5_26rud")
+texture_pressed = ExtResource("3_v0cn3")
+texture_focused = ExtResource("13_lee8m")
+stretch_mode = 0
+script = ExtResource("3_rvle7")
+type = "ulti"
+ulti = "Explosion"
+
+[node name="Control" type="Control" parent="p/TabContainer/Ulti 1/armas/5 corazones"]
+visible = false
+layout_mode = 1
+anchor_left = -4.26
+anchor_top = -0.447
+anchor_right = -0.527
+anchor_bottom = -0.447
+offset_left = 333.0
+offset_top = 0.0999756
+offset_right = 333.1
+offset_bottom = 1140.1
+
+[node name="Label" type="Label" parent="p/TabContainer/Ulti 1/armas/5 corazones/Control"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 24.0
+theme_override_font_sizes/font_size = 86
+text = "Explosion en caída"
+
+[node name="Label2" type="RichTextLabel" parent="p/TabContainer/Ulti 1/armas/5 corazones/Control"]
+layout_mode = 0
+offset_top = 160.0
+offset_right = 800.0
+offset_bottom = 1060.0
+theme_override_font_sizes/normal_font_size = 36
+bbcode_enabled = true
+text = "Una explosion muy fuerte que cae hasta encontrarse con una plataforma o suelo firme
+
+[color=#ff00ff]
+[wave]
+Daño por impacto: 75
+[color=#ff0000]Numero maximo de impactos: 2
+
+"
+
+[node name="5 corazones2" type="TextureButton" parent="p/TabContainer/Ulti 1/armas"]
+layout_mode = 2
+texture_normal = ExtResource("5_26rud")
+texture_pressed = ExtResource("3_v0cn3")
+texture_focused = ExtResource("13_lee8m")
+stretch_mode = 0
+script = ExtResource("3_rvle7")
+type = "ulti"
+ulti = "Superior_1"
+
+[node name="Control" type="Control" parent="p/TabContainer/Ulti 1/armas/5 corazones2"]
+layout_mode = 1
+anchor_left = -4.26
+anchor_top = -0.447
+anchor_right = -0.527
+anchor_bottom = -0.447
+offset_left = -1.99988
+offset_top = 0.0999756
+offset_right = -1.89999
+offset_bottom = 1140.1
+
+[node name="Label" type="Label" parent="p/TabContainer/Ulti 1/armas/5 corazones2/Control"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 24.0
+theme_override_font_sizes/font_size = 86
+text = "Energía acendente"
+
+[node name="Label2" type="RichTextLabel" parent="p/TabContainer/Ulti 1/armas/5 corazones2/Control"]
+layout_mode = 0
+offset_top = 160.0
+offset_right = 800.0
+offset_bottom = 1060.0
+theme_override_font_sizes/normal_font_size = 36
+bbcode_enabled = true
+text = "blavlalalaldfmlkadnvklnsdfkdsnjknskjnvkkjsnvkjndkjvnsdkjvnjksdvkjsndvjknskdjnvkjsdvjknsdkjnvkjnsdv
+
+[color=#ff00ff]
+[wave]
+Daño por impacto: 40
+[color=#ff0000]Numero maximo de impactos: 6
+
+"
+
+[node name="Ulti 2" type="TabBar" parent="p/TabContainer"]
+visible = false
+layout_mode = 2
+
+[node name="armas" type="GridContainer" parent="p/TabContainer/Ulti 2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -317.0
+offset_top = -484.0
+offset_right = 317.0
+offset_bottom = 484.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/h_separation = 34
+theme_override_constants/v_separation = 34
+columns = 2
+
+[connection signal="focus_entered" from="." to="." method="_on_focus_entered"]
+[connection signal="pressed" from="p/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="p/TabContainer/Arma Principal/armas/basica" to="p/TabContainer/Arma Principal/armas/basica" method="_on_pressed"]
+[connection signal="pressed" from="p/TabContainer/Arma Principal/armas/bomba" to="p/TabContainer/Arma Principal/armas/bomba" method="_on_pressed"]
+[connection signal="pressed" from="p/TabContainer/Arma Principal/armas/3" to="p/TabContainer/Arma Principal/armas/3" method="_on_pressed"]
+[connection signal="pressed" from="p/TabContainer/Arma Principal/armas/laser" to="p/TabContainer/Arma Principal/armas/laser" method="_on_pressed"]
+[connection signal="pressed" from="p/TabContainer/Arma Principal/armas/laser 3" to="p/TabContainer/Arma Principal/armas/laser 3" method="_on_pressed"]
+[connection signal="pressed" from="p/TabContainer/Arma Principal/armas/laser 4" to="p/TabContainer/Arma Principal/armas/laser 4" method="_on_pressed"]
+[connection signal="pressed" from="p/TabContainer/Arma Secundaria/GridContainer/basica" to="p/TabContainer/Arma Secundaria/GridContainer/basica" method="_on_pressed"]
+[connection signal="pressed" from="p/TabContainer/Arma Secundaria/GridContainer/bomba" to="p/TabContainer/Arma Secundaria/GridContainer/bomba" method="_on_pressed"]
+[connection signal="pressed" from="p/TabContainer/Arma Secundaria/GridContainer/3" to="p/TabContainer/Arma Secundaria/GridContainer/3" method="_on_pressed"]
+[connection signal="pressed" from="p/TabContainer/Arma Secundaria/GridContainer/laser" to="p/TabContainer/Arma Secundaria/GridContainer/laser" method="_on_pressed"]
+[connection signal="pressed" from="p/TabContainer/Arma Secundaria/GridContainer/laser 3" to="p/TabContainer/Arma Secundaria/GridContainer/laser 3" method="_on_pressed"]
+[connection signal="pressed" from="p/TabContainer/Arma Secundaria/GridContainer/laser 4" to="p/TabContainer/Arma Secundaria/GridContainer/laser 4" method="_on_pressed"]
+[connection signal="pressed" from="p/TabContainer/Objetos/GridContainer2/evacion" to="p/TabContainer/Objetos/GridContainer2/evacion" method="_on_pressed"]
+[connection signal="pressed" from="p/TabContainer/Objetos/GridContainer2/5 corazones" to="p/TabContainer/Objetos/GridContainer2/5 corazones" method="_on_pressed"]
+[connection signal="pressed" from="p/TabContainer/Objetos/GridContainer2/curacion_holow" to="p/TabContainer/Objetos/GridContainer2/curacion_holow" method="_on_pressed"]
+[connection signal="pressed" from="p/TabContainer/Objetos/GridContainer2/50 dano" to="p/TabContainer/Objetos/GridContainer2/50 dano" method="_on_pressed"]
+[connection signal="pressed" from="p/TabContainer/Objetos/GridContainer2/escudo orbital" to="p/TabContainer/Objetos/GridContainer2/escudo orbital" method="_on_pressed"]
+[connection signal="pressed" from="p/TabContainer/Ulti 1/armas/5 corazones" to="p/TabContainer/Ulti 1/armas/5 corazones" method="_on_pressed"]
+[connection signal="pressed" from="p/TabContainer/Ulti 1/armas/5 corazones2" to="p/TabContainer/Ulti 1/armas/5 corazones2" method="_on_pressed"]

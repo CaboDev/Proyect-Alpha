@@ -1,0 +1,31 @@
+[gd_resource type="Theme" load_steps=10 format=3 uid="uid://qbghq2o1iiep"]
+
+[ext_resource type="FontFile" uid="uid://ps2gmrmenld7" path="res://8-bit-operator/8bitOperatorPlus-Bold.ttf" id="1_76k5o"]
+[ext_resource type="Texture2D" uid="uid://c08ll8jdssdok" path="res://assets/Boss_Rush_Mode/Button3.png" id="1_wspgc"]
+[ext_resource type="Texture2D" uid="uid://q6rnwbl8al0q" path="res://assets/Boss_Rush_Mode/Button2.png" id="2_ecf3c"]
+[ext_resource type="Texture2D" uid="uid://b5s6ej3wdgvwx" path="res://assets/Boss_Rush_Mode/Button1.png" id="3_ftpev"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_uco54"]
+texture = ExtResource("1_wspgc")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8sm0s"]
+texture = ExtResource("2_ecf3c")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3eg0h"]
+texture = ExtResource("2_ecf3c")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ss430"]
+texture = ExtResource("3_ftpev")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4xhkk"]
+texture = ExtResource("1_wspgc")
+
+[resource]
+default_font = ExtResource("1_76k5o")
+Button/styles/disabled = SubResource("StyleBoxTexture_uco54")
+Button/styles/focus = SubResource("StyleBoxTexture_8sm0s")
+Button/styles/hover = SubResource("StyleBoxTexture_3eg0h")
+Button/styles/normal = SubResource("StyleBoxTexture_ss430")
+Button/styles/pressed = SubResource("StyleBoxTexture_4xhkk")
+TabBar/font_sizes/font_size = 33
+TabContainer/font_sizes/font_size = 48

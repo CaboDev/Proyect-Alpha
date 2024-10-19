@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://18j7oe8jg5j3"
+path="res://.godot/imported/Mini boss.ogg-2ce01af473e475af58f37eff1fce2ea2.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/auds/Mini boss.ogg"
+dest_files=["res://.godot/imported/Mini boss.ogg-2ce01af473e475af58f37eff1fce2ea2.oggvorbisstr"]
+
+[params]
+
+loop=true
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,235 @@
+[gd_resource type="AnimationNodeStateMachine" load_steps=54 format=3 uid="uid://c1sqwltc7m58x"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_5hllr"]
+animation = &"ataque de riva"
+
+[sub_resource type="AnimationNodeTimeScale" id="AnimationNodeTimeScale_n57rw"]
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_crjyq"]
+nodes/Animation/node = SubResource("AnimationNodeAnimation_5hllr")
+nodes/Animation/position = Vector2(6.3546, 130.622)
+nodes/TimeScale/node = SubResource("AnimationNodeTimeScale_n57rw")
+nodes/TimeScale/position = Vector2(211.82, 136.271)
+node_connections = [&"TimeScale", 0, &"Animation", &"output", 0, &"TimeScale"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_sp6fo"]
+animation = &"ataque debajo"
+
+[sub_resource type="AnimationNodeTimeScale" id="AnimationNodeTimeScale_qtnla"]
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_iyked"]
+graph_offset = Vector2(-183.919, -43.4215)
+nodes/Animation/node = SubResource("AnimationNodeAnimation_sp6fo")
+nodes/Animation/position = Vector2(-80, 80)
+nodes/TimeScale/node = SubResource("AnimationNodeTimeScale_qtnla")
+nodes/TimeScale/position = Vector2(123.071, 120.419)
+node_connections = [&"TimeScale", 0, &"Animation", &"output", 0, &"TimeScale"]
+
+[sub_resource type="AnimationNodeTimeScale" id="AnimationNodeTimeScale_ceapa"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_m73s3"]
+animation = &"bolas debajo"
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_t7lxj"]
+nodes/TimeScale/node = SubResource("AnimationNodeTimeScale_ceapa")
+nodes/TimeScale/position = Vector2(127.092, 135.565)
+"nodes/bolas debajo/node" = SubResource("AnimationNodeAnimation_m73s3")
+"nodes/bolas debajo/position" = Vector2(0, 40)
+node_connections = [&"TimeScale", 0, &"bolas debajo", &"output", 0, &"TimeScale"]
+
+[sub_resource type="AnimationNodeTimeScale" id="AnimationNodeTimeScale_oawyd"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_c0esg"]
+animation = &"bolas derriba"
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_oj3sa"]
+nodes/TimeScale/node = SubResource("AnimationNodeTimeScale_oawyd")
+nodes/TimeScale/position = Vector2(170.868, 126.386)
+"nodes/bolas derriba/node" = SubResource("AnimationNodeAnimation_c0esg")
+"nodes/bolas derriba/position" = Vector2(20, 80)
+node_connections = [&"TimeScale", 0, &"bolas derriba", &"output", 0, &"TimeScale"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_q6hp4"]
+animation = &"fin de fase"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_v5umh"]
+animation = &"fin de fase2"
+
+[sub_resource type="AnimationNodeTimeScale" id="AnimationNodeTimeScale_sa31i"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_a8u5h"]
+animation = &"inicio"
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_a3x56"]
+graph_offset = Vector2(-109.173, 127.033)
+nodes/TimeScale/node = SubResource("AnimationNodeTimeScale_sa31i")
+nodes/TimeScale/position = Vector2(100, 120)
+nodes/inicio/node = SubResource("AnimationNodeAnimation_a8u5h")
+nodes/inicio/position = Vector2(-33.8678, 136.434)
+node_connections = [&"TimeScale", 0, &"inicio", &"output", 0, &"TimeScale"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_duxsj"]
+animation = &"ir debajo"
+
+[sub_resource type="AnimationNodeTimeScale" id="AnimationNodeTimeScale_mm7ni"]
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_uhvbv"]
+nodes/Animation/node = SubResource("AnimationNodeAnimation_duxsj")
+nodes/Animation/position = Vector2(144.038, 210.408)
+nodes/TimeScale/node = SubResource("AnimationNodeTimeScale_mm7ni")
+nodes/TimeScale/position = Vector2(245.711, 184.283)
+node_connections = [&"TimeScale", 0, &"Animation", &"output", 0, &"TimeScale"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_4852c"]
+animation = &"ir derriba"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_o1j55"]
+animation = &"normal debajo 2"
+
+[sub_resource type="AnimationNodeTimeScale" id="AnimationNodeTimeScale_w3wav"]
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_u1x0b"]
+nodes/Animation/node = SubResource("AnimationNodeAnimation_o1j55")
+nodes/Animation/position = Vector2(-60, 100)
+nodes/TimeScale/node = SubResource("AnimationNodeTimeScale_w3wav")
+nodes/TimeScale/position = Vector2(140, 100)
+node_connections = [&"TimeScale", 0, &"Animation", &"output", 0, &"TimeScale"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ol1bp"]
+animation = &"normal debajo"
+
+[sub_resource type="AnimationNodeTimeScale" id="AnimationNodeTimeScale_mtvop"]
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_f82uu"]
+nodes/Animation/node = SubResource("AnimationNodeAnimation_ol1bp")
+nodes/Animation/position = Vector2(20.1582, 144.821)
+nodes/TimeScale/node = SubResource("AnimationNodeTimeScale_mtvop")
+nodes/TimeScale/position = Vector2(149.064, 131.559)
+node_connections = [&"TimeScale", 0, &"Animation", &"output", 0, &"TimeScale"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_fclts"]
+animation = &"normal derriva 2"
+
+[sub_resource type="AnimationNodeTimeScale" id="AnimationNodeTimeScale_dcj1t"]
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_eko0v"]
+nodes/Animation/node = SubResource("AnimationNodeAnimation_fclts")
+nodes/Animation/position = Vector2(61.4278, 124.974)
+nodes/TimeScale/node = SubResource("AnimationNodeTimeScale_dcj1t")
+nodes/TimeScale/position = Vector2(152.51, 110.146)
+node_connections = [&"TimeScale", 0, &"Animation", &"output", 0, &"TimeScale"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_y3r5c"]
+animation = &"normal derriva"
+
+[sub_resource type="AnimationNodeTimeScale" id="AnimationNodeTimeScale_fprlf"]
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_irnbq"]
+nodes/Animation/node = SubResource("AnimationNodeAnimation_y3r5c")
+nodes/Animation/position = Vector2(85.4341, 168.75)
+nodes/TimeScale/node = SubResource("AnimationNodeTimeScale_fprlf")
+nodes/TimeScale/position = Vector2(183.577, 151.804)
+node_connections = [&"TimeScale", 0, &"Animation", &"output", 0, &"TimeScale"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_h52mx"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_tpvqh"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_hnkji"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_jurdd"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_rbbaj"]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_pf1ox"]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_pmp4v"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_r3ar6"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_6nlus"]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_rd32w"]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_d2gmq"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ma1km"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_uqjfq"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_v0uoh"]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_cjjsn"]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_7ivm1"]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_mj4wg"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_lsgv0"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_tgcjm"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_v2ene"]
+switch_mode = 2
+
+[resource]
+states/End/position = Vector2(1067, 265)
+states/Start/position = Vector2(96, 265)
+"states/ataque de riva/node" = SubResource("AnimationNodeBlendTree_crjyq")
+"states/ataque de riva/position" = Vector2(650, 320.002)
+"states/ataque debajo/node" = SubResource("AnimationNodeBlendTree_iyked")
+"states/ataque debajo/position" = Vector2(650, 91.4951)
+"states/bolas debajo/node" = SubResource("AnimationNodeBlendTree_t7lxj")
+"states/bolas debajo/position" = Vector2(613, 215.431)
+"states/bolas derriba/node" = SubResource("AnimationNodeBlendTree_oj3sa")
+"states/bolas derriba/position" = Vector2(630, 513.328)
+"states/fin de fase/node" = SubResource("AnimationNodeAnimation_q6hp4")
+"states/fin de fase/position" = Vector2(912, 239)
+"states/fin de fase2/node" = SubResource("AnimationNodeAnimation_v5umh")
+"states/fin de fase2/position" = Vector2(912, 302)
+states/inicio/node = SubResource("AnimationNodeBlendTree_a3x56")
+states/inicio/position = Vector2(240, 270)
+"states/ir debajo/node" = SubResource("AnimationNodeBlendTree_uhvbv")
+"states/ir debajo/position" = Vector2(374, 350.002)
+"states/ir derriba/node" = SubResource("AnimationNodeAnimation_4852c")
+"states/ir derriba/position" = Vector2(499, 335)
+"states/normal debajo/node" = SubResource("AnimationNodeBlendTree_f82uu")
+"states/normal debajo/position" = Vector2(420, 101.495)
+"states/normal debajo 2/node" = SubResource("AnimationNodeBlendTree_u1x0b")
+"states/normal debajo 2/position" = Vector2(420, -40.5049)
+"states/normal derriva/node" = SubResource("AnimationNodeBlendTree_irnbq")
+"states/normal derriva/position" = Vector2(392, 470.002)
+"states/normal derriva 2/node" = SubResource("AnimationNodeBlendTree_eko0v")
+"states/normal derriva 2/position" = Vector2(202, 479)
+transitions = ["Start", "inicio", SubResource("AnimationNodeStateMachineTransition_h52mx"), "inicio", "normal debajo", SubResource("AnimationNodeStateMachineTransition_tpvqh"), "normal debajo", "normal debajo 2", SubResource("AnimationNodeStateMachineTransition_hnkji"), "normal debajo 2", "normal debajo", SubResource("AnimationNodeStateMachineTransition_jurdd"), "normal debajo", "ir derriba", SubResource("AnimationNodeStateMachineTransition_rbbaj"), "normal debajo", "ataque debajo", SubResource("AnimationNodeStateMachineTransition_pf1ox"), "ataque debajo", "normal debajo", SubResource("AnimationNodeStateMachineTransition_pmp4v"), "bolas debajo", "normal debajo", SubResource("AnimationNodeStateMachineTransition_r3ar6"), "normal debajo", "bolas debajo", SubResource("AnimationNodeStateMachineTransition_6nlus"), "normal debajo", "fin de fase", SubResource("AnimationNodeStateMachineTransition_rd32w"), "ir debajo", "normal debajo", SubResource("AnimationNodeStateMachineTransition_d2gmq"), "normal derriva 2", "normal derriva", SubResource("AnimationNodeStateMachineTransition_ma1km"), "normal derriva", "normal derriva 2", SubResource("AnimationNodeStateMachineTransition_uqjfq"), "normal derriva", "ir debajo", SubResource("AnimationNodeStateMachineTransition_v0uoh"), "normal derriva", "bolas derriba", SubResource("AnimationNodeStateMachineTransition_cjjsn"), "normal derriva", "ataque de riva", SubResource("AnimationNodeStateMachineTransition_7ivm1"), "ir derriba", "normal derriva", SubResource("AnimationNodeStateMachineTransition_mj4wg"), "ataque de riva", "normal derriva", SubResource("AnimationNodeStateMachineTransition_lsgv0"), "bolas derriba", "normal derriva", SubResource("AnimationNodeStateMachineTransition_tgcjm"), "normal derriva", "fin de fase2", SubResource("AnimationNodeStateMachineTransition_v2ene")]
+graph_offset = Vector2(0, -14.9985)

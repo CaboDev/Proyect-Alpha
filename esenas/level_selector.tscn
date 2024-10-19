@@ -1,0 +1,449 @@
+[gd_scene load_steps=26 format=3 uid="uid://c7dmcihvdheke"]
+
+[ext_resource type="Script" path="res://scrips/level selector.gd" id="1_6ykxh"]
+[ext_resource type="Theme" uid="uid://qbghq2o1iiep" path="res://dEFAULT.tres" id="2_tlndb"]
+[ext_resource type="Script" path="res://scrips/Index_del_nivel_selector.gd" id="3_goxli"]
+[ext_resource type="Texture2D" uid="uid://c3xuh5mgj3321" path="res://assets/Boss_Rush_Mode/ui1.png" id="3_miiua"]
+[ext_resource type="Script" path="res://scrips/nivelels_selector.gd" id="4_1tpw3"]
+[ext_resource type="PackedScene" uid="uid://dqo8r15j0fi4d" path="res://esenas/niveles/Tutorial.tscn" id="5_eupjs"]
+[ext_resource type="PackedScene" uid="uid://d3i6nyws1mpip" path="res://esenas/niveles/nivel_aracno.tscn" id="7_coo76"]
+[ext_resource type="PackedScene" uid="uid://csw37ugfej2ti" path="res://esenas/niveles/nivel_gusano.tscn" id="8_avfef"]
+[ext_resource type="PackedScene" uid="uid://cjo72hjeacl63" path="res://esenas/niveles/nivel_ojo.tscn" id="9_xejlo"]
+[ext_resource type="Texture2D" uid="uid://deyfj6vo3alxh" path="res://assets/controls.png" id="10_11na4"]
+[ext_resource type="PackedScene" uid="uid://dp7j1e77q6q24" path="res://esenas/niveles/nivel_polpo.tscn" id="10_lx6jm"]
+[ext_resource type="Texture2D" uid="uid://b8fxxhpwki2h2" path="res://assets/Boss_Rush_Mode/Sprite-0001-Sheet.png" id="11_6j1k2"]
+[ext_resource type="PackedScene" uid="uid://qlvauex1xwsx" path="res://esenas/niveles/nivel_Digital_crush.tscn" id="11_vkap5"]
+[ext_resource type="Shader" path="res://esenas/plataformer/stars.gdshader" id="12_tsp2f"]
+[ext_resource type="Shader" path="res://tecno.gdshader" id="13_td35c"]
+[ext_resource type="Shader" path="res://esenas/plataformer/pixelation.gdshader" id="14_g0vih"]
+[ext_resource type="AudioStream" uid="uid://21jqta63003v" path="res://assets/auds/Music of Select.ogg" id="15_osqj5"]
+[ext_resource type="Material" uid="uid://d3ueqaujo8q4v" path="res://effectr.tres" id="18_o0rxk"]
+[ext_resource type="Script" path="res://scrips/fps.gd" id="19_3tkmr"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_eunhu"]
+shader = ExtResource("12_tsp2f")
+shader_parameter/dimensions = Vector2(1024, 600)
+shader_parameter/small_stars = 50.0
+shader_parameter/small_stars_far_size = 0.5
+shader_parameter/small_stars_near_size = 1.0
+shader_parameter/large_stars = 8.0
+shader_parameter/large_stars_far_size = 0.5
+shader_parameter/large_stars_near_size = 1.0
+shader_parameter/far_stars_color = Color(1, 0, 1, 1)
+shader_parameter/near_stars_color = Color(0.584314, 0, 1, 1)
+shader_parameter/base_scroll_speed = 0.0
+shader_parameter/additional_scroll_speed = 0.05
+
+[sub_resource type="QuadMesh" id="QuadMesh_a4jo7"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_n4uo6"]
+shader = ExtResource("13_td35c")
+shader_parameter/background_color = Color(0, 0, 0.141176, 1)
+shader_parameter/line_color = Color(0, 1, 1, 1)
+shader_parameter/line_freq = 9.56
+shader_parameter/height = 0.6
+shader_parameter/speed = 0.8
+shader_parameter/scale = Vector2(2, 16)
+
+[sub_resource type="QuadMesh" id="QuadMesh_li0nh"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6lfox"]
+shader = ExtResource("14_g0vih")
+shader_parameter/pixel_size = 6.0
+
+[sub_resource type="QuadMesh" id="QuadMesh_qbt16"]
+
+[node name="level selector" type="Node2D"]
+scale = Vector2(0.5, 0.5)
+script = ExtResource("1_6ykxh")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_top = 2.0
+offset_right = 2304.0
+offset_bottom = 1298.0
+theme = ExtResource("2_tlndb")
+
+[node name="Panel" type="Panel" parent="Control"]
+layout_mode = 2
+anchor_left = 0.444
+anchor_top = 0.049
+anchor_right = 0.97
+anchor_bottom = 0.951
+offset_left = 279.024
+offset_top = 0.496002
+offset_right = 37.1199
+offset_bottom = 17.504
+
+[node name="Button1" type="Sprite2D" parent="Control/Panel"]
+modulate = Color(0, 1, 1, 1)
+position = Vector2(480, 591)
+scale = Vector2(15.625, 19.1563)
+texture = ExtResource("3_miiua")
+
+[node name="Button2" type="Sprite2D" parent="Control/Panel"]
+modulate = Color(0, 1, 1, 1)
+position = Vector2(514, 905)
+scale = Vector2(11.25, 7.65625)
+texture = ExtResource("3_miiua")
+
+[node name="VBoxContainer" type="Control" parent="Control"]
+anchors_preset = 0
+offset_left = 32.0
+offset_top = 464.0
+offset_right = 655.0
+offset_bottom = 1648.0
+scale = Vector2(1.93667, 1.84959)
+script = ExtResource("3_goxli")
+
+[node name="nivel_1" type="Button" parent="Control/VBoxContainer"]
+layout_mode = 2
+offset_right = 612.0
+offset_bottom = 128.0
+pivot_offset = Vector2(0, 63.7979)
+theme_override_font_sizes/font_size = 46
+text = "Tutorial"
+icon_alignment = 2
+script = ExtResource("4_1tpw3")
+nivel = ExtResource("5_eupjs")
+grab_the_focus = true
+boss = "Flame"
+
+[node name="nivel_2" type="Button" parent="Control/VBoxContainer"]
+layout_mode = 2
+offset_top = 132.0
+offset_right = 612.0
+offset_bottom = 260.0
+pivot_offset = Vector2(0, 63.7191)
+theme_override_font_sizes/font_size = 46
+text = "$p1d3r"
+icon_alignment = 2
+script = ExtResource("4_1tpw3")
+nivel = ExtResource("7_coo76")
+boss = "araña"
+
+[node name="nivel_3" type="Button" parent="Control/VBoxContainer"]
+layout_mode = 2
+offset_top = 396.0
+offset_right = 612.0
+offset_bottom = 524.0
+pivot_offset = Vector2(0, 63.5613)
+theme_override_font_sizes/font_size = 46
+text = "Global Eye"
+icon_alignment = 2
+script = ExtResource("4_1tpw3")
+nivel = ExtResource("9_xejlo")
+boss = "ojo"
+
+[node name="nivel_4" type="Button" parent="Control/VBoxContainer"]
+layout_mode = 2
+offset_top = 264.0
+offset_right = 612.0
+offset_bottom = 392.0
+pivot_offset = Vector2(0, 63.6402)
+theme_override_font_sizes/font_size = 46
+text = "Gusanos de lava"
+icon_alignment = 2
+script = ExtResource("4_1tpw3")
+nivel = ExtResource("8_avfef")
+boss = "Gusanos"
+
+[node name="nivel_5" type="Button" parent="Control/VBoxContainer"]
+layout_mode = 2
+offset_top = 528.0
+offset_right = 612.0
+offset_bottom = 656.0
+pivot_offset = Vector2(0, 63.4825)
+theme_override_font_sizes/font_size = 46
+text = "0ctopulT@nk"
+icon_alignment = 2
+script = ExtResource("4_1tpw3")
+nivel = ExtResource("10_lx6jm")
+boss = "octopus"
+
+[node name="nivel_6" type="Button" parent="Control/VBoxContainer"]
+layout_mode = 2
+offset_top = 660.0
+offset_right = 612.0
+offset_bottom = 788.0
+pivot_offset = Vector2(0, 64.4849)
+theme_override_font_sizes/font_size = 46
+text = "Digital Breach"
+icon_alignment = 2
+script = ExtResource("4_1tpw3")
+nivel = ExtResource("11_vkap5")
+boss = "digital"
+
+[node name="nivel_7" type="Button" parent="Control/VBoxContainer"]
+layout_mode = 2
+offset_top = 791.527
+offset_right = 612.0
+offset_bottom = 919.527
+pivot_offset = Vector2(0, 63.7979)
+theme_override_font_sizes/font_size = 46
+text = "Tutorial"
+icon_alignment = 2
+script = ExtResource("4_1tpw3")
+nivel = ExtResource("5_eupjs")
+boss = "Flame"
+
+[node name="nivel_8" type="Button" parent="Control/VBoxContainer"]
+layout_mode = 2
+offset_top = 923.527
+offset_right = 612.0
+offset_bottom = 1051.53
+pivot_offset = Vector2(0, 63.7191)
+theme_override_font_sizes/font_size = 46
+text = "Tutorial"
+icon_alignment = 2
+script = ExtResource("4_1tpw3")
+nivel = ExtResource("7_coo76")
+boss = "araña"
+
+[node name="nivel_9" type="Button" parent="Control/VBoxContainer"]
+layout_mode = 2
+offset_top = 1187.53
+offset_right = 612.0
+offset_bottom = 1315.53
+pivot_offset = Vector2(0, 63.5613)
+theme_override_font_sizes/font_size = 46
+text = "Tutorial"
+icon_alignment = 2
+script = ExtResource("4_1tpw3")
+nivel = ExtResource("9_xejlo")
+boss = "ojo"
+
+[node name="nivel_10" type="Button" parent="Control/VBoxContainer"]
+layout_mode = 2
+offset_top = 1055.53
+offset_right = 612.0
+offset_bottom = 1183.53
+pivot_offset = Vector2(0, 63.6402)
+theme_override_font_sizes/font_size = 46
+text = "Tutorial"
+icon_alignment = 2
+script = ExtResource("4_1tpw3")
+nivel = ExtResource("8_avfef")
+boss = "Gusanos"
+
+[node name="nivel_11" type="Button" parent="Control/VBoxContainer"]
+layout_mode = 2
+offset_top = 1319.53
+offset_right = 612.0
+offset_bottom = 1447.53
+pivot_offset = Vector2(0, 63.4825)
+theme_override_font_sizes/font_size = 46
+text = "Tutorial"
+icon_alignment = 2
+script = ExtResource("4_1tpw3")
+nivel = ExtResource("5_eupjs")
+boss = "Flame"
+
+[node name="nivel_12" type="Button" parent="Control/VBoxContainer"]
+layout_mode = 2
+offset_top = 1451.53
+offset_right = 612.0
+offset_bottom = 1579.53
+pivot_offset = Vector2(0, 64.4849)
+theme_override_font_sizes/font_size = 46
+text = "Tutorial"
+icon_alignment = 2
+script = ExtResource("4_1tpw3")
+nivel = ExtResource("7_coo76")
+boss = "araña"
+
+[node name="description" type="Control" parent="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 368.0
+offset_top = 448.0
+offset_right = 2672.0
+offset_bottom = 1744.0
+scale = Vector2(1.805, 1.805)
+theme = ExtResource("2_tlndb")
+
+[node name="Ui4" type="Sprite2D" parent="Control/description"]
+position = Vector2(941.825, 211.939)
+scale = Vector2(1.54906, 1.52061)
+texture = ExtResource("10_11na4")
+hframes = 5
+vframes = 4
+frame = 1
+
+[node name="Ui5" type="Sprite2D" parent="Control/description"]
+position = Vector2(941.825, 268.168)
+scale = Vector2(1.54906, 1.52061)
+texture = ExtResource("10_11na4")
+hframes = 5
+vframes = 4
+frame = 3
+
+[node name="Ui6" type="Sprite2D" parent="Control/description"]
+position = Vector2(870.914, 217.174)
+scale = Vector2(2.43658, 2.42236)
+texture = ExtResource("11_6j1k2")
+hframes = 2
+
+[node name="des" type="RichTextLabel" parent="Control/description"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 537.0
+offset_top = -95.1563
+offset_right = 1540.0
+offset_bottom = 223.844
+scale = Vector2(0.486095, 0.472953)
+theme_override_font_sizes/normal_font_size = 46
+text = "fefdfvdfvefvvrvvvffdddssdssdssddsdsssssssssssssssssssssf3rf"
+
+[node name="name" type="RichTextLabel" parent="Control/description"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 537.0
+offset_top = -199.0
+offset_right = 1036.0
+offset_bottom = 120.0
+scale = Vector2(0.992876, 1.18821)
+theme_override_font_sizes/normal_font_size = 46
+text = "Flame"
+
+[node name="Label2" type="Label" parent="Control/description"]
+layout_mode = 0
+offset_left = 652.668
+offset_top = 243.298
+offset_right = 790.668
+offset_bottom = 275.298
+scale = Vector2(1.63146, 1.41609)
+theme_override_font_sizes/font_size = 23
+text = "Inventory"
+
+[node name="Ui7" type="Sprite2D" parent="Control/description"]
+position = Vector2(937.396, 350.138)
+scale = Vector2(2.62557, 2.39901)
+texture = ExtResource("10_11na4")
+hframes = 5
+vframes = 4
+
+[node name="Label4" type="Label" parent="Control/description"]
+layout_mode = 0
+offset_left = 556.233
+offset_top = 263.712
+offset_right = 694.233
+offset_bottom = 295.712
+scale = Vector2(3.10374, 3.85181)
+theme_override_font_sizes/font_size = 23
+text = "play"
+horizontal_alignment = 1
+
+[node name="Label3" type="Label" parent="Control/description"]
+layout_mode = 0
+offset_left = 652.632
+offset_top = 195.014
+offset_right = 790.632
+offset_bottom = 227.014
+scale = Vector2(1.2659, 1.07554)
+theme_override_font_sizes/font_size = 23
+text = "Hard Mode"
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+scroll_offset = Vector2(192.7, 49.4)
+
+[node name="MeshInstance2D2" type="MeshInstance2D" parent="ParallaxBackground"]
+visible = false
+self_modulate = Color(0.0196078, 0, 0.105882, 1)
+texture_filter = 1
+material = SubResource("ShaderMaterial_eunhu")
+position = Vector2(580, 332)
+scale = Vector2(1176, 680)
+mesh = SubResource("QuadMesh_a4jo7")
+
+[node name="MeshInstance2D3" type="MeshInstance2D" parent="ParallaxBackground"]
+texture_filter = 1
+material = SubResource("ShaderMaterial_n4uo6")
+position = Vector2(618.394, 340.074)
+rotation = -3.14159
+scale = Vector2(1283.23, 680.65)
+mesh = SubResource("QuadMesh_li0nh")
+
+[node name="MeshInstance2D4" type="MeshInstance2D" parent="ParallaxBackground"]
+texture_filter = 1
+material = SubResource("ShaderMaterial_6lfox")
+position = Vector2(627.5, 332)
+scale = Vector2(1271, 680)
+mesh = SubResource("QuadMesh_a4jo7")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("15_osqj5")
+autoplay = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 5
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="CanvasLayer"]
+material = ExtResource("18_o0rxk")
+position = Vector2(631.5, 324)
+scale = Vector2(1263, 648)
+mesh = SubResource("QuadMesh_qbt16")
+
+[node name="fps" type="CanvasLayer" parent="."]
+layer = 4
+script = ExtResource("19_3tkmr")
+
+[node name="Label" type="Label" parent="fps"]
+offset_left = 1025.0
+offset_right = 1253.0
+offset_bottom = 58.0
+pivot_offset = Vector2(228, 0)
+theme = ExtResource("2_tlndb")
+theme_override_font_sizes/font_size = 41
+text = "FPS:5"
+horizontal_alignment = 2
+
+[connection signal="activ_Focus" from="Control/VBoxContainer/nivel_1" to="." method="_on_nivel_1_activ_focus"]
+[connection signal="focus_entered" from="Control/VBoxContainer/nivel_1" to="Control/VBoxContainer/nivel_1" method="_on_focus_entered"]
+[connection signal="focus_exited" from="Control/VBoxContainer/nivel_1" to="Control/VBoxContainer/nivel_1" method="_on_focus_exited"]
+[connection signal="pressed" from="Control/VBoxContainer/nivel_1" to="Control/VBoxContainer/nivel_1" method="_on_pressed"]
+[connection signal="activ_Focus" from="Control/VBoxContainer/nivel_2" to="." method="_on_nivel_1_activ_focus"]
+[connection signal="focus_entered" from="Control/VBoxContainer/nivel_2" to="Control/VBoxContainer/nivel_2" method="_on_focus_entered"]
+[connection signal="focus_exited" from="Control/VBoxContainer/nivel_2" to="Control/VBoxContainer/nivel_2" method="_on_focus_exited"]
+[connection signal="pressed" from="Control/VBoxContainer/nivel_2" to="Control/VBoxContainer/nivel_2" method="_on_pressed"]
+[connection signal="activ_Focus" from="Control/VBoxContainer/nivel_3" to="." method="_on_nivel_1_activ_focus"]
+[connection signal="focus_entered" from="Control/VBoxContainer/nivel_3" to="Control/VBoxContainer/nivel_3" method="_on_focus_entered"]
+[connection signal="focus_exited" from="Control/VBoxContainer/nivel_3" to="Control/VBoxContainer/nivel_3" method="_on_focus_exited"]
+[connection signal="pressed" from="Control/VBoxContainer/nivel_3" to="Control/VBoxContainer/nivel_3" method="_on_pressed"]
+[connection signal="activ_Focus" from="Control/VBoxContainer/nivel_4" to="." method="_on_nivel_1_activ_focus"]
+[connection signal="focus_entered" from="Control/VBoxContainer/nivel_4" to="Control/VBoxContainer/nivel_4" method="_on_focus_entered"]
+[connection signal="focus_exited" from="Control/VBoxContainer/nivel_4" to="Control/VBoxContainer/nivel_4" method="_on_focus_exited"]
+[connection signal="pressed" from="Control/VBoxContainer/nivel_4" to="Control/VBoxContainer/nivel_4" method="_on_pressed"]
+[connection signal="activ_Focus" from="Control/VBoxContainer/nivel_5" to="." method="_on_nivel_1_activ_focus"]
+[connection signal="focus_entered" from="Control/VBoxContainer/nivel_5" to="Control/VBoxContainer/nivel_5" method="_on_focus_entered"]
+[connection signal="focus_exited" from="Control/VBoxContainer/nivel_5" to="Control/VBoxContainer/nivel_5" method="_on_focus_exited"]
+[connection signal="pressed" from="Control/VBoxContainer/nivel_5" to="Control/VBoxContainer/nivel_5" method="_on_pressed"]
+[connection signal="activ_Focus" from="Control/VBoxContainer/nivel_6" to="." method="_on_nivel_1_activ_focus"]
+[connection signal="focus_entered" from="Control/VBoxContainer/nivel_6" to="Control/VBoxContainer/nivel_6" method="_on_focus_entered"]
+[connection signal="focus_exited" from="Control/VBoxContainer/nivel_6" to="Control/VBoxContainer/nivel_6" method="_on_focus_exited"]
+[connection signal="pressed" from="Control/VBoxContainer/nivel_6" to="Control/VBoxContainer/nivel_6" method="_on_pressed"]
+[connection signal="activ_Focus" from="Control/VBoxContainer/nivel_7" to="." method="_on_nivel_1_activ_focus"]
+[connection signal="focus_entered" from="Control/VBoxContainer/nivel_7" to="Control/VBoxContainer/nivel_7" method="_on_focus_entered"]
+[connection signal="focus_exited" from="Control/VBoxContainer/nivel_7" to="Control/VBoxContainer/nivel_7" method="_on_focus_exited"]
+[connection signal="pressed" from="Control/VBoxContainer/nivel_7" to="Control/VBoxContainer/nivel_7" method="_on_pressed"]
+[connection signal="activ_Focus" from="Control/VBoxContainer/nivel_8" to="." method="_on_nivel_1_activ_focus"]
+[connection signal="focus_entered" from="Control/VBoxContainer/nivel_8" to="Control/VBoxContainer/nivel_8" method="_on_focus_entered"]
+[connection signal="focus_exited" from="Control/VBoxContainer/nivel_8" to="Control/VBoxContainer/nivel_8" method="_on_focus_exited"]
+[connection signal="pressed" from="Control/VBoxContainer/nivel_8" to="Control/VBoxContainer/nivel_8" method="_on_pressed"]
+[connection signal="activ_Focus" from="Control/VBoxContainer/nivel_9" to="." method="_on_nivel_1_activ_focus"]
+[connection signal="focus_entered" from="Control/VBoxContainer/nivel_9" to="Control/VBoxContainer/nivel_9" method="_on_focus_entered"]
+[connection signal="focus_exited" from="Control/VBoxContainer/nivel_9" to="Control/VBoxContainer/nivel_9" method="_on_focus_exited"]
+[connection signal="pressed" from="Control/VBoxContainer/nivel_9" to="Control/VBoxContainer/nivel_9" method="_on_pressed"]
+[connection signal="activ_Focus" from="Control/VBoxContainer/nivel_10" to="." method="_on_nivel_1_activ_focus"]
+[connection signal="focus_entered" from="Control/VBoxContainer/nivel_10" to="Control/VBoxContainer/nivel_10" method="_on_focus_entered"]
+[connection signal="focus_exited" from="Control/VBoxContainer/nivel_10" to="Control/VBoxContainer/nivel_10" method="_on_focus_exited"]
+[connection signal="pressed" from="Control/VBoxContainer/nivel_10" to="Control/VBoxContainer/nivel_10" method="_on_pressed"]
+[connection signal="activ_Focus" from="Control/VBoxContainer/nivel_11" to="." method="_on_nivel_1_activ_focus"]
+[connection signal="focus_entered" from="Control/VBoxContainer/nivel_11" to="Control/VBoxContainer/nivel_11" method="_on_focus_entered"]
+[connection signal="focus_exited" from="Control/VBoxContainer/nivel_11" to="Control/VBoxContainer/nivel_11" method="_on_focus_exited"]
+[connection signal="pressed" from="Control/VBoxContainer/nivel_11" to="Control/VBoxContainer/nivel_11" method="_on_pressed"]
+[connection signal="activ_Focus" from="Control/VBoxContainer/nivel_12" to="." method="_on_nivel_1_activ_focus"]
+[connection signal="focus_entered" from="Control/VBoxContainer/nivel_12" to="Control/VBoxContainer/nivel_12" method="_on_focus_entered"]
+[connection signal="focus_exited" from="Control/VBoxContainer/nivel_12" to="Control/VBoxContainer/nivel_12" method="_on_focus_exited"]
+[connection signal="pressed" from="Control/VBoxContainer/nivel_12" to="Control/VBoxContainer/nivel_12" method="_on_pressed"]

@@ -1,0 +1,141 @@
+[gd_scene load_steps=14 format=3 uid="uid://ccs08uvgqv4ng"]
+
+[ext_resource type="Script" path="res://scrips/loadi.gd" id="1_rsdvg"]
+[ext_resource type="Texture2D" uid="uid://dlrxvh7cnrivf" path="res://Retro Impact Effect Pack ALL/Retro Impact Effect Pack 2 B.png" id="2_iyt45"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bapdn"]
+atlas = ExtResource("2_iyt45")
+region = Rect2(320, 832, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fyn40"]
+atlas = ExtResource("2_iyt45")
+region = Rect2(384, 832, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1j0v6"]
+atlas = ExtResource("2_iyt45")
+region = Rect2(448, 832, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_52st1"]
+atlas = ExtResource("2_iyt45")
+region = Rect2(512, 832, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fmmm0"]
+atlas = ExtResource("2_iyt45")
+region = Rect2(576, 832, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_l7jtt"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bapdn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fyn40")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1j0v6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_52st1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fmmm0")
+}],
+"loop": false,
+"name": &"default",
+"speed": 13.0
+}]
+
+[sub_resource type="Animation" id="Animation_fb001"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PointLight2D:energy")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_3v54a"]
+resource_name = "new_animation"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PointLight2D:energy")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_nitlu"]
+_data = {
+"RESET": SubResource("Animation_fb001"),
+"new_animation": SubResource("Animation_3v54a")
+}
+
+[sub_resource type="Gradient" id="Gradient_0327n"]
+offsets = PackedFloat32Array(0, 0.52809)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_waweh"]
+gradient = SubResource("Gradient_0327n")
+fill = 1
+fill_from = Vector2(0.504274, 0.5)
+
+[node name="Node2D" type="Node2D"]
+scale = Vector2(4, 4)
+script = ExtResource("1_rsdvg")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_l7jtt")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_nitlu")
+}
+autoplay = "new_animation"
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(2.86102e-06, 2.86102e-06)
+scale = Vector2(1.5, 1.5)
+color = Color(1, 0, 1, 1)
+energy = 0.0
+texture = SubResource("GradientTexture2D_waweh")
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

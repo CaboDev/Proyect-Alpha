@@ -1,0 +1,48 @@
+[gd_resource type="Resource" script_class="DialogicStyle" load_steps=11 format=3 uid="uid://btd04w2tu6tvs"]
+
+[ext_resource type="Script" path="res://addons/dialogic/Resources/dialogic_style.gd" id="1_3pxlc"]
+[ext_resource type="PackedScene" uid="uid://bquja8jyk8kbr" path="res://addons/dialogic/Modules/DefaultLayoutParts/Layer_VN_Textbox/vn_textbox_layer.tscn" id="1_iwoen"]
+[ext_resource type="PackedScene" uid="uid://cy1y14inwkplb" path="res://assets/dialogic/dialogic_character/styles/5Portraits/custom_vn_portrait_layer.tscn" id="1_ufxwq"]
+[ext_resource type="Script" path="res://addons/dialogic/Resources/dialogic_style_layer.gd" id="2_diijg"]
+[ext_resource type="PackedScene" uid="uid://cr1ucu016kd53" path="res://assets/dialogic/dialogic_character/styles/CenteredChoices/custom_vn_choice_layer.tscn" id="4_qq1hi"]
+[ext_resource type="PackedScene" uid="uid://b7cwghicd5div" path="res://assets/dialogic/dialogic_character/styles/SimpleTextInputBox/custom_text_input_layer.tscn" id="5_gxnvd"]
+
+[sub_resource type="Resource" id="Resource_rbug4"]
+script = ExtResource("2_diijg")
+scene = ExtResource("1_ufxwq")
+overrides = {}
+
+[sub_resource type="Resource" id="Resource_fafss"]
+script = ExtResource("2_diijg")
+scene = ExtResource("1_iwoen")
+overrides = {
+"bold_font": "\"res://8-bit-operator/8bitOperatorPlus-Bold.ttf\"",
+"name_label_custom_font_size": "32.0",
+"name_label_font": "\"res://8-bit-operator/8bitOperatorPlus-Bold.ttf\"",
+"normal_font": "\"res://8-bit-operator/8bitOperatorPlus-Bold.ttf\"",
+"text_size": "64.0"
+}
+
+[sub_resource type="Resource" id="Resource_r38tg"]
+script = ExtResource("2_diijg")
+scene = ExtResource("4_qq1hi")
+overrides = {
+"boxes_v_separation": "20.0",
+"font_custom": "\"8bitOperatorPlus-Bold.ttf\"",
+"font_size_custom": "32.0",
+"font_use_global": "false"
+}
+
+[sub_resource type="Resource" id="Resource_wbk0x"]
+script = ExtResource("2_diijg")
+scene = ExtResource("5_gxnvd")
+overrides = {}
+
+[resource]
+script = ExtResource("1_3pxlc")
+name = "New_File"
+base_overrides = {
+"canvas_layer": "6.0"
+}
+layers = Array[ExtResource("2_diijg")]([SubResource("Resource_rbug4"), SubResource("Resource_fafss"), SubResource("Resource_r38tg"), SubResource("Resource_wbk0x")])
+metadata/_latest_layer = 2

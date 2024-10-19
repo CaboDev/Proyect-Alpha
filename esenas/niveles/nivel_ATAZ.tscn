@@ -1,0 +1,38 @@
+[gd_scene load_steps=7 format=3 uid="uid://cjvqui6gf32ni"]
+
+[ext_resource type="PackedScene" uid="uid://dpvt4kw074afs" path="res://esenas/plataformer/player_h.tscn" id="1_whpm3"]
+[ext_resource type="AudioStream" uid="uid://b3w437tg35h12" path="res://assets/auds/The first ATA.ogg" id="2_e24hs"]
+[ext_resource type="Script" path="res://scrips/Camara.gd" id="3_twi7u"]
+[ext_resource type="PackedScene" uid="uid://dyuh3oqqohipi" path="res://esenas/plataformer/ATAz/boss.tscn" id="4_sorly"]
+[ext_resource type="PackedScene" uid="uid://djivwbms0hjti" path="res://esenas/barra_de_vida.tscn" id="5_n4trp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3hat4"]
+size = Vector2(3947.14, 26)
+
+[node name="nivel" type="Node2D" groups=["nivel"]]
+
+[node name="player_h" parent="." groups=["player"] instance=ExtResource("1_whpm3")]
+position = Vector2(2880, 1160)
+collision_mask = 33
+sonido = ExtResource("2_e24hs")
+
+[node name="Camera2D" type="Camera2D" parent="player_h"]
+top_level = true
+position = Vector2(1360, 720)
+zoom = Vector2(0.355, 0.355)
+position_smoothing_enabled = true
+script = ExtResource("3_twi7u")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(50, 1368)
+collision_layer = 33
+collision_mask = 35
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(1523.57, 3)
+shape = SubResource("RectangleShape2D_3hat4")
+
+[node name="boss" parent="." instance=ExtResource("4_sorly")]
+position = Vector2(1520, 960)
+
+[node name="CanvasLayer" parent="boss" instance=ExtResource("5_n4trp")]

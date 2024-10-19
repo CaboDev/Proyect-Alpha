@@ -1,0 +1,99 @@
+[gd_scene load_steps=7 format=3 uid="uid://n30vaeoitca6"]
+
+[ext_resource type="Script" path="res://scrips/bala.gd" id="1_wngfv"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_1k5cg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6pdft"]
+size = Vector2(16, 16)
+
+[sub_resource type="Animation" id="Animation_urr5j"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MeshInstance2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(16, 16)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Area2D/CollisionShape2D:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_wyooc"]
+resource_name = "new_animation"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MeshInstance2D:scale")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(16, 16), Vector2(16, 1200)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Area2D/CollisionShape2D:scale")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1, 54)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0q8vi"]
+_data = {
+"RESET": SubResource("Animation_urr5j"),
+"new_animation": SubResource("Animation_wyooc")
+}
+
+[node name="bala" type="CharacterBody2D" groups=["bala_player"]]
+position = Vector2(0, 240)
+script = ExtResource("1_wngfv")
+laser = true
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="."]
+modulate = Color(1, 0, 0, 0.560784)
+position = Vector2(0, 240)
+scale = Vector2(16, 16)
+mesh = SubResource("BoxMesh_1k5cg")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(12, 257.5)
+scale = Vector2(22.8, 61.45)
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(9.53674e-07, 240)
+shape = SubResource("RectangleShape2D_6pdft")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "new_animation"
+libraries = {
+"": SubResource("AnimationLibrary_0q8vi")
+}
+
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
+[connection signal="area_entered" from="Area2D" to="." method="_on_araea_2d_area_entered"]

@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="DialogicStyle" load_steps=2 format=3 uid="uid://bxj4if63y5ubh"]
+
+[ext_resource type="Script" path="res://addons/dialogic/Resources/dialogic_style.gd" id="1_hfaiu"]
+
+[resource]
+script = ExtResource("1_hfaiu")
+name = "default"
+base_overrides = {
+"global_font": "\"res://8-bit-operator/8bitOperatorPlus-Bold.ttf\"",
+"global_font_size": "32.0"
+}
+layers = Array[Resource("res://addons/dialogic/Resources/dialogic_style_layer.gd")]([])
+metadata/_latest_layer = -1

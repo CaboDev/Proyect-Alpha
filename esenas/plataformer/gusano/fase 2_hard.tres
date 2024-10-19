@@ -1,0 +1,82 @@
+[gd_resource type="AnimationNodeStateMachine" load_steps=18 format=3 uid="uid://cr7s86sjc27h0"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_6l6j5"]
+animation = &"fin de fase"
+
+[sub_resource type="AnimationNodeTimeScale" id="AnimationNodeTimeScale_7ekoe"]
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_u638g"]
+nodes/Animation/node = SubResource("AnimationNodeAnimation_6l6j5")
+nodes/Animation/position = Vector2(0, 100)
+nodes/TimeScale/node = SubResource("AnimationNodeTimeScale_7ekoe")
+nodes/TimeScale/position = Vector2(160, 140)
+node_connections = [&"TimeScale", 0, &"Animation", &"output", 0, &"TimeScale"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_3fcp5"]
+animation = &"inicio"
+
+[sub_resource type="AnimationNodeTimeScale" id="AnimationNodeTimeScale_hf7r1"]
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_ao5c7"]
+nodes/Animation/node = SubResource("AnimationNodeAnimation_3fcp5")
+nodes/Animation/position = Vector2(81.9037, 163.101)
+nodes/TimeScale/node = SubResource("AnimationNodeTimeScale_hf7r1")
+nodes/TimeScale/position = Vector2(178.635, 148.98)
+node_connections = [&"TimeScale", 0, &"Animation", &"output", 0, &"TimeScale"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_coflx"]
+animation = &"normal 2"
+
+[sub_resource type="AnimationNodeTimeScale" id="AnimationNodeTimeScale_gjxwp"]
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_tgbl4"]
+nodes/Animation/node = SubResource("AnimationNodeAnimation_coflx")
+nodes/Animation/position = Vector2(40, 160)
+nodes/TimeScale/node = SubResource("AnimationNodeTimeScale_gjxwp")
+nodes/TimeScale/position = Vector2(229.472, 161.689)
+node_connections = [&"TimeScale", 0, &"Animation", &"output", 0, &"TimeScale"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_7bgks"]
+animation = &"normal"
+
+[sub_resource type="AnimationNodeTimeScale" id="AnimationNodeTimeScale_sb1us"]
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_gdymv"]
+nodes/Animation/node = SubResource("AnimationNodeAnimation_7bgks")
+nodes/Animation/position = Vector2(40, 160)
+nodes/TimeScale/node = SubResource("AnimationNodeTimeScale_sb1us")
+nodes/TimeScale/position = Vector2(194.168, 161.689)
+node_connections = [&"TimeScale", 0, &"Animation", &"output", 0, &"TimeScale"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_i1xva"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_da67h"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_624sr"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_pou2a"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_gf3ij"]
+switch_mode = 2
+advance_mode = 2
+
+[resource]
+states/Start/position = Vector2(121, 98.1312)
+"states/fin de fase/node" = SubResource("AnimationNodeBlendTree_u638g")
+"states/fin de fase/position" = Vector2(674, 105.131)
+states/inicio/node = SubResource("AnimationNodeBlendTree_ao5c7")
+states/inicio/position = Vector2(274, 98.1312)
+states/normal/node = SubResource("AnimationNodeBlendTree_gdymv")
+states/normal/position = Vector2(465, 102)
+"states/normal 2/node" = SubResource("AnimationNodeBlendTree_tgbl4")
+"states/normal 2/position" = Vector2(465, -5.86879)
+transitions = ["Start", "inicio", SubResource("AnimationNodeStateMachineTransition_i1xva"), "inicio", "normal", SubResource("AnimationNodeStateMachineTransition_da67h"), "normal", "normal 2", SubResource("AnimationNodeStateMachineTransition_624sr"), "normal 2", "normal", SubResource("AnimationNodeStateMachineTransition_pou2a"), "normal", "fin de fase", SubResource("AnimationNodeStateMachineTransition_gf3ij")]
+graph_offset = Vector2(0, -178.226)

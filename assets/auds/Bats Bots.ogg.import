@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://ibejbl8nf4bf"
+path="res://.godot/imported/Bats Bots.ogg-36d9ec955aa989531c710906ecf33fa1.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/auds/Bats Bots.ogg"
+dest_files=["res://.godot/imported/Bats Bots.ogg-36d9ec955aa989531c710906ecf33fa1.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

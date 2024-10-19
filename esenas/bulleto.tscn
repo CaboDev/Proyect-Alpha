@@ -1,0 +1,84 @@
+[gd_scene load_steps=5 format=3 uid="uid://vn63bjhvvd7m"]
+
+[ext_resource type="Script" path="res://scrips/bulleto.gd" id="1_c6u3g"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_f20pv"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qs4aw"]
+radius = 60.9262
+
+[sub_resource type="BoxMesh" id="BoxMesh_fvmjv"]
+
+[node name="bulleto" type="Node2D" groups=["bala_enemy", "enemy"]]
+modulate = Color(1, 0, 1, 1)
+z_index = -1
+position = Vector2(544, 360)
+script = ExtResource("1_c6u3g")
+bullet_spe = 1000.0
+roti = 0.2
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="."]
+position = Vector2(-1.90735e-06, 2.09808e-05)
+scale = Vector2(128.145, 128)
+mesh = SubResource("SphereMesh_f20pv")
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(1.14441e-05, 5.72205e-06)
+scale = Vector2(19.2, 19.2)
+
+[node name="Area2D" type="Area2D" parent="." groups=["enemyb"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_qs4aw")
+
+[node name="1" type="MeshInstance2D" parent="."]
+scale = Vector2(88.5, 8.5)
+mesh = SubResource("BoxMesh_fvmjv")
+
+[node name="2" type="MeshInstance2D" parent="."]
+rotation = -0.785397
+scale = Vector2(88.5, 8.5)
+mesh = SubResource("BoxMesh_fvmjv")
+
+[node name="3" type="MeshInstance2D" parent="."]
+rotation = -1.57079
+scale = Vector2(88.5, 8.5)
+mesh = SubResource("BoxMesh_fvmjv")
+
+[node name="4" type="MeshInstance2D" parent="."]
+rotation = -2.35619
+scale = Vector2(88.5, 8.5)
+mesh = SubResource("BoxMesh_fvmjv")
+
+[node name="5" type="MeshInstance2D" parent="."]
+rotation = -3.14159
+scale = Vector2(88.5, 8.5)
+mesh = SubResource("BoxMesh_fvmjv")
+
+[node name="6" type="MeshInstance2D" parent="."]
+rotation = -3.92699
+scale = Vector2(88.5, 8.5)
+mesh = SubResource("BoxMesh_fvmjv")
+
+[node name="7" type="MeshInstance2D" parent="."]
+rotation = -4.71238
+scale = Vector2(88.5, 8.5)
+mesh = SubResource("BoxMesh_fvmjv")
+
+[node name="8" type="MeshInstance2D" parent="."]
+rotation = -5.49778
+scale = Vector2(88.5, 8.5)
+mesh = SubResource("BoxMesh_fvmjv")
+
+[node name="Timer2" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="timeout" from="Timer2" to="." method="_on_timer_2_timeout"]

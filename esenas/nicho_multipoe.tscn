@@ -1,0 +1,118 @@
+[gd_scene load_steps=7 format=3 uid="uid://0w0uhqe2s5jx"]
+
+[ext_resource type="Script" path="res://scrips/nicho_multipoe.gd" id="1_7qst0"]
+
+[sub_resource type="PrismMesh" id="PrismMesh_2oxjb"]
+
+[sub_resource type="Animation" id="Animation_2vdi6"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MeshInstance2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-4, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:lanzado")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_bq6el"]
+resource_name = "new_animation"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MeshInstance2D:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-8, 0), Vector2(108, 0), Vector2(-8, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:lanzado")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ev4sb"]
+_data = {
+"RESET": SubResource("Animation_2vdi6"),
+"new_animation": SubResource("Animation_bq6el")
+}
+
+[sub_resource type="BoxMesh" id="BoxMesh_yh0fo"]
+
+[node name="nicho_multipoe" type="Node2D" groups=["bala_ene"]]
+scale = Vector2(2, 2)
+script = ExtResource("1_7qst0")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="."]
+position = Vector2(-4, 0)
+rotation = -1.5708
+scale = Vector2(64.25, 128)
+mesh = SubResource("PrismMesh_2oxjb")
+
+[node name="Area2D" type="Area2D" parent="." groups=["bala_ene"]]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+position = Vector2(60, 0)
+polygon = PackedVector2Array(-120, -24, -16, 0, -120, 24)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_ev4sb")
+}
+autoplay = "new_animation"
+
+[node name="pos" type="Node2D" parent="."]
+visible = false
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="pos"]
+position = Vector2(-72, 0)
+scale = Vector2(46.9706, 16)
+mesh = SubResource("BoxMesh_yh0fo")
+
+[node name="MeshInstance2D2" type="MeshInstance2D" parent="pos"]
+position = Vector2(-72, -8.58307e-06)
+rotation = -0.523599
+scale = Vector2(47.2079, 15.4021)
+mesh = SubResource("BoxMesh_yh0fo")
+
+[node name="MeshInstance2D3" type="MeshInstance2D" parent="pos"]
+position = Vector2(-72, 0)
+rotation = 0.523599
+scale = Vector2(48, 16)
+mesh = SubResource("BoxMesh_yh0fo")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(103, 0)
+scale = Vector2(17.3, 1)
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

@@ -1,0 +1,32 @@
+join Fobos right [animation="Bounce In"]
+Fobos: Mucho gusto
+Fobos: Me alegra que hayas recibido nuestro mensaje
+- Vine en cuanto pude
+	Fobos: Perfecto
+- ¿Cual mensaje?
+	Fobos: ??!
+	Fobos: ¿No recibiste nuestro mensaje?
+	- Nope
+	- Creo que si pero no lo vi
+	Fobos: Bueno no importa
+Fobos: Nesecitamos la mayor ayuda posible 
+Fobos: Ferrum Industries y Bom Shot Corporation acaban de fusionarse y esto amenaza fuertemente a los ecosistemas de la galaxia
+Fobos: Decidí que teniamos que hacer algo asi que los reuní a todos 
+Fobos: Te presento al grupo
+Fobos: Ella es Stella Quinque
+join Stella center [animation="Bounce In"]
+Stella: Hola
+Stella: ¿Como te llamas?
+Stella: sabes que olvidalo no me interesa
+leave Stella [animation="Bounce Out"]
+Fobos: Si, tiene un caracter...
+Fobos: "unico"
+Fobos: El es Flame
+join Flame (default) center [animation="Bounce In"]
+- Yo te conosco >:v
+- ¿Quién?
+Flame (timido): Perdón por haberte atacado
+Flame (timido): pensaba que eras un intruso
+Flame (default): pero veo que eres fuerte
+Flame: Por cierto ¿Como te llamas?
+[text_input text="Nombre" var="Name" default="Alfa Shooter"]

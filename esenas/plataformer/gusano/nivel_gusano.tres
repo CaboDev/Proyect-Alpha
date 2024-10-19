@@ -1,0 +1,144 @@
+[gd_resource type="AnimationNodeStateMachine" load_steps=34 format=3 uid="uid://bcmm26jagiiwy"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_0oljl"]
+animation = &"ataque de riva"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_dg3hq"]
+animation = &"ataque debajo"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_3gt55"]
+animation = &"bolas debajo"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_kkmt0"]
+animation = &"bolas derriba"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_q6hp4"]
+animation = &"fin de fase"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_v5umh"]
+animation = &"fin de fase2"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_7xavd"]
+animation = &"inicio"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_c4dr3"]
+animation = &"ir debajo"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_4852c"]
+animation = &"ir derriba"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ky0p4"]
+animation = &"normal debajo"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_kfy62"]
+animation = &"normal debajo"
+play_mode = 1
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ibtv3"]
+animation = &"normal derriva 2"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_1eru7"]
+animation = &"normal derriva"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_t8dv1"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_rnsmg"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_28tiq"]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_wgm0b"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_u2kvg"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_qyf52"]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_wgjpb"]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_8hlaa"]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_5iibb"]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_rsg31"]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_bse78"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_deama"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_wcdj0"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_y5wng"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_4lp8i"]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_1748l"]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_w4fiu"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_eaiwc"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_c738m"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_teerw"]
+switch_mode = 2
+advance_mode = 2
+
+[resource]
+states/End/position = Vector2(1067, 265)
+states/Start/position = Vector2(196, 270)
+"states/ataque de riva/node" = SubResource("AnimationNodeAnimation_0oljl")
+"states/ataque de riva/position" = Vector2(697, 313)
+"states/ataque debajo/node" = SubResource("AnimationNodeAnimation_dg3hq")
+"states/ataque debajo/position" = Vector2(697, 88)
+"states/bolas debajo/node" = SubResource("AnimationNodeAnimation_3gt55")
+"states/bolas debajo/position" = Vector2(592, 270)
+"states/bolas derriba/node" = SubResource("AnimationNodeAnimation_kkmt0")
+"states/bolas derriba/position" = Vector2(705, 434)
+"states/fin de fase/node" = SubResource("AnimationNodeAnimation_q6hp4")
+"states/fin de fase/position" = Vector2(912, 239)
+"states/fin de fase2/node" = SubResource("AnimationNodeAnimation_v5umh")
+"states/fin de fase2/position" = Vector2(912, 302)
+states/inicio/node = SubResource("AnimationNodeAnimation_7xavd")
+states/inicio/position = Vector2(318, 265)
+"states/ir debajo/node" = SubResource("AnimationNodeAnimation_c4dr3")
+"states/ir debajo/position" = Vector2(391, 335)
+"states/ir derriba/node" = SubResource("AnimationNodeAnimation_4852c")
+"states/ir derriba/position" = Vector2(499, 335)
+"states/normal debajo/node" = SubResource("AnimationNodeAnimation_kfy62")
+"states/normal debajo/position" = Vector2(468, 105)
+"states/normal debajo 2/node" = SubResource("AnimationNodeAnimation_ky0p4")
+"states/normal debajo 2/position" = Vector2(196, 75.7213)
+"states/normal derriva/node" = SubResource("AnimationNodeAnimation_1eru7")
+"states/normal derriva/position" = Vector2(444, 479)
+"states/normal derriva 2/node" = SubResource("AnimationNodeAnimation_ibtv3")
+"states/normal derriva 2/position" = Vector2(240, 486.943)
+transitions = ["Start", "inicio", SubResource("AnimationNodeStateMachineTransition_t8dv1"), "inicio", "normal debajo", SubResource("AnimationNodeStateMachineTransition_rnsmg"), "normal debajo", "ir derriba", SubResource("AnimationNodeStateMachineTransition_28tiq"), "ir derriba", "normal derriva", SubResource("AnimationNodeStateMachineTransition_wgm0b"), "ir debajo", "normal debajo", SubResource("AnimationNodeStateMachineTransition_u2kvg"), "normal derriva", "ir debajo", SubResource("AnimationNodeStateMachineTransition_qyf52"), "normal debajo", "ataque debajo", SubResource("AnimationNodeStateMachineTransition_wgjpb"), "normal debajo", "bolas debajo", SubResource("AnimationNodeStateMachineTransition_8hlaa"), "normal derriva", "bolas derriba", SubResource("AnimationNodeStateMachineTransition_5iibb"), "normal derriva", "ataque de riva", SubResource("AnimationNodeStateMachineTransition_rsg31"), "ataque debajo", "normal debajo", SubResource("AnimationNodeStateMachineTransition_bse78"), "bolas debajo", "normal debajo", SubResource("AnimationNodeStateMachineTransition_deama"), "bolas derriba", "normal derriva", SubResource("AnimationNodeStateMachineTransition_wcdj0"), "ataque de riva", "normal derriva", SubResource("AnimationNodeStateMachineTransition_y5wng"), "normal debajo", "fin de fase", SubResource("AnimationNodeStateMachineTransition_4lp8i"), "normal derriva", "fin de fase2", SubResource("AnimationNodeStateMachineTransition_1748l"), "normal debajo", "normal debajo 2", SubResource("AnimationNodeStateMachineTransition_w4fiu"), "normal debajo 2", "normal debajo", SubResource("AnimationNodeStateMachineTransition_eaiwc"), "normal derriva", "normal derriva 2", SubResource("AnimationNodeStateMachineTransition_c738m"), "normal derriva 2", "normal derriva", SubResource("AnimationNodeStateMachineTransition_teerw")]
+graph_offset = Vector2(0, 106.898)

@@ -1,0 +1,598 @@
+[gd_scene load_steps=27 format=3 uid="uid://024uoswpobj7"]
+
+[ext_resource type="PackedScene" uid="uid://dpvt4kw074afs" path="res://esenas/plataformer/player_h.tscn" id="1_ohp44"]
+[ext_resource type="AudioStream" uid="uid://ibejbl8nf4bf" path="res://assets/auds/Bats Bots.ogg" id="2_vmyih"]
+[ext_resource type="Script" path="res://scrips/Camara.gd" id="3_umm1g"]
+[ext_resource type="Texture2D" uid="uid://ct0jnllhrx6ix" path="res://icon.svg" id="4_mkm5v"]
+[ext_resource type="Script" path="res://scrips/boses/Boss_Baron_bon_bots.gd" id="5_xxuv8"]
+[ext_resource type="Script" path="res://scrips/KO.gd" id="6_ixj6g"]
+[ext_resource type="AudioStream" uid="uid://damm1e6kaoj1r" path="res://assets/KO.wav" id="7_alxnp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3hat4"]
+size = Vector2(3729.14, 26)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j4koo"]
+size = Vector2(390, 64.875)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hpfnp"]
+size = Vector2(432, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fiqdq"]
+size = Vector2(160, 352)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_oethp"]
+
+[sub_resource type="Animation" id="Animation_t0pg4"]
+resource_name = "idle"
+
+[sub_resource type="Animation" id="Animation_g4ssx"]
+resource_name = "Dash"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Baron_von_bots/MeshInstance2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.8),
+"transitions": PackedFloat32Array(1, 48.5029, 1),
+"update": 0,
+"values": [0.0, -0.785398, 0.0]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.2, 0.9),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"_DAsh"
+}, {
+"args": [],
+"method": &"_Clear_pinnns"
+}]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Baron_von_bots/CollisionShape2D:position")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.8),
+"transitions": PackedFloat32Array(1, 1, 115.36),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 120), Vector2(0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Baron_von_bots/CollisionShape2D:scale")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.8),
+"transitions": PackedFloat32Array(1, 1, 115.36),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1, 0.3), Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_escow"]
+resource_name = "up"
+
+[sub_resource type="Animation" id="Animation_1t14n"]
+resource_name = "rayo"
+
+[sub_resource type="Animation" id="Animation_sdv3h"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Baron_von_bots/MeshInstance2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Baron_von_bots/CollisionShape2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Baron_von_bots/CollisionShape2D:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_66vcp"]
+_data = {
+"Dash": SubResource("Animation_g4ssx"),
+"RESET": SubResource("Animation_sdv3h"),
+"idle": SubResource("Animation_t0pg4"),
+"rayo": SubResource("Animation_1t14n"),
+"up": SubResource("Animation_escow")
+}
+
+[sub_resource type="Curve" id="Curve_0uwhw"]
+min_value = -439.44
+max_value = 1024.0
+_data = [Vector2(0, 2.4), 0.0, 0.0, 0, 0, Vector2(0, 14.725), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_b5xj1"]
+offsets = PackedFloat32Array(0, 0.686567)
+colors = PackedColorArray(0, 0, 0, 0, 1, 1, 1, 1)
+
+[sub_resource type="Animation" id="Animation_a65v4"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-1272, 192)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../ko2:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1420, 192)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../ko2:text")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["o"]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../ko2:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("../AudioStreamPlayer:playing")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("../MeshInstance2D:modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("../MeshInstance2D:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("../MeshInstance2D2:visible")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("../MeshInstance2D2:modulate")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("../AudioStreamPlayer2:playing")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_2f8ed"]
+resource_name = "new_animation"
+length = 11.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-418.5, 192), Vector2(319.5, 192)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../ko2:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1210.5, 192), Vector2(572.5, 192)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../ko2:text")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": ["o", ".o"]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../ko2:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.3, 1.7),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 0, 0, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.3, 1.7),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 0, 0, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("../AudioStreamPlayer:playing")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 3.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("../MeshInstance2D:modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.8, 3.7),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 0, 0, 0)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("../MeshInstance2D:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("../MeshInstance2D2:visible")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(4.3, 4.6, 11.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("../MeshInstance2D2:modulate")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(6.7, 11),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("../AudioStreamPlayer2:playing")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0, 2.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_fm7jp"]
+_data = {
+"RESET": SubResource("Animation_a65v4"),
+"new_animation": SubResource("Animation_2f8ed")
+}
+
+[sub_resource type="SystemFont" id="SystemFont_ep8yw"]
+font_names = PackedStringArray("Techno Hideo")
+
+[sub_resource type="BoxMesh" id="BoxMesh_r3tka"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_ks0lf"]
+
+[node name="nivel" type="Node2D" groups=["nivel"]]
+
+[node name="player_h" parent="." instance=ExtResource("1_ohp44")]
+sonido = ExtResource("2_vmyih")
+
+[node name="Camera2D" type="Camera2D" parent="player_h"]
+zoom = Vector2(0.355, 0.355)
+position_smoothing_enabled = true
+script = ExtResource("3_umm1g")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(50, 1590)
+collision_layer = 33
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(1632.57, 3)
+shape = SubResource("RectangleShape2D_3hat4")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="." groups=["no_saltable"]]
+position = Vector2(-408, 1224)
+
+[node name="Icon" type="Sprite2D" parent="StaticBody2D2"]
+position = Vector2(2120, 13.9999)
+scale = Vector2(3, 0.4375)
+texture = ExtResource("4_mkm5v")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+position = Vector2(2120, 23.5625)
+shape = SubResource("RectangleShape2D_j4koo")
+one_way_collision = true
+
+[node name="StaticBody2D5" type="StaticBody2D" parent="." groups=["no_saltable"]]
+position = Vector2(288, 1224)
+
+[node name="Icon" type="Sprite2D" parent="StaticBody2D5"]
+position = Vector2(2120, 13.9999)
+scale = Vector2(3, 0.4375)
+texture = ExtResource("4_mkm5v")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D5"]
+position = Vector2(2120, 24)
+shape = SubResource("RectangleShape2D_j4koo")
+one_way_collision = true
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="." groups=["no_saltable"]]
+position = Vector2(-784, 912)
+metadata/_edit_group_ = true
+
+[node name="Icon" type="Sprite2D" parent="StaticBody2D3"]
+position = Vector2(1324, 13.9999)
+scale = Vector2(3.0625, 0.4375)
+texture = ExtResource("4_mkm5v")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3"]
+position = Vector2(1328, 16)
+shape = SubResource("RectangleShape2D_j4koo")
+one_way_collision = true
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="." groups=["no_saltable"]]
+position = Vector2(-1168, 600)
+
+[node name="Icon" type="Sprite2D" parent="StaticBody2D4"]
+position = Vector2(1200, 13.9999)
+scale = Vector2(3.375, 0.4375)
+texture = ExtResource("4_mkm5v")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D4"]
+position = Vector2(1200, 8)
+shape = SubResource("RectangleShape2D_hpfnp")
+one_way_collision = true
+
+[node name="Boss" type="Node2D" parent="."]
+script = ExtResource("5_xxuv8")
+
+[node name="Baron_von_bots" type="CharacterBody2D" parent="Boss" groups=["Boss"]]
+position = Vector2(2856, 1400)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boss/Baron_von_bots"]
+shape = SubResource("RectangleShape2D_fiqdq")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Boss/Baron_von_bots"]
+position = Vector2(6.86646e-05, 2.28882e-05)
+scale = Vector2(160, 176)
+mesh = SubResource("CapsuleMesh_oethp")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Boss/Baron_von_bots"]
+root_node = NodePath("../..")
+libraries = {
+"": SubResource("AnimationLibrary_66vcp")
+}
+autoplay = "Dash"
+
+[node name="Line2D" type="Line2D" parent="Boss"]
+width_curve = SubResource("Curve_0uwhw")
+default_color = Color(0.662745, 0, 1, 1)
+gradient = SubResource("Gradient_b5xj1")
+
+[node name="KO" type="CanvasLayer" parent="."]
+layer = 3
+scale = Vector2(2, 2)
+transform = Transform2D(2, 0, 0, 2, 0, 0)
+script = ExtResource("6_ixj6g")
+
+[node name="Control" type="Control" parent="KO"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -4.0
+offset_top = 12.0
+offset_right = 36.0
+offset_bottom = 52.0
+scale = Vector2(0.5, 0.5)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="KO/Control"]
+root_node = NodePath("../ko")
+libraries = {
+"": SubResource("AnimationLibrary_fm7jp")
+}
+
+[node name="ko" type="Label" parent="KO/Control"]
+texture_filter = 1
+layout_mode = 0
+offset_left = -1272.0
+offset_top = 192.0
+offset_right = -999.0
+offset_bottom = 445.0
+theme_override_fonts/font = SubResource("SystemFont_ep8yw")
+theme_override_font_sizes/font_size = 400
+text = "K"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ko2" type="Label" parent="KO/Control"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 1420.0
+offset_top = 192.0
+offset_right = 1791.0
+offset_bottom = 445.0
+theme_override_fonts/font = SubResource("SystemFont_ep8yw")
+theme_override_font_sizes/font_size = 400
+text = "o"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="KO/Control"]
+stream = ExtResource("7_alxnp")
+pitch_scale = 1.1
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="KO/Control"]
+visible = false
+modulate = Color(1, 1, 1, 0)
+position = Vector2(602, 388)
+scale = Vector2(1220, 792)
+mesh = SubResource("BoxMesh_r3tka")
+
+[node name="MeshInstance2D2" type="MeshInstance2D" parent="KO/Control"]
+visible = false
+modulate = Color(0, 0, 0, 0)
+position = Vector2(580, 377)
+scale = Vector2(1176, 766)
+mesh = SubResource("BoxMesh_ks0lf")
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="KO/Control"]
+
+[connection signal="animation_finished" from="KO/Control/AnimationPlayer" to="KO" method="_on_animation_player_animation_finished"]

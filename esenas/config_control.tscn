@@ -1,0 +1,494 @@
+[gd_scene load_steps=24 format=3 uid="uid://crc1pc3wduj83"]
+
+[ext_resource type="Theme" uid="uid://qbghq2o1iiep" path="res://dEFAULT.tres" id="1_8f0qs"]
+[ext_resource type="Script" path="res://scrips/config.gd" id="2_r8qnk"]
+[ext_resource type="Script" path="res://scrips/seguro.gd" id="3_38y1t"]
+[ext_resource type="Texture2D" uid="uid://deyfj6vo3alxh" path="res://assets/controls.png" id="3_idngj"]
+[ext_resource type="Script" path="res://scrips/control_buton.gd" id="4_ns3ll"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1fcfc"]
+atlas = ExtResource("3_idngj")
+region = Rect2(128, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7wgfx"]
+atlas = ExtResource("3_idngj")
+region = Rect2(0, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fifww"]
+atlas = ExtResource("3_idngj")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_whj7c"]
+atlas = ExtResource("3_idngj")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g00ii"]
+atlas = ExtResource("3_idngj")
+region = Rect2(96, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2111u"]
+atlas = ExtResource("3_idngj")
+region = Rect2(96, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kos6q"]
+atlas = ExtResource("3_idngj")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6fla2"]
+atlas = ExtResource("3_idngj")
+region = Rect2(32, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e0dkv"]
+atlas = ExtResource("3_idngj")
+region = Rect2(128, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ave1p"]
+atlas = ExtResource("3_idngj")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kaea4"]
+atlas = ExtResource("3_idngj")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lpxfg"]
+atlas = ExtResource("3_idngj")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q2rdm"]
+atlas = ExtResource("3_idngj")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h4ltf"]
+atlas = ExtResource("3_idngj")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pk78l"]
+atlas = ExtResource("3_idngj")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kawcx"]
+atlas = ExtResource("3_idngj")
+region = Rect2(64, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5df8k"]
+atlas = ExtResource("3_idngj")
+region = Rect2(32, 96, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_r5ysk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1fcfc")
+}],
+"loop": true,
+"name": &"a 4",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7wgfx")
+}],
+"loop": true,
+"name": &"a 5",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fifww")
+}],
+"loop": true,
+"name": &"b 0",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_whj7c")
+}],
+"loop": true,
+"name": &"b 1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g00ii")
+}],
+"loop": true,
+"name": &"b 10",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2111u")
+}],
+"loop": true,
+"name": &"b 11",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kos6q")
+}],
+"loop": true,
+"name": &"b 12",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6fla2")
+}],
+"loop": true,
+"name": &"b 13",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e0dkv")
+}],
+"loop": true,
+"name": &"b 14",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ave1p")
+}],
+"loop": true,
+"name": &"b 2",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kaea4")
+}],
+"loop": true,
+"name": &"b 3",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lpxfg")
+}],
+"loop": true,
+"name": &"b 4",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q2rdm")
+}],
+"loop": true,
+"name": &"b 6",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h4ltf")
+}],
+"loop": true,
+"name": &"b 7",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pk78l")
+}],
+"loop": true,
+"name": &"b 8",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kawcx")
+}],
+"loop": true,
+"name": &"b 9",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5df8k")
+}],
+"loop": true,
+"name": &"other",
+"speed": 5.0
+}]
+
+[node name="config" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_8f0qs")
+script = ExtResource("2_r8qnk")
+
+[node name="botones" type="Control" parent="."]
+anchors_preset = 0
+offset_top = -16.0
+offset_right = 40.0
+offset_bottom = 24.0
+
+[node name="Button" type="Button" parent="botones"]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 32.0
+offset_right = 192.0
+offset_bottom = 128.0
+focus_neighbor_bottom = NodePath("../reestablecer")
+theme_override_font_sizes/font_size = 51
+text = "back"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="botones"]
+layout_mode = 0
+offset_left = 952.0
+offset_top = 18.0
+offset_right = 1104.0
+offset_bottom = 654.0
+scale = Vector2(0.964944, 0.573037)
+
+[node name="z" type="Button" parent="botones/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = " 
+ "
+
+[node name="apuntar" type="Button" parent="botones/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "
+
+"
+
+[node name="cambio_de_arma" type="Button" parent="botones/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = " 
+ "
+
+[node name="cure" type="Button" parent="botones/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = " 
+ "
+
+[node name="saltar" type="Button" parent="botones/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "  
+ "
+
+[node name="humo" type="Button" parent="botones/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = " 
+ "
+
+[node name="ulti_1" type="Button" parent="botones/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = " 
+ "
+
+[node name="ulti_2" type="Button" parent="botones/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = " 
+ "
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="botones"]
+layout_mode = 0
+offset_left = 408.0
+offset_top = 19.0
+offset_right = 948.0
+offset_bottom = 655.0
+
+[node name="Label5" type="Label" parent="botones/VBoxContainer2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 54
+text = "disparar"
+horizontal_alignment = 2
+
+[node name="Label6" type="Label" parent="botones/VBoxContainer2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 54
+text = "apuntar"
+horizontal_alignment = 2
+
+[node name="Label7" type="Label" parent="botones/VBoxContainer2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 54
+text = "cambiar de arma"
+horizontal_alignment = 2
+
+[node name="Label8" type="Label" parent="botones/VBoxContainer2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 54
+text = "curar"
+horizontal_alignment = 2
+
+[node name="Label9" type="Label" parent="botones/VBoxContainer2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 54
+text = "saltar"
+horizontal_alignment = 2
+
+[node name="Label10" type="Label" parent="botones/VBoxContainer2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 54
+text = "dash"
+horizontal_alignment = 2
+
+[node name="Label11" type="Label" parent="botones/VBoxContainer2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 54
+text = "ulti 1"
+horizontal_alignment = 2
+
+[node name="Label12" type="Label" parent="botones/VBoxContainer2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 54
+text = "ulti 2"
+horizontal_alignment = 2
+
+[node name="reestablecer" type="Button" parent="botones"]
+layout_mode = 0
+offset_left = 80.0
+offset_top = 544.0
+offset_right = 648.0
+offset_bottom = 631.0
+focus_neighbor_top = NodePath("../Button")
+theme_override_font_sizes/font_size = 31
+text = "Reestablecer controles"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="botones"]
+texture_filter = 1
+position = Vector2(1024, 56)
+scale = Vector2(2.25, 2.125)
+sprite_frames = SubResource("SpriteFrames_r5ysk")
+animation = &"b 0"
+script = ExtResource("4_ns3ll")
+action = "z"
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="botones"]
+texture_filter = 1
+position = Vector2(1024, 136)
+scale = Vector2(2.25, 2.125)
+sprite_frames = SubResource("SpriteFrames_r5ysk")
+animation = &"b 0"
+script = ExtResource("4_ns3ll")
+action = "apuntar"
+
+[node name="AnimatedSprite2D3" type="AnimatedSprite2D" parent="botones"]
+texture_filter = 1
+position = Vector2(1024, 216)
+scale = Vector2(2.25, 2.125)
+sprite_frames = SubResource("SpriteFrames_r5ysk")
+animation = &"b 0"
+script = ExtResource("4_ns3ll")
+action = "cambio_de_arma"
+
+[node name="AnimatedSprite2D4" type="AnimatedSprite2D" parent="botones"]
+texture_filter = 1
+position = Vector2(1024, 296)
+scale = Vector2(2.25, 2.125)
+sprite_frames = SubResource("SpriteFrames_r5ysk")
+animation = &"b 11"
+script = ExtResource("4_ns3ll")
+action = "cure"
+
+[node name="AnimatedSprite2D5" type="AnimatedSprite2D" parent="botones"]
+texture_filter = 1
+position = Vector2(1024, 376)
+scale = Vector2(2.25, 2.125)
+sprite_frames = SubResource("SpriteFrames_r5ysk")
+animation = &"b 0"
+script = ExtResource("4_ns3ll")
+action = "saltar"
+
+[node name="AnimatedSprite2D6" type="AnimatedSprite2D" parent="botones"]
+texture_filter = 1
+position = Vector2(1024, 456)
+scale = Vector2(2.25, 2.125)
+sprite_frames = SubResource("SpriteFrames_r5ysk")
+animation = &"b 10"
+script = ExtResource("4_ns3ll")
+action = "humo"
+
+[node name="AnimatedSprite2D7" type="AnimatedSprite2D" parent="botones"]
+texture_filter = 1
+position = Vector2(1024, 536)
+scale = Vector2(2.25, 2.125)
+sprite_frames = SubResource("SpriteFrames_r5ysk")
+animation = &"b 0"
+script = ExtResource("4_ns3ll")
+action = "ulti_1"
+
+[node name="AnimatedSprite2D8" type="AnimatedSprite2D" parent="botones"]
+texture_filter = 1
+position = Vector2(1024, 616)
+scale = Vector2(2.25, 2.125)
+sprite_frames = SubResource("SpriteFrames_r5ysk")
+animation = &"b 0"
+script = ExtResource("4_ns3ll")
+action = "ulti_2"
+
+[node name="Panel" type="Panel" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 152.0
+offset_top = 104.0
+offset_right = 920.0
+offset_bottom = 504.0
+script = ExtResource("3_38y1t")
+
+[node name="si" type="Button" parent="Panel"]
+layout_mode = 0
+offset_left = 48.0
+offset_top = 208.0
+offset_right = 368.0
+offset_bottom = 336.0
+theme_override_font_sizes/font_size = 56
+text = "si
+"
+
+[node name="no" type="Button" parent="Panel"]
+layout_mode = 0
+offset_left = 400.0
+offset_top = 208.0
+offset_right = 720.0
+offset_bottom = 336.0
+theme_override_font_sizes/font_size = 56
+text = "no
+"
+
+[node name="Label" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 120.0
+offset_top = 32.0
+offset_right = 624.0
+offset_bottom = 159.0
+theme_override_font_sizes/font_size = 91
+text = "¿Seguro?"
+
+[connection signal="pressed" from="botones/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="botones/VBoxContainer/z" to="." method="_on_pressed"]
+[connection signal="pressed" from="botones/VBoxContainer/z" to="." method="_on_disparar_pressed"]
+[connection signal="pressed" from="botones/VBoxContainer/apuntar" to="." method="_on_pressed"]
+[connection signal="pressed" from="botones/VBoxContainer/apuntar" to="." method="_on_apuntar_pressed"]
+[connection signal="pressed" from="botones/VBoxContainer/cambio_de_arma" to="." method="_on_pressed"]
+[connection signal="pressed" from="botones/VBoxContainer/cambio_de_arma" to="." method="_on_cambiar_disparo_pressed"]
+[connection signal="pressed" from="botones/VBoxContainer/cure" to="." method="_on_pressed"]
+[connection signal="pressed" from="botones/VBoxContainer/cure" to="." method="_on_curar_pressed"]
+[connection signal="pressed" from="botones/VBoxContainer/saltar" to="." method="_on_pressed"]
+[connection signal="pressed" from="botones/VBoxContainer/saltar" to="." method="_on_saltar_pressed"]
+[connection signal="pressed" from="botones/VBoxContainer/humo" to="." method="_on_pressed"]
+[connection signal="pressed" from="botones/VBoxContainer/humo" to="." method="_on_dash_pressed"]
+[connection signal="pressed" from="botones/VBoxContainer/ulti_1" to="." method="_on_pressed"]
+[connection signal="pressed" from="botones/VBoxContainer/ulti_1" to="." method="_on_ulti_pressed"]
+[connection signal="pressed" from="botones/VBoxContainer/ulti_2" to="." method="_on_pressed"]
+[connection signal="pressed" from="botones/VBoxContainer/ulti_2" to="." method="_on_ulti_2_pressed"]
+[connection signal="pressed" from="botones/reestablecer" to="." method="_on_reestablecer_pressed"]
+[connection signal="si" from="Panel" to="." method="_on_panel_si"]
+[connection signal="pressed" from="Panel/si" to="Panel" method="_on_si_pressed"]
+[connection signal="pressed" from="Panel/no" to="Panel" method="_on_no_pressed"]

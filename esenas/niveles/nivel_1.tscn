@@ -1,0 +1,2363 @@
+[gd_scene load_steps=17 format=3 uid="uid://dkqjow7cdd32b"]
+
+[ext_resource type="Script" path="res://scrips/nivel_1.gd" id="1_7wwtl"]
+[ext_resource type="Texture2D" uid="uid://dw2abhm6y6xka" path="res://assets/sky/black.png" id="1_ludxs"]
+[ext_resource type="Texture2D" uid="uid://d1butjtih8i4d" path="res://assets/sky/pink.png" id="2_df4ly"]
+[ext_resource type="Script" path="res://scrips/Stars.gd" id="3_oggrs"]
+[ext_resource type="Texture2D" uid="uid://vncrge0j1fj1" path="res://assets/sky/purple.png" id="4_q251f"]
+[ext_resource type="Texture2D" uid="uid://dlo1fxrnr6hpj" path="res://assets/sky/blue.png" id="5_o7ojo"]
+[ext_resource type="Texture2D" uid="uid://b8f3oie4ctyu8" path="res://assets/sky/stars.png" id="6_ga4cv"]
+[ext_resource type="PackedScene" uid="uid://cd2r5atehqje7" path="res://esenas/player.tscn" id="7_1ylwy"]
+[ext_resource type="Script" path="res://scrips/spauner.gd" id="8_qt7ro"]
+[ext_resource type="PackedScene" uid="uid://ckvye2jilofkn" path="res://esenas/bulleto_prime.tscn" id="10_6r6pa"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e8obc"]
+size = Vector2(2092, 18.0001)
+
+[sub_resource type="BoxMesh" id="BoxMesh_qn15r"]
+
+[sub_resource type="Animation" id="Animation_6s35j"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Area2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_krvo2"]
+resource_name = "new_animation"
+length = 1.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Area2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.5708]
+}
+
+[sub_resource type="Animation" id="Animation_li1dp"]
+resource_name = "new_animation_2"
+length = 1.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Area2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, -1.5708]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_27b5u"]
+_data = {
+"RESET": SubResource("Animation_6s35j"),
+"new_animation": SubResource("Animation_krvo2"),
+"new_animation_2": SubResource("Animation_li1dp")
+}
+
+[node name="Nivel 1" type="Node2D"]
+script = ExtResource("1_7wwtl")
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+scale = Vector2(2, 2)
+transform = Transform2D(2, 0, 0, 2, 0, 0)
+
+[node name="Black" type="Sprite2D" parent="ParallaxBackground"]
+position = Vector2(564, 316)
+scale = Vector2(10.8125, 7.9375)
+texture = ExtResource("1_ludxs")
+
+[node name="Pink" type="Sprite2D" parent="ParallaxBackground"]
+modulate = Color(1, 1, 1, 0.392157)
+texture_filter = 1
+position = Vector2(490, -652)
+scale = Vector2(7.34375, 6.59375)
+texture = ExtResource("2_df4ly")
+script = ExtResource("3_oggrs")
+vele = 150.0
+posi = Vector2(490, -652)
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="ParallaxBackground/Pink"]
+position = Vector2(-2.45107, -59.1469)
+
+[node name="Purple" type="Sprite2D" parent="ParallaxBackground"]
+modulate = Color(1, 1, 1, 0.392157)
+texture_filter = 1
+position = Vector2(1208, -1464)
+scale = Vector2(15.625, 13.875)
+texture = ExtResource("4_q251f")
+script = ExtResource("3_oggrs")
+vele = 200.0
+posi = Vector2(1192, -904)
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="ParallaxBackground/Purple"]
+position = Vector2(-27.648, -75.5315)
+
+[node name="Blue" type="Sprite2D" parent="ParallaxBackground"]
+modulate = Color(1, 1, 1, 0.392157)
+texture_filter = 1
+position = Vector2(424, -1256)
+rotation = -3.14159
+scale = Vector2(6.929, -5.65139)
+texture = ExtResource("5_o7ojo")
+script = ExtResource("3_oggrs")
+vele = 300.0
+posi = Vector2(1456, -1496)
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="ParallaxBackground/Blue"]
+position = Vector2(34.9083, -74.2301)
+
+[node name="Stars" type="Sprite2D" parent="ParallaxBackground"]
+modulate = Color(1, 1, 1, 0.392157)
+texture_filter = 1
+position = Vector2(576, -376)
+scale = Vector2(9, 5.85156)
+texture = ExtResource("6_ga4cv")
+script = ExtResource("3_oggrs")
+vele = 70.0
+posi = Vector2(576, -328)
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="ParallaxBackground/Stars"]
+position = Vector2(-3.44444, -78.2222)
+
+[node name="Stars3" type="Sprite2D" parent="ParallaxBackground"]
+modulate = Color(1, 1, 1, 0.392157)
+texture_filter = 1
+position = Vector2(572, 376)
+scale = Vector2(9.0625, 5.875)
+texture = ExtResource("6_ga4cv")
+script = ExtResource("3_oggrs")
+vele = 70.0
+posi = Vector2(576, -328)
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="ParallaxBackground/Stars3"]
+position = Vector2(-3.44444, -78.2222)
+
+[node name="Stars2" type="Sprite2D" parent="ParallaxBackground"]
+modulate = Color(1, 1, 1, 0.392157)
+texture_filter = 1
+position = Vector2(576, 376)
+rotation = 1.5708
+scale = Vector2(5.92894, 9.15724)
+texture = ExtResource("6_ga4cv")
+script = ExtResource("3_oggrs")
+vele = 350.0
+posi = Vector2(560, -320)
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="ParallaxBackground/Stars2"]
+position = Vector2(-80.176, 2.94416)
+
+[node name="Stars4" type="Sprite2D" parent="ParallaxBackground"]
+modulate = Color(1, 1, 1, 0.392157)
+texture_filter = 1
+position = Vector2(584, -384)
+rotation = 1.5708
+scale = Vector2(5.99001, 9.0804)
+texture = ExtResource("6_ga4cv")
+script = ExtResource("3_oggrs")
+vele = 350.0
+posi = Vector2(560, -320)
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="ParallaxBackground/Stars4"]
+position = Vector2(-80.176, 2.94416)
+
+[node name="player" parent="." instance=ExtResource("7_1ylwy")]
+position = Vector2(80, -184)
+dano_p = 0.5
+
+[node name="DIE_MORE2" type="Node2D" parent="player"]
+
+[node name="enemies" type="Node2D" parent="."]
+
+[node name="Node2D" type="Node2D" parent="enemies" groups=["bala_enemy"]]
+position = Vector2(328, -6144)
+
+[node name="Area2D" type="Area2D" parent="enemies/Node2D"]
+modulate = Color(1, 0, 0.305882, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="enemies/Node2D/Area2D"]
+shape = SubResource("RectangleShape2D_e8obc")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="enemies/Node2D/Area2D"]
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_e8obc")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="enemies/Node2D/Area2D"]
+position = Vector2(0, -7.15256e-07)
+scale = Vector2(2112, 64)
+mesh = SubResource("BoxMesh_qn15r")
+
+[node name="MeshInstance2D2" type="MeshInstance2D" parent="enemies/Node2D/Area2D"]
+position = Vector2(0, -7.15256e-07)
+rotation = 1.5708
+scale = Vector2(2112, 64)
+mesh = SubResource("BoxMesh_qn15r")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="enemies/Node2D"]
+libraries = {
+"": SubResource("AnimationLibrary_27b5u")
+}
+autoplay = "new_animation"
+
+[node name="Node2D2" type="Node2D" parent="enemies" groups=["bala_enemy"]]
+position = Vector2(2480, -8008)
+
+[node name="Area2D" type="Area2D" parent="enemies/Node2D2"]
+modulate = Color(1, 0, 0.305882, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="enemies/Node2D2/Area2D"]
+shape = SubResource("RectangleShape2D_e8obc")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="enemies/Node2D2/Area2D"]
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_e8obc")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="enemies/Node2D2/Area2D"]
+position = Vector2(0, -7.15256e-07)
+scale = Vector2(2112, 64)
+mesh = SubResource("BoxMesh_qn15r")
+
+[node name="MeshInstance2D2" type="MeshInstance2D" parent="enemies/Node2D2/Area2D"]
+position = Vector2(0, -7.15256e-07)
+rotation = 1.5708
+scale = Vector2(2112, 64)
+mesh = SubResource("BoxMesh_qn15r")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="enemies/Node2D2"]
+libraries = {
+"": SubResource("AnimationLibrary_27b5u")
+}
+autoplay = "new_animation"
+
+[node name="Node2D3" type="Node2D" parent="enemies" groups=["bala_enemy"]]
+position = Vector2(1152, -11208)
+
+[node name="Area2D" type="Area2D" parent="enemies/Node2D3"]
+modulate = Color(1, 0, 0.305882, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="enemies/Node2D3/Area2D"]
+shape = SubResource("RectangleShape2D_e8obc")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="enemies/Node2D3/Area2D"]
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_e8obc")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="enemies/Node2D3/Area2D"]
+position = Vector2(0, -7.15256e-07)
+scale = Vector2(2112, 64)
+mesh = SubResource("BoxMesh_qn15r")
+
+[node name="MeshInstance2D2" type="MeshInstance2D" parent="enemies/Node2D3/Area2D"]
+position = Vector2(0, -7.15256e-07)
+rotation = 1.5708
+scale = Vector2(2112, 64)
+mesh = SubResource("BoxMesh_qn15r")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="enemies/Node2D3"]
+libraries = {
+"": SubResource("AnimationLibrary_27b5u")
+}
+autoplay = "new_animation"
+
+[node name="Node2D4" type="Node2D" parent="enemies" groups=["bala_enemy"]]
+position = Vector2(2992, -14376)
+
+[node name="Area2D" type="Area2D" parent="enemies/Node2D4"]
+modulate = Color(1, 0, 0.305882, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="enemies/Node2D4/Area2D"]
+shape = SubResource("RectangleShape2D_e8obc")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="enemies/Node2D4/Area2D"]
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_e8obc")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="enemies/Node2D4/Area2D"]
+position = Vector2(0, -7.15256e-07)
+scale = Vector2(2112, 64)
+mesh = SubResource("BoxMesh_qn15r")
+
+[node name="MeshInstance2D2" type="MeshInstance2D" parent="enemies/Node2D4/Area2D"]
+position = Vector2(0, -7.15256e-07)
+rotation = 1.5708
+scale = Vector2(2112, 64)
+mesh = SubResource("BoxMesh_qn15r")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="enemies/Node2D4"]
+libraries = {
+"": SubResource("AnimationLibrary_27b5u")
+}
+autoplay = "new_animation"
+
+[node name="Node2D7" type="Node2D" parent="enemies" groups=["bala_enemy"]]
+position = Vector2(880, -19528)
+
+[node name="Area2D" type="Area2D" parent="enemies/Node2D7"]
+modulate = Color(1, 0, 0.305882, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="enemies/Node2D7/Area2D"]
+shape = SubResource("RectangleShape2D_e8obc")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="enemies/Node2D7/Area2D"]
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_e8obc")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="enemies/Node2D7/Area2D"]
+position = Vector2(0, -7.15256e-07)
+scale = Vector2(2112, 64)
+mesh = SubResource("BoxMesh_qn15r")
+
+[node name="MeshInstance2D2" type="MeshInstance2D" parent="enemies/Node2D7/Area2D"]
+position = Vector2(0, -7.15256e-07)
+rotation = 1.5708
+scale = Vector2(2112, 64)
+mesh = SubResource("BoxMesh_qn15r")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="enemies/Node2D7"]
+libraries = {
+"": SubResource("AnimationLibrary_27b5u")
+}
+autoplay = "new_animation"
+
+[node name="Node2D14" type="Node2D" parent="enemies" groups=["bala_enemy"]]
+position = Vector2(3776, -25272)
+
+[node name="Area2D" type="Area2D" parent="enemies/Node2D14"]
+modulate = Color(1, 0, 0.305882, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="enemies/Node2D14/Area2D"]
+shape = SubResource("RectangleShape2D_e8obc")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="enemies/Node2D14/Area2D"]
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_e8obc")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="enemies/Node2D14/Area2D"]
+position = Vector2(0, -7.15256e-07)
+scale = Vector2(2112, 64)
+mesh = SubResource("BoxMesh_qn15r")
+
+[node name="MeshInstance2D2" type="MeshInstance2D" parent="enemies/Node2D14/Area2D"]
+position = Vector2(0, -7.15256e-07)
+rotation = 1.5708
+scale = Vector2(2112, 64)
+mesh = SubResource("BoxMesh_qn15r")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="enemies/Node2D14"]
+libraries = {
+"": SubResource("AnimationLibrary_27b5u")
+}
+autoplay = "new_animation"
+
+[node name="Node2D15" type="Node2D" parent="enemies" groups=["bala_enemy"]]
+position = Vector2(2104, -28392)
+
+[node name="Area2D" type="Area2D" parent="enemies/Node2D15"]
+modulate = Color(1, 0, 0.305882, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="enemies/Node2D15/Area2D"]
+shape = SubResource("RectangleShape2D_e8obc")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="enemies/Node2D15/Area2D"]
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_e8obc")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="enemies/Node2D15/Area2D"]
+position = Vector2(0, -7.15256e-07)
+scale = Vector2(2112, 64)
+mesh = SubResource("BoxMesh_qn15r")
+
+[node name="MeshInstance2D2" type="MeshInstance2D" parent="enemies/Node2D15/Area2D"]
+position = Vector2(0, -7.15256e-07)
+rotation = 1.5708
+scale = Vector2(2112, 64)
+mesh = SubResource("BoxMesh_qn15r")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="enemies/Node2D15"]
+libraries = {
+"": SubResource("AnimationLibrary_27b5u")
+}
+autoplay = "new_animation"
+
+[node name="Node2D16" type="Node2D" parent="enemies" groups=["bala_enemy"]]
+position = Vector2(2248, -32960)
+
+[node name="Area2D" type="Area2D" parent="enemies/Node2D16"]
+modulate = Color(1, 0, 0.305882, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="enemies/Node2D16/Area2D"]
+shape = SubResource("RectangleShape2D_e8obc")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="enemies/Node2D16/Area2D"]
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_e8obc")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="enemies/Node2D16/Area2D"]
+position = Vector2(0, -7.15256e-07)
+scale = Vector2(2112, 64)
+mesh = SubResource("BoxMesh_qn15r")
+
+[node name="MeshInstance2D2" type="MeshInstance2D" parent="enemies/Node2D16/Area2D"]
+position = Vector2(0, -7.15256e-07)
+rotation = 1.5708
+scale = Vector2(2112, 64)
+mesh = SubResource("BoxMesh_qn15r")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="enemies/Node2D16"]
+libraries = {
+"": SubResource("AnimationLibrary_27b5u")
+}
+autoplay = "new_animation"
+
+[node name="Node2D17" type="Node2D" parent="enemies" groups=["bala_enemy"]]
+position = Vector2(4480, -30472)
+
+[node name="Area2D" type="Area2D" parent="enemies/Node2D17"]
+modulate = Color(1, 0, 0.305882, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="enemies/Node2D17/Area2D"]
+shape = SubResource("RectangleShape2D_e8obc")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="enemies/Node2D17/Area2D"]
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_e8obc")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="enemies/Node2D17/Area2D"]
+position = Vector2(0, -7.15256e-07)
+scale = Vector2(2112, 64)
+mesh = SubResource("BoxMesh_qn15r")
+
+[node name="MeshInstance2D2" type="MeshInstance2D" parent="enemies/Node2D17/Area2D"]
+position = Vector2(0, -7.15256e-07)
+rotation = 1.5708
+scale = Vector2(2112, 64)
+mesh = SubResource("BoxMesh_qn15r")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="enemies/Node2D17"]
+libraries = {
+"": SubResource("AnimationLibrary_27b5u")
+}
+autoplay = "new_animation"
+
+[node name="Node2D5" type="Node2D" parent="enemies" groups=["bala_enemy"]]
+position = Vector2(2992, -14376)
+
+[node name="Area2D" type="Area2D" parent="enemies/Node2D5"]
+modulate = Color(1, 0.427451, 0.203922, 1)
+position = Vector2(-1728, -160)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="enemies/Node2D5/Area2D"]
+shape = SubResource("RectangleShape2D_e8obc")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="enemies/Node2D5/Area2D"]
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_e8obc")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="enemies/Node2D5/Area2D"]
+position = Vector2(0, -7.15256e-07)
+scale = Vector2(2112, 64)
+mesh = SubResource("BoxMesh_qn15r")
+
+[node name="MeshInstance2D2" type="MeshInstance2D" parent="enemies/Node2D5/Area2D"]
+position = Vector2(0, -7.15256e-07)
+rotation = 1.5708
+scale = Vector2(2112, 64)
+mesh = SubResource("BoxMesh_qn15r")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="enemies/Node2D5"]
+libraries = {
+"": SubResource("AnimationLibrary_27b5u")
+}
+autoplay = "new_animation_2"
+
+[node name="Node2D8" type="Node2D" parent="enemies" groups=["bala_enemy"]]
+position = Vector2(2912, -23424)
+
+[node name="Area2D" type="Area2D" parent="enemies/Node2D8"]
+modulate = Color(1, 0.427451, 0.203922, 1)
+position = Vector2(-1728, -160)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="enemies/Node2D8/Area2D"]
+shape = SubResource("RectangleShape2D_e8obc")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="enemies/Node2D8/Area2D"]
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_e8obc")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="enemies/Node2D8/Area2D"]
+position = Vector2(0, -7.15256e-07)
+scale = Vector2(2112, 64)
+mesh = SubResource("BoxMesh_qn15r")
+
+[node name="MeshInstance2D2" type="MeshInstance2D" parent="enemies/Node2D8/Area2D"]
+position = Vector2(0, -7.15256e-07)
+rotation = 1.5708
+scale = Vector2(2112, 64)
+mesh = SubResource("BoxMesh_qn15r")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="enemies/Node2D8"]
+libraries = {
+"": SubResource("AnimationLibrary_27b5u")
+}
+autoplay = "new_animation_2"
+
+[node name="Node2D9" type="Node2D" parent="enemies" groups=["bala_enemy"]]
+position = Vector2(5248, -22056)
+
+[node name="Area2D" type="Area2D" parent="enemies/Node2D9"]
+modulate = Color(1, 0.427451, 0.203922, 1)
+position = Vector2(-1728, -160)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="enemies/Node2D9/Area2D"]
+shape = SubResource("RectangleShape2D_e8obc")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="enemies/Node2D9/Area2D"]
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_e8obc")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="enemies/Node2D9/Area2D"]
+position = Vector2(0, -7.15256e-07)
+scale = Vector2(2112, 64)
+mesh = SubResource("BoxMesh_qn15r")
+
+[node name="MeshInstance2D2" type="MeshInstance2D" parent="enemies/Node2D9/Area2D"]
+position = Vector2(0, -7.15256e-07)
+rotation = 1.5708
+scale = Vector2(2112, 64)
+mesh = SubResource("BoxMesh_qn15r")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="enemies/Node2D9"]
+libraries = {
+"": SubResource("AnimationLibrary_27b5u")
+}
+autoplay = "new_animation_2"
+
+[node name="Node2D10" type="Node2D" parent="enemies" groups=["bala_enemy"]]
+position = Vector2(3592, -26248)
+
+[node name="Area2D" type="Area2D" parent="enemies/Node2D10"]
+modulate = Color(1, 0.427451, 0.203922, 1)
+position = Vector2(-1728, -160)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="enemies/Node2D10/Area2D"]
+shape = SubResource("RectangleShape2D_e8obc")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="enemies/Node2D10/Area2D"]
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_e8obc")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="enemies/Node2D10/Area2D"]
+position = Vector2(0, -7.15256e-07)
+scale = Vector2(2112, 64)
+mesh = SubResource("BoxMesh_qn15r")
+
+[node name="MeshInstance2D2" type="MeshInstance2D" parent="enemies/Node2D10/Area2D"]
+position = Vector2(0, -7.15256e-07)
+rotation = 1.5708
+scale = Vector2(2112, 64)
+mesh = SubResource("BoxMesh_qn15r")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="enemies/Node2D10"]
+libraries = {
+"": SubResource("AnimationLibrary_27b5u")
+}
+autoplay = "new_animation_2"
+
+[node name="Node2D11" type="Node2D" parent="enemies" groups=["bala_enemy"]]
+position = Vector2(5872, -27928)
+
+[node name="Area2D" type="Area2D" parent="enemies/Node2D11"]
+modulate = Color(1, 0.427451, 0.203922, 1)
+position = Vector2(-1728, -160)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="enemies/Node2D11/Area2D"]
+shape = SubResource("RectangleShape2D_e8obc")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="enemies/Node2D11/Area2D"]
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_e8obc")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="enemies/Node2D11/Area2D"]
+position = Vector2(0, -7.15256e-07)
+scale = Vector2(2112, 64)
+mesh = SubResource("BoxMesh_qn15r")
+
+[node name="MeshInstance2D2" type="MeshInstance2D" parent="enemies/Node2D11/Area2D"]
+position = Vector2(0, -7.15256e-07)
+rotation = 1.5708
+scale = Vector2(2112, 64)
+mesh = SubResource("BoxMesh_qn15r")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="enemies/Node2D11"]
+libraries = {
+"": SubResource("AnimationLibrary_27b5u")
+}
+autoplay = "new_animation_2"
+
+[node name="Node2D12" type="Node2D" parent="enemies" groups=["bala_enemy"]]
+position = Vector2(3904, -30016)
+
+[node name="Area2D" type="Area2D" parent="enemies/Node2D12"]
+modulate = Color(1, 0.427451, 0.203922, 1)
+position = Vector2(-1728, -160)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="enemies/Node2D12/Area2D"]
+shape = SubResource("RectangleShape2D_e8obc")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="enemies/Node2D12/Area2D"]
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_e8obc")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="enemies/Node2D12/Area2D"]
+position = Vector2(0, -7.15256e-07)
+scale = Vector2(2112, 64)
+mesh = SubResource("BoxMesh_qn15r")
+
+[node name="MeshInstance2D2" type="MeshInstance2D" parent="enemies/Node2D12/Area2D"]
+position = Vector2(0, -7.15256e-07)
+rotation = 1.5708
+scale = Vector2(2112, 64)
+mesh = SubResource("BoxMesh_qn15r")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="enemies/Node2D12"]
+libraries = {
+"": SubResource("AnimationLibrary_27b5u")
+}
+autoplay = "new_animation_2"
+
+[node name="Node2D13" type="Node2D" parent="enemies" groups=["bala_enemy"]]
+position = Vector2(6136, -32800)
+
+[node name="Area2D" type="Area2D" parent="enemies/Node2D13"]
+modulate = Color(1, 0.427451, 0.203922, 1)
+position = Vector2(-1728, -160)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="enemies/Node2D13/Area2D"]
+shape = SubResource("RectangleShape2D_e8obc")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="enemies/Node2D13/Area2D"]
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_e8obc")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="enemies/Node2D13/Area2D"]
+position = Vector2(0, -7.15256e-07)
+scale = Vector2(2112, 64)
+mesh = SubResource("BoxMesh_qn15r")
+
+[node name="MeshInstance2D2" type="MeshInstance2D" parent="enemies/Node2D13/Area2D"]
+position = Vector2(0, -7.15256e-07)
+rotation = 1.5708
+scale = Vector2(2112, 64)
+mesh = SubResource("BoxMesh_qn15r")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="enemies/Node2D13"]
+libraries = {
+"": SubResource("AnimationLibrary_27b5u")
+}
+autoplay = "new_animation_2"
+
+[node name="Node2D6" type="Node2D" parent="enemies" groups=["bala_enemy"]]
+position = Vector2(5248, -17824)
+rotation = -0.261799
+
+[node name="Area2D" type="Area2D" parent="enemies/Node2D6"]
+modulate = Color(1, 0.427451, 0.203922, 1)
+position = Vector2(-1728, -160)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="enemies/Node2D6/Area2D"]
+shape = SubResource("RectangleShape2D_e8obc")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="enemies/Node2D6/Area2D"]
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_e8obc")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="enemies/Node2D6/Area2D"]
+position = Vector2(0, -7.15256e-07)
+scale = Vector2(2112, 64)
+mesh = SubResource("BoxMesh_qn15r")
+
+[node name="MeshInstance2D2" type="MeshInstance2D" parent="enemies/Node2D6/Area2D"]
+position = Vector2(0, -7.15256e-07)
+rotation = 1.5708
+scale = Vector2(2112, 64)
+mesh = SubResource("BoxMesh_qn15r")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="enemies/Node2D6"]
+libraries = {
+"": SubResource("AnimationLibrary_27b5u")
+}
+autoplay = "new_animation_2"
+
+[node name="Node2D18" type="Node2D" parent="enemies" groups=["bala_enemy"]]
+position = Vector2(-2776, -6144)
+
+[node name="Area2D" type="Area2D" parent="enemies/Node2D18"]
+modulate = Color(1, 0, 0.305882, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="enemies/Node2D18/Area2D"]
+shape = SubResource("RectangleShape2D_e8obc")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="enemies/Node2D18/Area2D"]
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_e8obc")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="enemies/Node2D18/Area2D"]
+position = Vector2(0, -7.15256e-07)
+scale = Vector2(2112, 64)
+mesh = SubResource("BoxMesh_qn15r")
+
+[node name="MeshInstance2D2" type="MeshInstance2D" parent="enemies/Node2D18/Area2D"]
+position = Vector2(0, -7.15256e-07)
+rotation = 1.5708
+scale = Vector2(2112, 64)
+mesh = SubResource("BoxMesh_qn15r")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="enemies/Node2D18"]
+libraries = {
+"": SubResource("AnimationLibrary_27b5u")
+}
+autoplay = "new_animation"
+
+[node name="Node2D19" type="Node2D" parent="enemies" groups=["bala_enemy"]]
+position = Vector2(-624, -8008)
+
+[node name="Area2D" type="Area2D" parent="enemies/Node2D19"]
+modulate = Color(1, 0, 0.305882, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="enemies/Node2D19/Area2D"]
+shape = SubResource("RectangleShape2D_e8obc")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="enemies/Node2D19/Area2D"]
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_e8obc")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="enemies/Node2D19/Area2D"]
+position = Vector2(0, -7.15256e-07)
+scale = Vector2(2112, 64)
+mesh = SubResource("BoxMesh_qn15r")
+
+[node name="MeshInstance2D2" type="MeshInstance2D" parent="enemies/Node2D19/Area2D"]
+position = Vector2(0, -7.15256e-07)
+rotation = 1.5708
+scale = Vector2(2112, 64)
+mesh = SubResource("BoxMesh_qn15r")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="enemies/Node2D19"]
+libraries = {
+"": SubResource("AnimationLibrary_27b5u")
+}
+autoplay = "new_animation"
+
+[node name="Node2D20" type="Node2D" parent="enemies" groups=["bala_enemy"]]
+position = Vector2(-1952, -11208)
+
+[node name="Area2D" type="Area2D" parent="enemies/Node2D20"]
+modulate = Color(1, 0, 0.305882, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="enemies/Node2D20/Area2D"]
+shape = SubResource("RectangleShape2D_e8obc")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="enemies/Node2D20/Area2D"]
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_e8obc")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="enemies/Node2D20/Area2D"]
+position = Vector2(0, -7.15256e-07)
+scale = Vector2(2112, 64)
+mesh = SubResource("BoxMesh_qn15r")
+
+[node name="MeshInstance2D2" type="MeshInstance2D" parent="enemies/Node2D20/Area2D"]
+position = Vector2(0, -7.15256e-07)
+rotation = 1.5708
+scale = Vector2(2112, 64)
+mesh = SubResource("BoxMesh_qn15r")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="enemies/Node2D20"]
+libraries = {
+"": SubResource("AnimationLibrary_27b5u")
+}
+autoplay = "new_animation"
+
+[node name="Node2D21" type="Node2D" parent="enemies" groups=["bala_enemy"]]
+position = Vector2(-112, -14376)
+
+[node name="Area2D" type="Area2D" parent="enemies/Node2D21"]
+modulate = Color(1, 0, 0.305882, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="enemies/Node2D21/Area2D"]
+shape = SubResource("RectangleShape2D_e8obc")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="enemies/Node2D21/Area2D"]
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_e8obc")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="enemies/Node2D21/Area2D"]
+position = Vector2(0, -7.15256e-07)
+scale = Vector2(2112, 64)
+mesh = SubResource("BoxMesh_qn15r")
+
+[node name="MeshInstance2D2" type="MeshInstance2D" parent="enemies/Node2D21/Area2D"]
+position = Vector2(0, -7.15256e-07)
+rotation = 1.5708
+scale = Vector2(2112, 64)
+mesh = SubResource("BoxMesh_qn15r")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="enemies/Node2D21"]
+libraries = {
+"": SubResource("AnimationLibrary_27b5u")
+}
+autoplay = "new_animation"
+
+[node name="Node2D22" type="Node2D" parent="enemies" groups=["bala_enemy"]]
+position = Vector2(-2224, -19528)
+
+[node name="Area2D" type="Area2D" parent="enemies/Node2D22"]
+modulate = Color(1, 0, 0.305882, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="enemies/Node2D22/Area2D"]
+shape = SubResource("RectangleShape2D_e8obc")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="enemies/Node2D22/Area2D"]
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_e8obc")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="enemies/Node2D22/Area2D"]
+position = Vector2(0, -7.15256e-07)
+scale = Vector2(2112, 64)
+mesh = SubResource("BoxMesh_qn15r")
+
+[node name="MeshInstance2D2" type="MeshInstance2D" parent="enemies/Node2D22/Area2D"]
+position = Vector2(0, -7.15256e-07)
+rotation = 1.5708
+scale = Vector2(2112, 64)
+mesh = SubResource("BoxMesh_qn15r")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="enemies/Node2D22"]
+libraries = {
+"": SubResource("AnimationLibrary_27b5u")
+}
+autoplay = "new_animation"
+
+[node name="Node2D23" type="Node2D" parent="enemies" groups=["bala_enemy"]]
+position = Vector2(672, -25272)
+
+[node name="Area2D" type="Area2D" parent="enemies/Node2D23"]
+modulate = Color(1, 0, 0.305882, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="enemies/Node2D23/Area2D"]
+shape = SubResource("RectangleShape2D_e8obc")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="enemies/Node2D23/Area2D"]
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_e8obc")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="enemies/Node2D23/Area2D"]
+position = Vector2(0, -7.15256e-07)
+scale = Vector2(2112, 64)
+mesh = SubResource("BoxMesh_qn15r")
+
+[node name="MeshInstance2D2" type="MeshInstance2D" parent="enemies/Node2D23/Area2D"]
+position = Vector2(0, -7.15256e-07)
+rotation = 1.5708
+scale = Vector2(2112, 64)
+mesh = SubResource("BoxMesh_qn15r")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="enemies/Node2D23"]
+libraries = {
+"": SubResource("AnimationLibrary_27b5u")
+}
+autoplay = "new_animation"
+
+[node name="Node2D24" type="Node2D" parent="enemies" groups=["bala_enemy"]]
+position = Vector2(-1000, -28392)
+
+[node name="Area2D" type="Area2D" parent="enemies/Node2D24"]
+modulate = Color(1, 0, 0.305882, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="enemies/Node2D24/Area2D"]
+shape = SubResource("RectangleShape2D_e8obc")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="enemies/Node2D24/Area2D"]
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_e8obc")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="enemies/Node2D24/Area2D"]
+position = Vector2(0, -7.15256e-07)
+scale = Vector2(2112, 64)
+mesh = SubResource("BoxMesh_qn15r")
+
+[node name="MeshInstance2D2" type="MeshInstance2D" parent="enemies/Node2D24/Area2D"]
+position = Vector2(0, -7.15256e-07)
+rotation = 1.5708
+scale = Vector2(2112, 64)
+mesh = SubResource("BoxMesh_qn15r")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="enemies/Node2D24"]
+libraries = {
+"": SubResource("AnimationLibrary_27b5u")
+}
+autoplay = "new_animation"
+
+[node name="Node2D25" type="Node2D" parent="enemies" groups=["bala_enemy"]]
+position = Vector2(-856, -32960)
+
+[node name="Area2D" type="Area2D" parent="enemies/Node2D25"]
+modulate = Color(1, 0, 0.305882, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="enemies/Node2D25/Area2D"]
+shape = SubResource("RectangleShape2D_e8obc")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="enemies/Node2D25/Area2D"]
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_e8obc")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="enemies/Node2D25/Area2D"]
+position = Vector2(0, -7.15256e-07)
+scale = Vector2(2112, 64)
+mesh = SubResource("BoxMesh_qn15r")
+
+[node name="MeshInstance2D2" type="MeshInstance2D" parent="enemies/Node2D25/Area2D"]
+position = Vector2(0, -7.15256e-07)
+rotation = 1.5708
+scale = Vector2(2112, 64)
+mesh = SubResource("BoxMesh_qn15r")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="enemies/Node2D25"]
+libraries = {
+"": SubResource("AnimationLibrary_27b5u")
+}
+autoplay = "new_animation"
+
+[node name="Node2D26" type="Node2D" parent="enemies" groups=["bala_enemy"]]
+position = Vector2(1376, -30472)
+
+[node name="Area2D" type="Area2D" parent="enemies/Node2D26"]
+modulate = Color(1, 0, 0.305882, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="enemies/Node2D26/Area2D"]
+shape = SubResource("RectangleShape2D_e8obc")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="enemies/Node2D26/Area2D"]
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_e8obc")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="enemies/Node2D26/Area2D"]
+position = Vector2(0, -7.15256e-07)
+scale = Vector2(2112, 64)
+mesh = SubResource("BoxMesh_qn15r")
+
+[node name="MeshInstance2D2" type="MeshInstance2D" parent="enemies/Node2D26/Area2D"]
+position = Vector2(0, -7.15256e-07)
+rotation = 1.5708
+scale = Vector2(2112, 64)
+mesh = SubResource("BoxMesh_qn15r")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="enemies/Node2D26"]
+libraries = {
+"": SubResource("AnimationLibrary_27b5u")
+}
+autoplay = "new_animation"
+
+[node name="Node2D27" type="Node2D" parent="enemies" groups=["bala_enemy"]]
+position = Vector2(-112, -14376)
+
+[node name="Area2D" type="Area2D" parent="enemies/Node2D27"]
+modulate = Color(1, 0.427451, 0.203922, 1)
+position = Vector2(-1728, -160)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="enemies/Node2D27/Area2D"]
+shape = SubResource("RectangleShape2D_e8obc")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="enemies/Node2D27/Area2D"]
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_e8obc")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="enemies/Node2D27/Area2D"]
+position = Vector2(0, -7.15256e-07)
+scale = Vector2(2112, 64)
+mesh = SubResource("BoxMesh_qn15r")
+
+[node name="MeshInstance2D2" type="MeshInstance2D" parent="enemies/Node2D27/Area2D"]
+position = Vector2(0, -7.15256e-07)
+rotation = 1.5708
+scale = Vector2(2112, 64)
+mesh = SubResource("BoxMesh_qn15r")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="enemies/Node2D27"]
+libraries = {
+"": SubResource("AnimationLibrary_27b5u")
+}
+autoplay = "new_animation_2"
+
+[node name="Node2D28" type="Node2D" parent="enemies" groups=["bala_enemy"]]
+position = Vector2(-192, -23424)
+
+[node name="Area2D" type="Area2D" parent="enemies/Node2D28"]
+modulate = Color(1, 0.427451, 0.203922, 1)
+position = Vector2(-1728, -160)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="enemies/Node2D28/Area2D"]
+shape = SubResource("RectangleShape2D_e8obc")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="enemies/Node2D28/Area2D"]
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_e8obc")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="enemies/Node2D28/Area2D"]
+position = Vector2(0, -7.15256e-07)
+scale = Vector2(2112, 64)
+mesh = SubResource("BoxMesh_qn15r")
+
+[node name="MeshInstance2D2" type="MeshInstance2D" parent="enemies/Node2D28/Area2D"]
+position = Vector2(0, -7.15256e-07)
+rotation = 1.5708
+scale = Vector2(2112, 64)
+mesh = SubResource("BoxMesh_qn15r")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="enemies/Node2D28"]
+libraries = {
+"": SubResource("AnimationLibrary_27b5u")
+}
+autoplay = "new_animation_2"
+
+[node name="Node2D29" type="Node2D" parent="enemies" groups=["bala_enemy"]]
+position = Vector2(2144, -22056)
+
+[node name="Area2D" type="Area2D" parent="enemies/Node2D29"]
+modulate = Color(1, 0.427451, 0.203922, 1)
+position = Vector2(-1728, -160)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="enemies/Node2D29/Area2D"]
+shape = SubResource("RectangleShape2D_e8obc")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="enemies/Node2D29/Area2D"]
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_e8obc")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="enemies/Node2D29/Area2D"]
+position = Vector2(0, -7.15256e-07)
+scale = Vector2(2112, 64)
+mesh = SubResource("BoxMesh_qn15r")
+
+[node name="MeshInstance2D2" type="MeshInstance2D" parent="enemies/Node2D29/Area2D"]
+position = Vector2(0, -7.15256e-07)
+rotation = 1.5708
+scale = Vector2(2112, 64)
+mesh = SubResource("BoxMesh_qn15r")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="enemies/Node2D29"]
+libraries = {
+"": SubResource("AnimationLibrary_27b5u")
+}
+autoplay = "new_animation_2"
+
+[node name="Node2D30" type="Node2D" parent="enemies" groups=["bala_enemy"]]
+position = Vector2(488, -26248)
+
+[node name="Area2D" type="Area2D" parent="enemies/Node2D30"]
+modulate = Color(1, 0.427451, 0.203922, 1)
+position = Vector2(-1728, -160)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="enemies/Node2D30/Area2D"]
+shape = SubResource("RectangleShape2D_e8obc")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="enemies/Node2D30/Area2D"]
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_e8obc")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="enemies/Node2D30/Area2D"]
+position = Vector2(0, -7.15256e-07)
+scale = Vector2(2112, 64)
+mesh = SubResource("BoxMesh_qn15r")
+
+[node name="MeshInstance2D2" type="MeshInstance2D" parent="enemies/Node2D30/Area2D"]
+position = Vector2(0, -7.15256e-07)
+rotation = 1.5708
+scale = Vector2(2112, 64)
+mesh = SubResource("BoxMesh_qn15r")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="enemies/Node2D30"]
+libraries = {
+"": SubResource("AnimationLibrary_27b5u")
+}
+autoplay = "new_animation_2"
+
+[node name="Node2D31" type="Node2D" parent="enemies" groups=["bala_enemy"]]
+position = Vector2(2768, -27928)
+
+[node name="Area2D" type="Area2D" parent="enemies/Node2D31"]
+modulate = Color(1, 0.427451, 0.203922, 1)
+position = Vector2(-1728, -160)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="enemies/Node2D31/Area2D"]
+shape = SubResource("RectangleShape2D_e8obc")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="enemies/Node2D31/Area2D"]
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_e8obc")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="enemies/Node2D31/Area2D"]
+position = Vector2(0, -7.15256e-07)
+scale = Vector2(2112, 64)
+mesh = SubResource("BoxMesh_qn15r")
+
+[node name="MeshInstance2D2" type="MeshInstance2D" parent="enemies/Node2D31/Area2D"]
+position = Vector2(0, -7.15256e-07)
+rotation = 1.5708
+scale = Vector2(2112, 64)
+mesh = SubResource("BoxMesh_qn15r")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="enemies/Node2D31"]
+libraries = {
+"": SubResource("AnimationLibrary_27b5u")
+}
+autoplay = "new_animation_2"
+
+[node name="Node2D32" type="Node2D" parent="enemies" groups=["bala_enemy"]]
+position = Vector2(800, -30016)
+
+[node name="Area2D" type="Area2D" parent="enemies/Node2D32"]
+modulate = Color(1, 0.427451, 0.203922, 1)
+position = Vector2(-1728, -160)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="enemies/Node2D32/Area2D"]
+shape = SubResource("RectangleShape2D_e8obc")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="enemies/Node2D32/Area2D"]
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_e8obc")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="enemies/Node2D32/Area2D"]
+position = Vector2(0, -7.15256e-07)
+scale = Vector2(2112, 64)
+mesh = SubResource("BoxMesh_qn15r")
+
+[node name="MeshInstance2D2" type="MeshInstance2D" parent="enemies/Node2D32/Area2D"]
+position = Vector2(0, -7.15256e-07)
+rotation = 1.5708
+scale = Vector2(2112, 64)
+mesh = SubResource("BoxMesh_qn15r")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="enemies/Node2D32"]
+libraries = {
+"": SubResource("AnimationLibrary_27b5u")
+}
+autoplay = "new_animation_2"
+
+[node name="Node2D33" type="Node2D" parent="enemies" groups=["bala_enemy"]]
+position = Vector2(3032, -32800)
+
+[node name="Area2D" type="Area2D" parent="enemies/Node2D33"]
+modulate = Color(1, 0.427451, 0.203922, 1)
+position = Vector2(-1728, -160)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="enemies/Node2D33/Area2D"]
+shape = SubResource("RectangleShape2D_e8obc")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="enemies/Node2D33/Area2D"]
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_e8obc")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="enemies/Node2D33/Area2D"]
+position = Vector2(0, -7.15256e-07)
+scale = Vector2(2112, 64)
+mesh = SubResource("BoxMesh_qn15r")
+
+[node name="MeshInstance2D2" type="MeshInstance2D" parent="enemies/Node2D33/Area2D"]
+position = Vector2(0, -7.15256e-07)
+rotation = 1.5708
+scale = Vector2(2112, 64)
+mesh = SubResource("BoxMesh_qn15r")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="enemies/Node2D33"]
+libraries = {
+"": SubResource("AnimationLibrary_27b5u")
+}
+autoplay = "new_animation_2"
+
+[node name="Node2D34" type="Node2D" parent="enemies" groups=["bala_enemy"]]
+position = Vector2(2144, -17824)
+rotation = -0.261799
+
+[node name="Area2D" type="Area2D" parent="enemies/Node2D34"]
+modulate = Color(1, 0.427451, 0.203922, 1)
+position = Vector2(-1728, -160)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="enemies/Node2D34/Area2D"]
+shape = SubResource("RectangleShape2D_e8obc")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="enemies/Node2D34/Area2D"]
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_e8obc")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="enemies/Node2D34/Area2D"]
+position = Vector2(0, -7.15256e-07)
+scale = Vector2(2112, 64)
+mesh = SubResource("BoxMesh_qn15r")
+
+[node name="MeshInstance2D2" type="MeshInstance2D" parent="enemies/Node2D34/Area2D"]
+position = Vector2(0, -7.15256e-07)
+rotation = 1.5708
+scale = Vector2(2112, 64)
+mesh = SubResource("BoxMesh_qn15r")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="enemies/Node2D34"]
+libraries = {
+"": SubResource("AnimationLibrary_27b5u")
+}
+autoplay = "new_animation_2"
+
+[node name="Node2D35" type="Node2D" parent="enemies" groups=["bala_enemy"]]
+position = Vector2(-368, -35208)
+rotation = 3.14159
+
+[node name="Area2D" type="Area2D" parent="enemies/Node2D35"]
+modulate = Color(1, 0, 0.305882, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="enemies/Node2D35/Area2D"]
+shape = SubResource("RectangleShape2D_e8obc")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="enemies/Node2D35/Area2D"]
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_e8obc")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="enemies/Node2D35/Area2D"]
+position = Vector2(0, -7.15256e-07)
+scale = Vector2(2112, 64)
+mesh = SubResource("BoxMesh_qn15r")
+
+[node name="MeshInstance2D2" type="MeshInstance2D" parent="enemies/Node2D35/Area2D"]
+position = Vector2(0, -7.15256e-07)
+rotation = 1.5708
+scale = Vector2(2112, 64)
+mesh = SubResource("BoxMesh_qn15r")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="enemies/Node2D35"]
+libraries = {
+"": SubResource("AnimationLibrary_27b5u")
+}
+autoplay = "new_animation"
+
+[node name="Node2D36" type="Node2D" parent="enemies" groups=["bala_enemy"]]
+position = Vector2(1784, -37072)
+rotation = 3.14159
+
+[node name="Area2D" type="Area2D" parent="enemies/Node2D36"]
+modulate = Color(1, 0, 0.305882, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="enemies/Node2D36/Area2D"]
+shape = SubResource("RectangleShape2D_e8obc")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="enemies/Node2D36/Area2D"]
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_e8obc")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="enemies/Node2D36/Area2D"]
+position = Vector2(0, -7.15256e-07)
+scale = Vector2(2112, 64)
+mesh = SubResource("BoxMesh_qn15r")
+
+[node name="MeshInstance2D2" type="MeshInstance2D" parent="enemies/Node2D36/Area2D"]
+position = Vector2(0, -7.15256e-07)
+rotation = 1.5708
+scale = Vector2(2112, 64)
+mesh = SubResource("BoxMesh_qn15r")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="enemies/Node2D36"]
+libraries = {
+"": SubResource("AnimationLibrary_27b5u")
+}
+autoplay = "new_animation"
+
+[node name="Node2D37" type="Node2D" parent="enemies" groups=["bala_enemy"]]
+position = Vector2(456, -40272)
+rotation = 3.14159
+
+[node name="Area2D" type="Area2D" parent="enemies/Node2D37"]
+modulate = Color(1, 0, 0.305882, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="enemies/Node2D37/Area2D"]
+shape = SubResource("RectangleShape2D_e8obc")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="enemies/Node2D37/Area2D"]
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_e8obc")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="enemies/Node2D37/Area2D"]
+position = Vector2(0, -7.15256e-07)
+scale = Vector2(2112, 64)
+mesh = SubResource("BoxMesh_qn15r")
+
+[node name="MeshInstance2D2" type="MeshInstance2D" parent="enemies/Node2D37/Area2D"]
+position = Vector2(0, -7.15256e-07)
+rotation = 1.5708
+scale = Vector2(2112, 64)
+mesh = SubResource("BoxMesh_qn15r")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="enemies/Node2D37"]
+libraries = {
+"": SubResource("AnimationLibrary_27b5u")
+}
+autoplay = "new_animation"
+
+[node name="Node2D38" type="Node2D" parent="enemies" groups=["bala_enemy"]]
+position = Vector2(2296, -43440)
+rotation = 3.14159
+
+[node name="Area2D" type="Area2D" parent="enemies/Node2D38"]
+modulate = Color(1, 0, 0.305882, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="enemies/Node2D38/Area2D"]
+shape = SubResource("RectangleShape2D_e8obc")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="enemies/Node2D38/Area2D"]
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_e8obc")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="enemies/Node2D38/Area2D"]
+position = Vector2(0, -7.15256e-07)
+scale = Vector2(2112, 64)
+mesh = SubResource("BoxMesh_qn15r")
+
+[node name="MeshInstance2D2" type="MeshInstance2D" parent="enemies/Node2D38/Area2D"]
+position = Vector2(0, -7.15256e-07)
+rotation = 1.5708
+scale = Vector2(2112, 64)
+mesh = SubResource("BoxMesh_qn15r")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="enemies/Node2D38"]
+libraries = {
+"": SubResource("AnimationLibrary_27b5u")
+}
+autoplay = "new_animation"
+
+[node name="Node2D39" type="Node2D" parent="enemies" groups=["bala_enemy"]]
+position = Vector2(184, -48592)
+rotation = 3.14159
+
+[node name="Area2D" type="Area2D" parent="enemies/Node2D39"]
+modulate = Color(1, 0, 0.305882, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="enemies/Node2D39/Area2D"]
+shape = SubResource("RectangleShape2D_e8obc")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="enemies/Node2D39/Area2D"]
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_e8obc")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="enemies/Node2D39/Area2D"]
+position = Vector2(0, -7.15256e-07)
+scale = Vector2(2112, 64)
+mesh = SubResource("BoxMesh_qn15r")
+
+[node name="MeshInstance2D2" type="MeshInstance2D" parent="enemies/Node2D39/Area2D"]
+position = Vector2(0, -7.15256e-07)
+rotation = 1.5708
+scale = Vector2(2112, 64)
+mesh = SubResource("BoxMesh_qn15r")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="enemies/Node2D39"]
+libraries = {
+"": SubResource("AnimationLibrary_27b5u")
+}
+autoplay = "new_animation"
+
+[node name="Node2D40" type="Node2D" parent="enemies" groups=["bala_enemy"]]
+position = Vector2(3080, -54336)
+rotation = 3.14159
+
+[node name="Area2D" type="Area2D" parent="enemies/Node2D40"]
+modulate = Color(1, 0, 0.305882, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="enemies/Node2D40/Area2D"]
+shape = SubResource("RectangleShape2D_e8obc")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="enemies/Node2D40/Area2D"]
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_e8obc")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="enemies/Node2D40/Area2D"]
+position = Vector2(0, -7.15256e-07)
+scale = Vector2(2112, 64)
+mesh = SubResource("BoxMesh_qn15r")
+
+[node name="MeshInstance2D2" type="MeshInstance2D" parent="enemies/Node2D40/Area2D"]
+position = Vector2(0, -7.15256e-07)
+rotation = 1.5708
+scale = Vector2(2112, 64)
+mesh = SubResource("BoxMesh_qn15r")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="enemies/Node2D40"]
+libraries = {
+"": SubResource("AnimationLibrary_27b5u")
+}
+autoplay = "new_animation"
+
+[node name="Node2D41" type="Node2D" parent="enemies" groups=["bala_enemy"]]
+position = Vector2(1408, -57456)
+rotation = 3.14159
+
+[node name="Area2D" type="Area2D" parent="enemies/Node2D41"]
+modulate = Color(1, 0, 0.305882, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="enemies/Node2D41/Area2D"]
+shape = SubResource("RectangleShape2D_e8obc")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="enemies/Node2D41/Area2D"]
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_e8obc")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="enemies/Node2D41/Area2D"]
+position = Vector2(0, -7.15256e-07)
+scale = Vector2(2112, 64)
+mesh = SubResource("BoxMesh_qn15r")
+
+[node name="MeshInstance2D2" type="MeshInstance2D" parent="enemies/Node2D41/Area2D"]
+position = Vector2(0, -7.15256e-07)
+rotation = 1.5708
+scale = Vector2(2112, 64)
+mesh = SubResource("BoxMesh_qn15r")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="enemies/Node2D41"]
+libraries = {
+"": SubResource("AnimationLibrary_27b5u")
+}
+autoplay = "new_animation"
+
+[node name="Node2D42" type="Node2D" parent="enemies" groups=["bala_enemy"]]
+position = Vector2(1552, -62024)
+rotation = 3.14159
+
+[node name="Area2D" type="Area2D" parent="enemies/Node2D42"]
+modulate = Color(1, 0, 0.305882, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="enemies/Node2D42/Area2D"]
+shape = SubResource("RectangleShape2D_e8obc")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="enemies/Node2D42/Area2D"]
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_e8obc")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="enemies/Node2D42/Area2D"]
+position = Vector2(0, -7.15256e-07)
+scale = Vector2(2112, 64)
+mesh = SubResource("BoxMesh_qn15r")
+
+[node name="MeshInstance2D2" type="MeshInstance2D" parent="enemies/Node2D42/Area2D"]
+position = Vector2(0, -7.15256e-07)
+rotation = 1.5708
+scale = Vector2(2112, 64)
+mesh = SubResource("BoxMesh_qn15r")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="enemies/Node2D42"]
+libraries = {
+"": SubResource("AnimationLibrary_27b5u")
+}
+autoplay = "new_animation"
+
+[node name="Node2D43" type="Node2D" parent="enemies" groups=["bala_enemy"]]
+position = Vector2(3784, -59536)
+rotation = 3.14159
+
+[node name="Area2D" type="Area2D" parent="enemies/Node2D43"]
+modulate = Color(1, 0, 0.305882, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="enemies/Node2D43/Area2D"]
+shape = SubResource("RectangleShape2D_e8obc")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="enemies/Node2D43/Area2D"]
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_e8obc")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="enemies/Node2D43/Area2D"]
+position = Vector2(0, -7.15256e-07)
+scale = Vector2(2112, 64)
+mesh = SubResource("BoxMesh_qn15r")
+
+[node name="MeshInstance2D2" type="MeshInstance2D" parent="enemies/Node2D43/Area2D"]
+position = Vector2(0, -7.15256e-07)
+rotation = 1.5708
+scale = Vector2(2112, 64)
+mesh = SubResource("BoxMesh_qn15r")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="enemies/Node2D43"]
+libraries = {
+"": SubResource("AnimationLibrary_27b5u")
+}
+autoplay = "new_animation"
+
+[node name="Node2D44" type="Node2D" parent="enemies" groups=["bala_enemy"]]
+position = Vector2(2296, -43440)
+rotation = 3.14159
+
+[node name="Area2D" type="Area2D" parent="enemies/Node2D44"]
+modulate = Color(1, 0.427451, 0.203922, 1)
+position = Vector2(-1728, -160)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="enemies/Node2D44/Area2D"]
+shape = SubResource("RectangleShape2D_e8obc")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="enemies/Node2D44/Area2D"]
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_e8obc")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="enemies/Node2D44/Area2D"]
+position = Vector2(0, -7.15256e-07)
+scale = Vector2(2112, 64)
+mesh = SubResource("BoxMesh_qn15r")
+
+[node name="MeshInstance2D2" type="MeshInstance2D" parent="enemies/Node2D44/Area2D"]
+position = Vector2(0, -7.15256e-07)
+rotation = 1.5708
+scale = Vector2(2112, 64)
+mesh = SubResource("BoxMesh_qn15r")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="enemies/Node2D44"]
+libraries = {
+"": SubResource("AnimationLibrary_27b5u")
+}
+autoplay = "new_animation_2"
+
+[node name="Node2D45" type="Node2D" parent="enemies" groups=["bala_enemy"]]
+position = Vector2(2216, -52488)
+rotation = 3.14159
+
+[node name="Area2D" type="Area2D" parent="enemies/Node2D45"]
+modulate = Color(1, 0.427451, 0.203922, 1)
+position = Vector2(-1728, -160)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="enemies/Node2D45/Area2D"]
+shape = SubResource("RectangleShape2D_e8obc")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="enemies/Node2D45/Area2D"]
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_e8obc")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="enemies/Node2D45/Area2D"]
+position = Vector2(0, -7.15256e-07)
+scale = Vector2(2112, 64)
+mesh = SubResource("BoxMesh_qn15r")
+
+[node name="MeshInstance2D2" type="MeshInstance2D" parent="enemies/Node2D45/Area2D"]
+position = Vector2(0, -7.15256e-07)
+rotation = 1.5708
+scale = Vector2(2112, 64)
+mesh = SubResource("BoxMesh_qn15r")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="enemies/Node2D45"]
+libraries = {
+"": SubResource("AnimationLibrary_27b5u")
+}
+autoplay = "new_animation_2"
+
+[node name="Node2D46" type="Node2D" parent="enemies" groups=["bala_enemy"]]
+position = Vector2(4552, -51120)
+rotation = 3.14159
+
+[node name="Area2D" type="Area2D" parent="enemies/Node2D46"]
+modulate = Color(1, 0.427451, 0.203922, 1)
+position = Vector2(-1728, -160)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="enemies/Node2D46/Area2D"]
+shape = SubResource("RectangleShape2D_e8obc")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="enemies/Node2D46/Area2D"]
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_e8obc")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="enemies/Node2D46/Area2D"]
+position = Vector2(0, -7.15256e-07)
+scale = Vector2(2112, 64)
+mesh = SubResource("BoxMesh_qn15r")
+
+[node name="MeshInstance2D2" type="MeshInstance2D" parent="enemies/Node2D46/Area2D"]
+position = Vector2(0, -7.15256e-07)
+rotation = 1.5708
+scale = Vector2(2112, 64)
+mesh = SubResource("BoxMesh_qn15r")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="enemies/Node2D46"]
+libraries = {
+"": SubResource("AnimationLibrary_27b5u")
+}
+autoplay = "new_animation_2"
+
+[node name="Node2D47" type="Node2D" parent="enemies" groups=["bala_enemy"]]
+position = Vector2(2896, -55312)
+rotation = 3.14159
+
+[node name="Area2D" type="Area2D" parent="enemies/Node2D47"]
+modulate = Color(1, 0.427451, 0.203922, 1)
+position = Vector2(-1728, -160)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="enemies/Node2D47/Area2D"]
+shape = SubResource("RectangleShape2D_e8obc")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="enemies/Node2D47/Area2D"]
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_e8obc")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="enemies/Node2D47/Area2D"]
+position = Vector2(0, -7.15256e-07)
+scale = Vector2(2112, 64)
+mesh = SubResource("BoxMesh_qn15r")
+
+[node name="MeshInstance2D2" type="MeshInstance2D" parent="enemies/Node2D47/Area2D"]
+position = Vector2(0, -7.15256e-07)
+rotation = 1.5708
+scale = Vector2(2112, 64)
+mesh = SubResource("BoxMesh_qn15r")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="enemies/Node2D47"]
+libraries = {
+"": SubResource("AnimationLibrary_27b5u")
+}
+autoplay = "new_animation_2"
+
+[node name="Node2D48" type="Node2D" parent="enemies" groups=["bala_enemy"]]
+position = Vector2(5176, -56992)
+rotation = 3.14159
+
+[node name="Area2D" type="Area2D" parent="enemies/Node2D48"]
+modulate = Color(1, 0.427451, 0.203922, 1)
+position = Vector2(-1728, -160)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="enemies/Node2D48/Area2D"]
+shape = SubResource("RectangleShape2D_e8obc")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="enemies/Node2D48/Area2D"]
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_e8obc")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="enemies/Node2D48/Area2D"]
+position = Vector2(0, -7.15256e-07)
+scale = Vector2(2112, 64)
+mesh = SubResource("BoxMesh_qn15r")
+
+[node name="MeshInstance2D2" type="MeshInstance2D" parent="enemies/Node2D48/Area2D"]
+position = Vector2(0, -7.15256e-07)
+rotation = 1.5708
+scale = Vector2(2112, 64)
+mesh = SubResource("BoxMesh_qn15r")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="enemies/Node2D48"]
+libraries = {
+"": SubResource("AnimationLibrary_27b5u")
+}
+autoplay = "new_animation_2"
+
+[node name="Node2D49" type="Node2D" parent="enemies" groups=["bala_enemy"]]
+position = Vector2(3208, -59080)
+rotation = 3.14159
+
+[node name="Area2D" type="Area2D" parent="enemies/Node2D49"]
+modulate = Color(1, 0.427451, 0.203922, 1)
+position = Vector2(-1728, -160)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="enemies/Node2D49/Area2D"]
+shape = SubResource("RectangleShape2D_e8obc")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="enemies/Node2D49/Area2D"]
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_e8obc")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="enemies/Node2D49/Area2D"]
+position = Vector2(0, -7.15256e-07)
+scale = Vector2(2112, 64)
+mesh = SubResource("BoxMesh_qn15r")
+
+[node name="MeshInstance2D2" type="MeshInstance2D" parent="enemies/Node2D49/Area2D"]
+position = Vector2(0, -7.15256e-07)
+rotation = 1.5708
+scale = Vector2(2112, 64)
+mesh = SubResource("BoxMesh_qn15r")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="enemies/Node2D49"]
+libraries = {
+"": SubResource("AnimationLibrary_27b5u")
+}
+autoplay = "new_animation_2"
+
+[node name="Node2D50" type="Node2D" parent="enemies" groups=["bala_enemy"]]
+position = Vector2(5440, -61864)
+rotation = 3.14159
+
+[node name="Area2D" type="Area2D" parent="enemies/Node2D50"]
+modulate = Color(1, 0.427451, 0.203922, 1)
+position = Vector2(-1728, -160)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="enemies/Node2D50/Area2D"]
+shape = SubResource("RectangleShape2D_e8obc")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="enemies/Node2D50/Area2D"]
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_e8obc")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="enemies/Node2D50/Area2D"]
+position = Vector2(0, -7.15256e-07)
+scale = Vector2(2112, 64)
+mesh = SubResource("BoxMesh_qn15r")
+
+[node name="MeshInstance2D2" type="MeshInstance2D" parent="enemies/Node2D50/Area2D"]
+position = Vector2(0, -7.15256e-07)
+rotation = 1.5708
+scale = Vector2(2112, 64)
+mesh = SubResource("BoxMesh_qn15r")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="enemies/Node2D50"]
+libraries = {
+"": SubResource("AnimationLibrary_27b5u")
+}
+autoplay = "new_animation_2"
+
+[node name="Node2D51" type="Node2D" parent="enemies" groups=["bala_enemy"]]
+position = Vector2(4552, -46888)
+rotation = 3.14159
+
+[node name="Area2D" type="Area2D" parent="enemies/Node2D51"]
+modulate = Color(1, 0.427451, 0.203922, 1)
+position = Vector2(-1728, -160)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="enemies/Node2D51/Area2D"]
+shape = SubResource("RectangleShape2D_e8obc")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="enemies/Node2D51/Area2D"]
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_e8obc")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="enemies/Node2D51/Area2D"]
+position = Vector2(0, -7.15256e-07)
+scale = Vector2(2112, 64)
+mesh = SubResource("BoxMesh_qn15r")
+
+[node name="MeshInstance2D2" type="MeshInstance2D" parent="enemies/Node2D51/Area2D"]
+position = Vector2(0, -7.15256e-07)
+rotation = 1.5708
+scale = Vector2(2112, 64)
+mesh = SubResource("BoxMesh_qn15r")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="enemies/Node2D51"]
+libraries = {
+"": SubResource("AnimationLibrary_27b5u")
+}
+autoplay = "new_animation_2"
+
+[node name="Node2D52" type="Node2D" parent="enemies" groups=["bala_enemy"]]
+position = Vector2(-3472, -35208)
+rotation = 3.14159
+
+[node name="Area2D" type="Area2D" parent="enemies/Node2D52"]
+modulate = Color(1, 0, 0.305882, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="enemies/Node2D52/Area2D"]
+shape = SubResource("RectangleShape2D_e8obc")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="enemies/Node2D52/Area2D"]
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_e8obc")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="enemies/Node2D52/Area2D"]
+position = Vector2(0, -7.15256e-07)
+scale = Vector2(2112, 64)
+mesh = SubResource("BoxMesh_qn15r")
+
+[node name="MeshInstance2D2" type="MeshInstance2D" parent="enemies/Node2D52/Area2D"]
+position = Vector2(0, -7.15256e-07)
+rotation = 1.5708
+scale = Vector2(2112, 64)
+mesh = SubResource("BoxMesh_qn15r")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="enemies/Node2D52"]
+libraries = {
+"": SubResource("AnimationLibrary_27b5u")
+}
+autoplay = "new_animation"
+
+[node name="Node2D53" type="Node2D" parent="enemies" groups=["bala_enemy"]]
+position = Vector2(-1320, -37072)
+rotation = 3.14159
+
+[node name="Area2D" type="Area2D" parent="enemies/Node2D53"]
+modulate = Color(1, 0, 0.305882, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="enemies/Node2D53/Area2D"]
+shape = SubResource("RectangleShape2D_e8obc")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="enemies/Node2D53/Area2D"]
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_e8obc")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="enemies/Node2D53/Area2D"]
+position = Vector2(0, -7.15256e-07)
+scale = Vector2(2112, 64)
+mesh = SubResource("BoxMesh_qn15r")
+
+[node name="MeshInstance2D2" type="MeshInstance2D" parent="enemies/Node2D53/Area2D"]
+position = Vector2(0, -7.15256e-07)
+rotation = 1.5708
+scale = Vector2(2112, 64)
+mesh = SubResource("BoxMesh_qn15r")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="enemies/Node2D53"]
+libraries = {
+"": SubResource("AnimationLibrary_27b5u")
+}
+autoplay = "new_animation"
+
+[node name="Node2D54" type="Node2D" parent="enemies" groups=["bala_enemy"]]
+position = Vector2(-2648, -40272)
+rotation = 3.14159
+
+[node name="Area2D" type="Area2D" parent="enemies/Node2D54"]
+modulate = Color(1, 0, 0.305882, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="enemies/Node2D54/Area2D"]
+shape = SubResource("RectangleShape2D_e8obc")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="enemies/Node2D54/Area2D"]
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_e8obc")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="enemies/Node2D54/Area2D"]
+position = Vector2(0, -7.15256e-07)
+scale = Vector2(2112, 64)
+mesh = SubResource("BoxMesh_qn15r")
+
+[node name="MeshInstance2D2" type="MeshInstance2D" parent="enemies/Node2D54/Area2D"]
+position = Vector2(0, -7.15256e-07)
+rotation = 1.5708
+scale = Vector2(2112, 64)
+mesh = SubResource("BoxMesh_qn15r")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="enemies/Node2D54"]
+libraries = {
+"": SubResource("AnimationLibrary_27b5u")
+}
+autoplay = "new_animation"
+
+[node name="Node2D55" type="Node2D" parent="enemies" groups=["bala_enemy"]]
+position = Vector2(-808, -43440)
+rotation = 3.14159
+
+[node name="Area2D" type="Area2D" parent="enemies/Node2D55"]
+modulate = Color(1, 0, 0.305882, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="enemies/Node2D55/Area2D"]
+shape = SubResource("RectangleShape2D_e8obc")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="enemies/Node2D55/Area2D"]
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_e8obc")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="enemies/Node2D55/Area2D"]
+position = Vector2(0, -7.15256e-07)
+scale = Vector2(2112, 64)
+mesh = SubResource("BoxMesh_qn15r")
+
+[node name="MeshInstance2D2" type="MeshInstance2D" parent="enemies/Node2D55/Area2D"]
+position = Vector2(0, -7.15256e-07)
+rotation = 1.5708
+scale = Vector2(2112, 64)
+mesh = SubResource("BoxMesh_qn15r")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="enemies/Node2D55"]
+libraries = {
+"": SubResource("AnimationLibrary_27b5u")
+}
+autoplay = "new_animation"
+
+[node name="Node2D56" type="Node2D" parent="enemies" groups=["bala_enemy"]]
+position = Vector2(-2920, -48592)
+rotation = 3.14159
+
+[node name="Area2D" type="Area2D" parent="enemies/Node2D56"]
+modulate = Color(1, 0, 0.305882, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="enemies/Node2D56/Area2D"]
+shape = SubResource("RectangleShape2D_e8obc")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="enemies/Node2D56/Area2D"]
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_e8obc")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="enemies/Node2D56/Area2D"]
+position = Vector2(0, -7.15256e-07)
+scale = Vector2(2112, 64)
+mesh = SubResource("BoxMesh_qn15r")
+
+[node name="MeshInstance2D2" type="MeshInstance2D" parent="enemies/Node2D56/Area2D"]
+position = Vector2(0, -7.15256e-07)
+rotation = 1.5708
+scale = Vector2(2112, 64)
+mesh = SubResource("BoxMesh_qn15r")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="enemies/Node2D56"]
+libraries = {
+"": SubResource("AnimationLibrary_27b5u")
+}
+autoplay = "new_animation"
+
+[node name="Node2D57" type="Node2D" parent="enemies" groups=["bala_enemy"]]
+position = Vector2(-24, -54336)
+rotation = 3.14159
+
+[node name="Area2D" type="Area2D" parent="enemies/Node2D57"]
+modulate = Color(1, 0, 0.305882, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="enemies/Node2D57/Area2D"]
+shape = SubResource("RectangleShape2D_e8obc")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="enemies/Node2D57/Area2D"]
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_e8obc")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="enemies/Node2D57/Area2D"]
+position = Vector2(0, -7.15256e-07)
+scale = Vector2(2112, 64)
+mesh = SubResource("BoxMesh_qn15r")
+
+[node name="MeshInstance2D2" type="MeshInstance2D" parent="enemies/Node2D57/Area2D"]
+position = Vector2(0, -7.15256e-07)
+rotation = 1.5708
+scale = Vector2(2112, 64)
+mesh = SubResource("BoxMesh_qn15r")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="enemies/Node2D57"]
+libraries = {
+"": SubResource("AnimationLibrary_27b5u")
+}
+autoplay = "new_animation"
+
+[node name="Node2D58" type="Node2D" parent="enemies" groups=["bala_enemy"]]
+position = Vector2(-1696, -57456)
+rotation = 3.14159
+
+[node name="Area2D" type="Area2D" parent="enemies/Node2D58"]
+modulate = Color(1, 0, 0.305882, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="enemies/Node2D58/Area2D"]
+shape = SubResource("RectangleShape2D_e8obc")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="enemies/Node2D58/Area2D"]
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_e8obc")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="enemies/Node2D58/Area2D"]
+position = Vector2(0, -7.15256e-07)
+scale = Vector2(2112, 64)
+mesh = SubResource("BoxMesh_qn15r")
+
+[node name="MeshInstance2D2" type="MeshInstance2D" parent="enemies/Node2D58/Area2D"]
+position = Vector2(0, -7.15256e-07)
+rotation = 1.5708
+scale = Vector2(2112, 64)
+mesh = SubResource("BoxMesh_qn15r")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="enemies/Node2D58"]
+libraries = {
+"": SubResource("AnimationLibrary_27b5u")
+}
+autoplay = "new_animation"
+
+[node name="Node2D59" type="Node2D" parent="enemies" groups=["bala_enemy"]]
+position = Vector2(-1552, -62024)
+rotation = 3.14159
+
+[node name="Area2D" type="Area2D" parent="enemies/Node2D59"]
+modulate = Color(1, 0, 0.305882, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="enemies/Node2D59/Area2D"]
+shape = SubResource("RectangleShape2D_e8obc")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="enemies/Node2D59/Area2D"]
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_e8obc")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="enemies/Node2D59/Area2D"]
+position = Vector2(0, -7.15256e-07)
+scale = Vector2(2112, 64)
+mesh = SubResource("BoxMesh_qn15r")
+
+[node name="MeshInstance2D2" type="MeshInstance2D" parent="enemies/Node2D59/Area2D"]
+position = Vector2(0, -7.15256e-07)
+rotation = 1.5708
+scale = Vector2(2112, 64)
+mesh = SubResource("BoxMesh_qn15r")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="enemies/Node2D59"]
+libraries = {
+"": SubResource("AnimationLibrary_27b5u")
+}
+autoplay = "new_animation"
+
+[node name="Node2D60" type="Node2D" parent="enemies" groups=["bala_enemy"]]
+position = Vector2(680, -59536)
+rotation = 3.14159
+
+[node name="Area2D" type="Area2D" parent="enemies/Node2D60"]
+modulate = Color(1, 0, 0.305882, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="enemies/Node2D60/Area2D"]
+shape = SubResource("RectangleShape2D_e8obc")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="enemies/Node2D60/Area2D"]
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_e8obc")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="enemies/Node2D60/Area2D"]
+position = Vector2(0, -7.15256e-07)
+scale = Vector2(2112, 64)
+mesh = SubResource("BoxMesh_qn15r")
+
+[node name="MeshInstance2D2" type="MeshInstance2D" parent="enemies/Node2D60/Area2D"]
+position = Vector2(0, -7.15256e-07)
+rotation = 1.5708
+scale = Vector2(2112, 64)
+mesh = SubResource("BoxMesh_qn15r")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="enemies/Node2D60"]
+libraries = {
+"": SubResource("AnimationLibrary_27b5u")
+}
+autoplay = "new_animation"
+
+[node name="Node2D61" type="Node2D" parent="enemies" groups=["bala_enemy"]]
+position = Vector2(-808, -43440)
+rotation = 3.14159
+
+[node name="Area2D" type="Area2D" parent="enemies/Node2D61"]
+modulate = Color(1, 0.427451, 0.203922, 1)
+position = Vector2(-1728, -160)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="enemies/Node2D61/Area2D"]
+shape = SubResource("RectangleShape2D_e8obc")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="enemies/Node2D61/Area2D"]
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_e8obc")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="enemies/Node2D61/Area2D"]
+position = Vector2(0, -7.15256e-07)
+scale = Vector2(2112, 64)
+mesh = SubResource("BoxMesh_qn15r")
+
+[node name="MeshInstance2D2" type="MeshInstance2D" parent="enemies/Node2D61/Area2D"]
+position = Vector2(0, -7.15256e-07)
+rotation = 1.5708
+scale = Vector2(2112, 64)
+mesh = SubResource("BoxMesh_qn15r")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="enemies/Node2D61"]
+libraries = {
+"": SubResource("AnimationLibrary_27b5u")
+}
+autoplay = "new_animation_2"
+
+[node name="Node2D62" type="Node2D" parent="enemies" groups=["bala_enemy"]]
+position = Vector2(-888, -52488)
+rotation = 3.14159
+
+[node name="Area2D" type="Area2D" parent="enemies/Node2D62"]
+modulate = Color(1, 0.427451, 0.203922, 1)
+position = Vector2(-1728, -160)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="enemies/Node2D62/Area2D"]
+shape = SubResource("RectangleShape2D_e8obc")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="enemies/Node2D62/Area2D"]
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_e8obc")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="enemies/Node2D62/Area2D"]
+position = Vector2(0, -7.15256e-07)
+scale = Vector2(2112, 64)
+mesh = SubResource("BoxMesh_qn15r")
+
+[node name="MeshInstance2D2" type="MeshInstance2D" parent="enemies/Node2D62/Area2D"]
+position = Vector2(0, -7.15256e-07)
+rotation = 1.5708
+scale = Vector2(2112, 64)
+mesh = SubResource("BoxMesh_qn15r")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="enemies/Node2D62"]
+libraries = {
+"": SubResource("AnimationLibrary_27b5u")
+}
+autoplay = "new_animation_2"
+
+[node name="Node2D63" type="Node2D" parent="enemies" groups=["bala_enemy"]]
+position = Vector2(1448, -51120)
+rotation = 3.14159
+
+[node name="Area2D" type="Area2D" parent="enemies/Node2D63"]
+modulate = Color(1, 0.427451, 0.203922, 1)
+position = Vector2(-1728, -160)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="enemies/Node2D63/Area2D"]
+shape = SubResource("RectangleShape2D_e8obc")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="enemies/Node2D63/Area2D"]
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_e8obc")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="enemies/Node2D63/Area2D"]
+position = Vector2(0, -7.15256e-07)
+scale = Vector2(2112, 64)
+mesh = SubResource("BoxMesh_qn15r")
+
+[node name="MeshInstance2D2" type="MeshInstance2D" parent="enemies/Node2D63/Area2D"]
+position = Vector2(0, -7.15256e-07)
+rotation = 1.5708
+scale = Vector2(2112, 64)
+mesh = SubResource("BoxMesh_qn15r")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="enemies/Node2D63"]
+libraries = {
+"": SubResource("AnimationLibrary_27b5u")
+}
+autoplay = "new_animation_2"
+
+[node name="Node2D64" type="Node2D" parent="enemies" groups=["bala_enemy"]]
+position = Vector2(-208, -55312)
+rotation = 3.14159
+
+[node name="Area2D" type="Area2D" parent="enemies/Node2D64"]
+modulate = Color(1, 0.427451, 0.203922, 1)
+position = Vector2(-1728, -160)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="enemies/Node2D64/Area2D"]
+shape = SubResource("RectangleShape2D_e8obc")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="enemies/Node2D64/Area2D"]
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_e8obc")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="enemies/Node2D64/Area2D"]
+position = Vector2(0, -7.15256e-07)
+scale = Vector2(2112, 64)
+mesh = SubResource("BoxMesh_qn15r")
+
+[node name="MeshInstance2D2" type="MeshInstance2D" parent="enemies/Node2D64/Area2D"]
+position = Vector2(0, -7.15256e-07)
+rotation = 1.5708
+scale = Vector2(2112, 64)
+mesh = SubResource("BoxMesh_qn15r")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="enemies/Node2D64"]
+libraries = {
+"": SubResource("AnimationLibrary_27b5u")
+}
+autoplay = "new_animation_2"
+
+[node name="Node2D65" type="Node2D" parent="enemies" groups=["bala_enemy"]]
+position = Vector2(2072, -56992)
+rotation = 3.14159
+
+[node name="Area2D" type="Area2D" parent="enemies/Node2D65"]
+modulate = Color(1, 0.427451, 0.203922, 1)
+position = Vector2(-1728, -160)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="enemies/Node2D65/Area2D"]
+shape = SubResource("RectangleShape2D_e8obc")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="enemies/Node2D65/Area2D"]
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_e8obc")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="enemies/Node2D65/Area2D"]
+position = Vector2(0, -7.15256e-07)
+scale = Vector2(2112, 64)
+mesh = SubResource("BoxMesh_qn15r")
+
+[node name="MeshInstance2D2" type="MeshInstance2D" parent="enemies/Node2D65/Area2D"]
+position = Vector2(0, -7.15256e-07)
+rotation = 1.5708
+scale = Vector2(2112, 64)
+mesh = SubResource("BoxMesh_qn15r")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="enemies/Node2D65"]
+libraries = {
+"": SubResource("AnimationLibrary_27b5u")
+}
+autoplay = "new_animation_2"
+
+[node name="Node2D66" type="Node2D" parent="enemies" groups=["bala_enemy"]]
+position = Vector2(104, -59080)
+rotation = 3.14159
+
+[node name="Area2D" type="Area2D" parent="enemies/Node2D66"]
+modulate = Color(1, 0.427451, 0.203922, 1)
+position = Vector2(-1728, -160)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="enemies/Node2D66/Area2D"]
+shape = SubResource("RectangleShape2D_e8obc")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="enemies/Node2D66/Area2D"]
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_e8obc")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="enemies/Node2D66/Area2D"]
+position = Vector2(0, -7.15256e-07)
+scale = Vector2(2112, 64)
+mesh = SubResource("BoxMesh_qn15r")
+
+[node name="MeshInstance2D2" type="MeshInstance2D" parent="enemies/Node2D66/Area2D"]
+position = Vector2(0, -7.15256e-07)
+rotation = 1.5708
+scale = Vector2(2112, 64)
+mesh = SubResource("BoxMesh_qn15r")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="enemies/Node2D66"]
+libraries = {
+"": SubResource("AnimationLibrary_27b5u")
+}
+autoplay = "new_animation_2"
+
+[node name="Node2D67" type="Node2D" parent="enemies" groups=["bala_enemy"]]
+position = Vector2(2336, -61864)
+rotation = 3.14159
+
+[node name="Area2D" type="Area2D" parent="enemies/Node2D67"]
+modulate = Color(1, 0.427451, 0.203922, 1)
+position = Vector2(-1728, -160)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="enemies/Node2D67/Area2D"]
+shape = SubResource("RectangleShape2D_e8obc")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="enemies/Node2D67/Area2D"]
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_e8obc")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="enemies/Node2D67/Area2D"]
+position = Vector2(0, -7.15256e-07)
+scale = Vector2(2112, 64)
+mesh = SubResource("BoxMesh_qn15r")
+
+[node name="MeshInstance2D2" type="MeshInstance2D" parent="enemies/Node2D67/Area2D"]
+position = Vector2(0, -7.15256e-07)
+rotation = 1.5708
+scale = Vector2(2112, 64)
+mesh = SubResource("BoxMesh_qn15r")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="enemies/Node2D67"]
+libraries = {
+"": SubResource("AnimationLibrary_27b5u")
+}
+autoplay = "new_animation_2"
+
+[node name="Node2D68" type="Node2D" parent="enemies" groups=["bala_enemy"]]
+position = Vector2(1448, -46888)
+rotation = 3.14159
+
+[node name="Area2D" type="Area2D" parent="enemies/Node2D68"]
+modulate = Color(1, 0.427451, 0.203922, 1)
+position = Vector2(-1728, -160)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="enemies/Node2D68/Area2D"]
+shape = SubResource("RectangleShape2D_e8obc")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="enemies/Node2D68/Area2D"]
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_e8obc")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="enemies/Node2D68/Area2D"]
+position = Vector2(0, -7.15256e-07)
+scale = Vector2(2112, 64)
+mesh = SubResource("BoxMesh_qn15r")
+
+[node name="MeshInstance2D2" type="MeshInstance2D" parent="enemies/Node2D68/Area2D"]
+position = Vector2(0, -7.15256e-07)
+rotation = 1.5708
+scale = Vector2(2112, 64)
+mesh = SubResource("BoxMesh_qn15r")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="enemies/Node2D68"]
+libraries = {
+"": SubResource("AnimationLibrary_27b5u")
+}
+autoplay = "new_animation_2"
+
+[node name="bulleto" parent="." instance=ExtResource("10_6r6pa")]
+position = Vector2(-608, -41344)
+sepy = 350.0
+vida = 35.0
+
+[node name="bulleto2" parent="." instance=ExtResource("10_6r6pa")]
+position = Vector2(24, -48608)
+sepy = 350.0
+vida = 35.0
+
+[node name="bulleto3" parent="." instance=ExtResource("10_6r6pa")]
+position = Vector2(56, -54856)
+sepy = 350.0
+vida = 35.0
+
+[node name="bulleto4" parent="." instance=ExtResource("10_6r6pa")]
+position = Vector2(208, -67248)
+sepy = 350.0
+vida = 35.0
+
+[node name="bulleto5" parent="." instance=ExtResource("10_6r6pa")]
+position = Vector2(1520, -58584)
+sepy = 350.0
+vida = 35.0
+
+[node name="bulleto6" parent="." instance=ExtResource("10_6r6pa")]
+position = Vector2(-2576, -58616)
+sepy = 350.0
+vida = 35.0
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="spauner" type="Node2D" parent="Node2D" groups=["spam"]]
+script = ExtResource("8_qt7ro")
+en_nivel = true
+vedorw = Vector2(-1536, -3200)
+vedor = Vector2(1536, -3200)
+
+[node name="Timer" type="Timer" parent="Node2D/spauner"]
+wait_time = 10.0
+autostart = true
+
+[node name="Node2D2" type="Node2D" parent="Node2D/spauner" groups=["bala_enemy"]]
+position = Vector2(-181.333, -56)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ProgressBar" type="ProgressBar" parent="CanvasLayer"]
+offset_left = 2216.0
+offset_top = 8.0
+offset_right = 2280.0
+offset_bottom = 1480.0
+max_value = 400.0
+fill_mode = 3
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="screen_exited" from="ParallaxBackground/Pink/VisibleOnScreenNotifier2D" to="ParallaxBackground/Pink" method="_on_visible_on_screen_notifier_2d_screen_exited"]
+[connection signal="screen_exited" from="ParallaxBackground/Purple/VisibleOnScreenNotifier2D" to="ParallaxBackground/Purple" method="_on_visible_on_screen_notifier_2d_screen_exited"]
+[connection signal="screen_exited" from="ParallaxBackground/Blue/VisibleOnScreenNotifier2D" to="ParallaxBackground/Blue" method="_on_visible_on_screen_notifier_2d_screen_exited"]
+[connection signal="screen_exited" from="ParallaxBackground/Stars/VisibleOnScreenNotifier2D" to="ParallaxBackground/Stars" method="_on_visible_on_screen_notifier_2d_screen_exited"]
+[connection signal="screen_exited" from="ParallaxBackground/Stars3/VisibleOnScreenNotifier2D" to="ParallaxBackground/Stars3" method="_on_visible_on_screen_notifier_2d_screen_exited"]
+[connection signal="screen_exited" from="ParallaxBackground/Stars2/VisibleOnScreenNotifier2D" to="ParallaxBackground/Stars2" method="_on_visible_on_screen_notifier_2d_screen_exited"]
+[connection signal="screen_exited" from="ParallaxBackground/Stars4/VisibleOnScreenNotifier2D" to="ParallaxBackground/Stars4" method="_on_visible_on_screen_notifier_2d_screen_exited"]
+[connection signal="timeout" from="Node2D/spauner/Timer" to="Node2D/spauner" method="_on_timer_timeout"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://esiaq0mih72x"
+path="res://.godot/imported/Destroy all.ogg-7e5a5a55236b80dd2fbffba132b9b77a.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/auds/Destroy all.ogg"
+dest_files=["res://.godot/imported/Destroy all.ogg-7e5a5a55236b80dd2fbffba132b9b77a.oggvorbisstr"]
+
+[params]
+
+loop=true
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4
