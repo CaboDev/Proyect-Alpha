@@ -5025,7 +5025,7 @@ sonido = ExtResource("2_oe7er")
 top_level = true
 position = Vector2(1360, 720)
 ignore_rotation = false
-zoom = Vector2(0.355, 0.355)
+zoom = Vector2(0.385, 0.385)
 limit_left = -600
 limit_top = -168
 limit_right = 3328
@@ -5139,8 +5139,8 @@ pitch_scale = 1.1
 [node name="MeshInstance2D" type="MeshInstance2D" parent="KO/Control"]
 visible = false
 modulate = Color(1, 1, 1, 0)
-position = Vector2(602, 388)
-scale = Vector2(1220, 792)
+position = Vector2(644.587, 388)
+scale = Vector2(1305.17, 792)
 mesh = SubResource("BoxMesh_1wppg")
 
 [node name="MeshInstance2D2" type="MeshInstance2D" parent="KO/Control"]

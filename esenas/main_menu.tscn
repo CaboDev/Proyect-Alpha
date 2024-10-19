@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=3 uid="uid://c8077ghm8pq8n"]
+[gd_scene load_steps=46 format=3 uid="uid://c8077ghm8pq8n"]
 
 [ext_resource type="Script" path="res://scrips/main.gd" id="1_0fv6q"]
 [ext_resource type="PackedScene" uid="uid://c8ehulp2lp6es" path="res://esenas/menu_cambios.tscn" id="3_5220e"]
@@ -20,6 +20,7 @@
 [ext_resource type="Texture2D" uid="uid://d10nighi8r26c" path="res://assets/Boss_Rush_Mode/boton de select3.png" id="17_avo4h"]
 [ext_resource type="Texture2D" uid="uid://db2ihhtdt72bc" path="res://assets/Boss_Rush_Mode/boton de select2.png" id="18_60jga"]
 [ext_resource type="Texture2D" uid="uid://c8coxi4xxvh2n" path="res://logo.png" id="20_o01qe"]
+[ext_resource type="Material" uid="uid://d3ueqaujo8q4v" path="res://effectr.tres" id="21_jxt6i"]
 [ext_resource type="Script" path="res://scrips/fps.gd" id="22_l6uvq"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_01q11"]
@@ -305,6 +306,8 @@ _data = {
 "new_animation": SubResource("Animation_udt7h")
 }
 
+[sub_resource type="QuadMesh" id="QuadMesh_k7ex1"]
+
 [node name="main" type="Node2D"]
 scale = Vector2(0.5, 0.5)
 script = ExtResource("1_0fv6q")
@@ -440,7 +443,6 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="select_mode" type="Control" parent="."]
-visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_left = -480.0
@@ -838,6 +840,12 @@ autoplay = "new_animation"
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = 5
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="CanvasLayer"]
+material = ExtResource("21_jxt6i")
+position = Vector2(631.5, 324)
+scale = Vector2(1263, 648)
+mesh = SubResource("QuadMesh_k7ex1")
 
 [node name="fps" type="CanvasLayer" parent="."]
 layer = 4

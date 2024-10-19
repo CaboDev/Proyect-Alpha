@@ -22,9 +22,6 @@ size = Vector2(160, 352)
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_oethp"]
 
-[sub_resource type="Animation" id="Animation_t0pg4"]
-resource_name = "idle"
-
 [sub_resource type="Animation" id="Animation_g4ssx"]
 resource_name = "Dash"
 loop_mode = 1
@@ -82,12 +79,6 @@ tracks/3/keys = {
 "values": [Vector2(1, 1), Vector2(1, 0.3), Vector2(1, 1)]
 }
 
-[sub_resource type="Animation" id="Animation_escow"]
-resource_name = "up"
-
-[sub_resource type="Animation" id="Animation_1t14n"]
-resource_name = "rayo"
-
 [sub_resource type="Animation" id="Animation_sdv3h"]
 length = 0.001
 tracks/0/type = "value"
@@ -126,6 +117,15 @@ tracks/2/keys = {
 "update": 0,
 "values": [Vector2(1, 1)]
 }
+
+[sub_resource type="Animation" id="Animation_t0pg4"]
+resource_name = "idle"
+
+[sub_resource type="Animation" id="Animation_1t14n"]
+resource_name = "rayo"
+
+[sub_resource type="Animation" id="Animation_escow"]
+resource_name = "up"
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_66vcp"]
 _data = {
