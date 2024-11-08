@@ -315,6 +315,7 @@ script = ExtResource("1_0fv6q")
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
 [node name="MeshInstance2D2" type="MeshInstance2D" parent="ParallaxBackground"]
+visible = false
 self_modulate = Color(0.0196078, 0, 0.105882, 1)
 texture_filter = 1
 material = SubResource("ShaderMaterial_01q11")
@@ -325,12 +326,13 @@ mesh = SubResource("QuadMesh_gdocv")
 [node name="MeshInstance2D3" type="MeshInstance2D" parent="ParallaxBackground"]
 texture_filter = 1
 material = SubResource("ShaderMaterial_x63qs")
-position = Vector2(587.38, 340.074)
+position = Vector2(637.33, 340.074)
 rotation = -3.14159
-scale = Vector2(1173.26, 680.65)
+scale = Vector2(1273.16, 680.65)
 mesh = SubResource("QuadMesh_3yyd1")
 
 [node name="MeshInstance2D4" type="MeshInstance2D" parent="ParallaxBackground"]
+visible = false
 texture_filter = 1
 material = SubResource("ShaderMaterial_huxsp")
 position = Vector2(580, 332)
@@ -816,20 +818,20 @@ theme = ExtResource("7_prvs2")
 theme_override_colors/font_outline_color = Color(0, 1, 1, 0.796078)
 theme_override_constants/outline_size = 8
 theme_override_font_sizes/font_size = 23
-text = "Alphator"
+text = "INFINITY"
 horizontal_alignment = 1
 
 [node name="Label2" type="Label" parent="Logo"]
-offset_left = -27.0769
+offset_left = -23.6923
 offset_top = 1.53846
-offset_right = 108.923
+offset_right = 116.308
 offset_bottom = 49.5385
-scale = Vector2(0.42988, 0.406655)
+scale = Vector2(0.352675, 0.32082)
 theme = ExtResource("7_prvs2")
 theme_override_colors/font_outline_color = Color(1, 0, 1, 0.580392)
 theme_override_constants/outline_size = 8
 theme_override_font_sizes/font_size = 23
-text = "Shot"
+text = "ASSENSION"
 horizontal_alignment = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Logo"]

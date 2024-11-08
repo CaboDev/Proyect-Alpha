@@ -1344,12 +1344,12 @@ shader_parameter/bg_color = Color(0, 0, 0, 1)
 shader_parameter/bg_line_color = Color(0.5, 0.5, 0.5, 1)
 shader_parameter/empty_cell_color = Color(0.25, 0.25, 0.25, 1)
 shader_parameter/antialias = false
-shader_parameter/pixelFactor = 15.0
-shader_parameter/radius = 0.7
-shader_parameter/line_width = 0.08
-shader_parameter/bg_width = 0.125
+shader_parameter/pixelFactor = 0.0
+shader_parameter/radius = 0.745
+shader_parameter/line_width = 0.16
+shader_parameter/bg_width = 0.223
 shader_parameter/start_angle = 0.0
-shader_parameter/segment_spacing = 0.06
+shader_parameter/segment_spacing = 0.087
 shader_parameter/segment_angle = 0.0
 shader_parameter/segment_count = 3
 
@@ -2477,8 +2477,8 @@ vertical_alignment = 1
 [node name="MeshInstance2D" type="MeshInstance2D" parent="CanvasLayer"]
 texture_filter = 1
 material = SubResource("ShaderMaterial_wmh2f")
-position = Vector2(80, 72)
-scale = Vector2(183.036, -177.62)
+position = Vector2(80, 74)
+scale = Vector2(147.518, -136.81)
 mesh = SubResource("QuadMesh_u365x")
 
 [node name="caos" type="AnimationPlayer" parent="CanvasLayer"]

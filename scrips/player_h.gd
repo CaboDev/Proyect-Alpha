@@ -26,7 +26,8 @@ var Zoom_de_camara
 var posisioc_de_la_camara
 var minus_barra : float
 var porcentaje : float
-
+@export_category("Debug")
+@export var Filtro = true
 
 
 
@@ -35,7 +36,8 @@ var porcentaje : float
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 func _ready():
-	
+	if Filtro == false:
+		$CanvasLayer3/MeshInstance2D.hide()
 	
 	
 	
