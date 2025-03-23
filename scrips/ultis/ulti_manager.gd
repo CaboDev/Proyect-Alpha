@@ -26,11 +26,14 @@ func _process(delta):
 		get_parent().get_parent().call_deferred("add_child",b)
 		energy -= 30
 		var tween : Tween = get_tree().create_tween().set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
-		tween.tween_property($"../CanvasLayer/TextureProgressBar", "value", energy, 1)
+		tween.tween_property($"../CanvasLayer/Control/TextureProgressBar", "value", energy, 1)
 		disparar = false
 
 
 func _on_timer_timeout():
 	energy += 30
+	if energy > 90:
+		energy = 90
 	var tween : Tween = get_tree().create_tween().set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
-	tween.tween_property($"../CanvasLayer/TextureProgressBar", "value", energy, 1)
+	tween.tween_property($"../CanvasLayer/Control/TextureProgressBar", "value", energy, 1)
+	

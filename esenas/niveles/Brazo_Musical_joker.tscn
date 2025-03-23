@@ -1,0 +1,601 @@
+[gd_scene load_steps=32 format=3 uid="uid://vo0werqhfpwh"]
+
+[ext_resource type="Script" path="res://scrips/Brazo_Musical_joker.gd" id="1_4ujdg"]
+[ext_resource type="Texture2D" uid="uid://bx281gg375ugm" path="res://assets/bosses/joker/joker.png" id="1_vvh01"]
+[ext_resource type="Script" path="res://scrips/Brazo_del_Joker.gd" id="2_qx1tf"]
+[ext_resource type="Texture2D" uid="uid://bxuxbtko5ucgr" path="res://assets/bosses/joker/Joker_Sheet.png" id="4_131lp"]
+
+[sub_resource type="Animation" id="Animation_iwbmd"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Mano:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-1.43117]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Node2D/AnimatedSprite2D:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"default"]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Node2D/Skeleton2D:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.355, 0.355)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Node2D:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Mano:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Mano/Area2D/CollisionShape2D:disabled")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_vyxjw"]
+resource_name = "new_animation"
+length = 9.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Mano:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-1.43117]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Node2D/AnimatedSprite2D:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 6.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [&"default", &"open"]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Node2D/Skeleton2D:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 7, 9),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, true]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(7.1, 8.5),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"Manazo"
+}, {
+"args": [],
+"method": &"Manazo_Retraer"
+}]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".:scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(8.8, 9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.355, 0.355), Vector2(0.015, 0.015)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Node2D:position")
+tracks/5/interp = 2
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.5, 0.8, 1, 1.2, 1.4, 1.6, 1.8, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -833.803), Vector2(0, 67.6056), Vector2(0, -225.352), Vector2(0, 67.6056), Vector2(0, 0), Vector2(0, 67.6056), Vector2(0, 67.6056), Vector2(0, 0)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Mano:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 7, 9),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, true]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Mano/Area2D/CollisionShape2D:disabled")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 7.1, 8.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, false, true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_wreyk"]
+_data = {
+"RESET": SubResource("Animation_iwbmd"),
+"new_animation": SubResource("Animation_vyxjw")
+}
+
+[sub_resource type="Curve2D" id="Curve2D_yooga"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 602.898, -185.507, 0, 0, 0, 0, 927.536, 127.536)
+}
+point_count = 2
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_she1n"]
+atlas = ExtResource("4_131lp")
+region = Rect2(128, 384, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4btgh"]
+atlas = ExtResource("4_131lp")
+region = Rect2(256, 384, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8gl3f"]
+atlas = ExtResource("4_131lp")
+region = Rect2(384, 384, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sgld0"]
+atlas = ExtResource("4_131lp")
+region = Rect2(512, 384, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7an7l"]
+atlas = ExtResource("4_131lp")
+region = Rect2(640, 384, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5og46"]
+atlas = ExtResource("4_131lp")
+region = Rect2(768, 384, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u8dxh"]
+atlas = ExtResource("4_131lp")
+region = Rect2(0, 512, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tpn48"]
+atlas = ExtResource("4_131lp")
+region = Rect2(128, 512, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gfvkl"]
+atlas = ExtResource("4_131lp")
+region = Rect2(256, 512, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kvjob"]
+atlas = ExtResource("4_131lp")
+region = Rect2(384, 512, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k2x1b"]
+atlas = ExtResource("4_131lp")
+region = Rect2(512, 512, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_651c7"]
+atlas = ExtResource("4_131lp")
+region = Rect2(640, 512, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_42hbk"]
+atlas = ExtResource("4_131lp")
+region = Rect2(768, 512, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sbatn"]
+atlas = ExtResource("4_131lp")
+region = Rect2(0, 640, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pj33h"]
+atlas = ExtResource("4_131lp")
+region = Rect2(128, 640, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fjpx0"]
+atlas = ExtResource("4_131lp")
+region = Rect2(256, 640, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6ink8"]
+atlas = ExtResource("4_131lp")
+region = Rect2(384, 640, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lmyvv"]
+atlas = ExtResource("4_131lp")
+region = Rect2(512, 640, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_45m52"]
+atlas = ExtResource("4_131lp")
+region = Rect2(640, 640, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vibr8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_she1n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4btgh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8gl3f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sgld0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7an7l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5og46")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u8dxh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tpn48")
+}],
+"loop": true,
+"name": &"default",
+"speed": 11.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gfvkl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kvjob")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k2x1b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_651c7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_42hbk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sbatn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pj33h")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_fjpx0")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_6ink8")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_lmyvv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_45m52")
+}],
+"loop": false,
+"name": &"open",
+"speed": 10.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_nvf88"]
+radius = 149.236
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xfeep"]
+size = Vector2(383.099, 247.887)
+
+[sub_resource type="BoxMesh" id="BoxMesh_v6bfv"]
+
+[node name="Brazo" type="Node2D" groups=["bala_enemy"]]
+scale = Vector2(0.355, 0.355)
+script = ExtResource("1_4ujdg")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_wreyk")
+}
+
+[node name="Posses" type="Node2D" parent="." groups=["Braxo_camino"]]
+top_level = true
+
+[node name="Path_Negro" type="Path2D" parent="Posses"]
+curve = SubResource("Curve2D_yooga")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Posses/Path_Negro"]
+position = Vector2(927.536, 127.536)
+rotation = 0.767217
+progress = 450.983
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Node2D"]
+position = Vector2(56.3381, -326.761)
+scale = Vector2(11.0915, 10.3873)
+sprite_frames = SubResource("SpriteFrames_vibr8")
+autoplay = "default"
+
+[node name="Skeleton2D" type="Skeleton2D" parent="Node2D"]
+unique_name_in_owner = true
+visible = false
+position = Vector2(-135.211, -225.352)
+scale = Vector2(1.5, 1.5)
+
+[node name="brazo negro" type="Bone2D" parent="Node2D/Skeleton2D"]
+position = Vector2(162.319, -127.536)
+rotation = -1.5708
+rest = Transform2D(1, 0, 0, 1, 162.319, -127.536)
+
+[node name="Area2D" type="Area2D" parent="Node2D/Skeleton2D/brazo negro"]
+position = Vector2(123.091, -27.52)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/Skeleton2D/brazo negro/Area2D"]
+position = Vector2(-125.8, 28.5145)
+shape = SubResource("CircleShape2D_nvf88")
+
+[node name="Sprite2D6" type="Sprite2D" parent="Node2D/Skeleton2D/brazo negro"]
+position = Vector2(-0.00056076, -0.000263214)
+scale = Vector2(7.165, 7.165)
+texture = ExtResource("1_vvh01")
+hframes = 8
+vframes = 2
+frame = 5
+
+[node name="Bone2D" type="Bone2D" parent="Node2D/Skeleton2D/brazo negro" node_paths=PackedStringArray("camino")]
+rotation = 0.296706
+scale = Vector2(1, 1)
+rest = Transform2D(1, 0, 0, 1, 46.3768, 69.5652)
+script = ExtResource("2_qx1tf")
+camino = NodePath("../../../../Posses/Path_Negro/PathFollow2D")
+
+[node name="Area2D" type="Area2D" parent="Node2D/Skeleton2D/brazo negro/Bone2D"]
+position = Vector2(123.091, -27.52)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/Skeleton2D/brazo negro/Bone2D/Area2D"]
+position = Vector2(-125.8, 28.5145)
+shape = SubResource("CircleShape2D_nvf88")
+
+[node name="Sprite2D24" type="Sprite2D" parent="Node2D/Skeleton2D/brazo negro/Bone2D"]
+position = Vector2(-0.000644684, -0.00012207)
+scale = Vector2(7.165, 7.165)
+texture = ExtResource("1_vvh01")
+hframes = 8
+vframes = 2
+frame = 5
+
+[node name="Bone2D" type="Bone2D" parent="Node2D/Skeleton2D/brazo negro/Bone2D" node_paths=PackedStringArray("camino")]
+rotation = 0.261799
+rest = Transform2D(0.798636, 0.601815, -0.601815, 0.798636, 57.971, 46.3768)
+script = ExtResource("2_qx1tf")
+camino = NodePath("../../../../../Posses/Path_Negro/PathFollow2D")
+ID_de_bola = 2.0
+
+[node name="Area2D" type="Area2D" parent="Node2D/Skeleton2D/brazo negro/Bone2D/Bone2D"]
+position = Vector2(123.091, -27.52)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/Skeleton2D/brazo negro/Bone2D/Bone2D/Area2D"]
+position = Vector2(-125.8, 28.5145)
+shape = SubResource("CircleShape2D_nvf88")
+
+[node name="Sprite2D15" type="Sprite2D" parent="Node2D/Skeleton2D/brazo negro/Bone2D/Bone2D"]
+position = Vector2(-0.000534058, 8.39233e-05)
+scale = Vector2(7.165, 7.165)
+texture = ExtResource("1_vvh01")
+hframes = 8
+vframes = 2
+frame = 5
+
+[node name="Bone2D" type="Bone2D" parent="Node2D/Skeleton2D/brazo negro/Bone2D/Bone2D" node_paths=PackedStringArray("camino")]
+rotation = 1.0472
+rest = Transform2D(0.688355, 0.725374, -0.725374, 0.688355, 92.7536, 23.1884)
+script = ExtResource("2_qx1tf")
+camino = NodePath("../../../../../../Posses/Path_Negro/PathFollow2D")
+ID_de_bola = 3.0
+
+[node name="Area2D" type="Area2D" parent="Node2D/Skeleton2D/brazo negro/Bone2D/Bone2D/Bone2D"]
+position = Vector2(123.091, -27.52)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/Skeleton2D/brazo negro/Bone2D/Bone2D/Bone2D/Area2D"]
+position = Vector2(-125.8, 28.5145)
+shape = SubResource("CircleShape2D_nvf88")
+
+[node name="Sprite2D25" type="Sprite2D" parent="Node2D/Skeleton2D/brazo negro/Bone2D/Bone2D/Bone2D"]
+position = Vector2(-0.000259399, 0.000629425)
+scale = Vector2(7.165, 7.165)
+texture = ExtResource("1_vvh01")
+hframes = 8
+vframes = 2
+frame = 5
+
+[node name="Bone2D" type="Bone2D" parent="Node2D/Skeleton2D/brazo negro/Bone2D/Bone2D/Bone2D" node_paths=PackedStringArray("camino")]
+rest = Transform2D(1, 0, 0, 1, 57.971, -57.971)
+script = ExtResource("2_qx1tf")
+camino = NodePath("../../../../../../../Posses/Path_Negro/PathFollow2D")
+ID_de_bola = 4.0
+
+[node name="Area2D" type="Area2D" parent="Node2D/Skeleton2D/brazo negro/Bone2D/Bone2D/Bone2D/Bone2D"]
+position = Vector2(123.091, -27.52)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/Skeleton2D/brazo negro/Bone2D/Bone2D/Bone2D/Bone2D/Area2D"]
+position = Vector2(-125.8, 28.5145)
+shape = SubResource("CircleShape2D_nvf88")
+
+[node name="Sprite2D16" type="Sprite2D" parent="Node2D/Skeleton2D/brazo negro/Bone2D/Bone2D/Bone2D/Bone2D"]
+position = Vector2(-0.000217438, 0.000480652)
+scale = Vector2(7.165, 7.165)
+texture = ExtResource("1_vvh01")
+hframes = 8
+vframes = 2
+frame = 5
+
+[node name="Bone2D" type="Bone2D" parent="Node2D/Skeleton2D/brazo negro/Bone2D/Bone2D/Bone2D/Bone2D" node_paths=PackedStringArray("camino")]
+rest = Transform2D(1, 0, 0, 1, 57.971, -57.971)
+script = ExtResource("2_qx1tf")
+camino = NodePath("../../../../../../../../Posses/Path_Negro/PathFollow2D")
+ID_de_bola = 5.0
+
+[node name="Area2D" type="Area2D" parent="Node2D/Skeleton2D/brazo negro/Bone2D/Bone2D/Bone2D/Bone2D/Bone2D"]
+position = Vector2(123.091, -27.52)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/Skeleton2D/brazo negro/Bone2D/Bone2D/Bone2D/Bone2D/Bone2D/Area2D"]
+position = Vector2(-125.8, 28.5145)
+shape = SubResource("CircleShape2D_nvf88")
+
+[node name="Sprite2D16" type="Sprite2D" parent="Node2D/Skeleton2D/brazo negro/Bone2D/Bone2D/Bone2D/Bone2D/Bone2D"]
+position = Vector2(-0.000217438, 0.000480652)
+scale = Vector2(7.165, 7.165)
+texture = ExtResource("1_vvh01")
+hframes = 8
+vframes = 2
+frame = 5
+
+[node name="Bone2D" type="Bone2D" parent="Node2D/Skeleton2D/brazo negro/Bone2D/Bone2D/Bone2D/Bone2D/Bone2D" node_paths=PackedStringArray("camino")]
+rest = Transform2D(1, 0, 0, 1, 57.971, -57.971)
+script = ExtResource("2_qx1tf")
+camino = NodePath("../../../../../../../../../Posses/Path_Negro/PathFollow2D")
+ID_de_bola = 6.0
+
+[node name="Area2D" type="Area2D" parent="Node2D/Skeleton2D/brazo negro/Bone2D/Bone2D/Bone2D/Bone2D/Bone2D/Bone2D"]
+position = Vector2(123.091, -27.52)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/Skeleton2D/brazo negro/Bone2D/Bone2D/Bone2D/Bone2D/Bone2D/Bone2D/Area2D"]
+position = Vector2(-125.8, 28.5145)
+shape = SubResource("CircleShape2D_nvf88")
+
+[node name="Sprite2D16" type="Sprite2D" parent="Node2D/Skeleton2D/brazo negro/Bone2D/Bone2D/Bone2D/Bone2D/Bone2D/Bone2D"]
+position = Vector2(-0.000217438, 0.000480652)
+scale = Vector2(7.165, 7.165)
+texture = ExtResource("1_vvh01")
+hframes = 8
+vframes = 2
+frame = 5
+
+[node name="Mano" type="Node2D" parent="." groups=["Brazo_N", "bala_enemy"]]
+unique_name_in_owner = true
+visible = false
+position = Vector2(135.211, -360.563)
+rotation = -1.43117
+scale = Vector2(3.42, 3.42)
+
+[node name="Sprite2D8" type="Sprite2D" parent="Mano"]
+position = Vector2(0, -7.62939e-06)
+rotation = -1.20428
+scale = Vector2(9.13779, 9.17308)
+texture = ExtResource("1_vvh01")
+hframes = 8
+vframes = 2
+frame = 13
+
+[node name="Area2D" type="Area2D" parent="Mano"]
+position = Vector2(86.0303, -20.1694)
+scale = Vector2(0.584731, 0.608882)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Mano/Area2D"]
+position = Vector2(-125.8, 28.5145)
+shape = SubResource("CircleShape2D_nvf88")
+disabled = true
+
+[node name="origen_1" type="Node2D" parent="Mano"]
+position = Vector2(57.7338, -43.7585)
+rotation = 0.619592
+
+[node name="origen_2" type="Node2D" parent="Mano"]
+position = Vector2(57.7338, -43.7585)
+
+[node name="origen_3" type="Node2D" parent="Mano"]
+position = Vector2(57.7338, -43.7585)
+rotation = -0.951204
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(123.944, -45.0704)
+shape = SubResource("RectangleShape2D_xfeep")
+
+[node name="Node2D2" type="Node2D" parent="."]
+position = Vector2(157.746, -3876.06)
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Node2D2"]
+visible = false
+position = Vector2(22.5352, -22.5352)
+scale = Vector2(405.634, 405.634)
+mesh = SubResource("BoxMesh_v6bfv")
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=3 uid="uid://cd2r5atehqje7"]
+[gd_scene load_steps=49 format=3 uid="uid://cd2r5atehqje7"]
 
 [ext_resource type="Script" path="res://scrips/player.gd" id="1_rglmt"]
 [ext_resource type="Script" path="res://scrips/Camara.gd" id="2_sr6lr"]
@@ -12,6 +12,7 @@
 [ext_resource type="Shader" path="res://esenas/plataformer/player_h2.gdshader" id="10_rhv4q"]
 [ext_resource type="Script" path="res://scrips/disparos.gd" id="11_p3io8"]
 [ext_resource type="PackedScene" uid="uid://cittvud8kr0gi" path="res://esenas/die.tscn" id="12_fudb3"]
+[ext_resource type="Material" uid="uid://d3ueqaujo8q4v" path="res://effectr.tres" id="13_fj5cj"]
 
 [sub_resource type="PrismMesh" id="PrismMesh_8i43v"]
 
@@ -590,6 +591,8 @@ _data = {
 "new_animation": SubResource("Animation_vp8yp")
 }
 
+[sub_resource type="QuadMesh" id="QuadMesh_ec14s"]
+
 [node name="player" type="CharacterBody2D" groups=["player"]]
 script = ExtResource("1_rglmt")
 dano_p = 2.0
@@ -830,6 +833,16 @@ libraries = {
 
 [node name="CanvasLayer2" type="CanvasLayer" parent="."]
 layer = 3
+
+[node name="CanvasLayer3" type="CanvasLayer" parent="."]
+layer = 5
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="CanvasLayer3"]
+material = ExtResource("13_fj5cj")
+position = Vector2(628, 324)
+scale = Vector2(1256, 648)
+mesh = SubResource("QuadMesh_ec14s")
+metadata/_edit_lock_ = true
 
 [connection signal="area_entered" from="AnimatedSprite2D/Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="timeout" from="disparos/Arma_basica/Timer" to="disparos" method="_on_timer_timeout"]

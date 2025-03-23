@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://c7dmcihvdheke"]
+[gd_scene load_steps=27 format=3 uid="uid://c7dmcihvdheke"]
 
 [ext_resource type="Script" path="res://scrips/level selector.gd" id="1_6ykxh"]
 [ext_resource type="Theme" uid="uid://qbghq2o1iiep" path="res://dEFAULT.tres" id="2_tlndb"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://dp7j1e77q6q24" path="res://esenas/niveles/nivel_polpo.tscn" id="10_lx6jm"]
 [ext_resource type="Texture2D" uid="uid://b8fxxhpwki2h2" path="res://assets/Boss_Rush_Mode/Sprite-0001-Sheet.png" id="11_6j1k2"]
 [ext_resource type="PackedScene" uid="uid://qlvauex1xwsx" path="res://esenas/niveles/nivel_Digital_crush.tscn" id="11_vkap5"]
+[ext_resource type="PackedScene" uid="uid://cfo127hcatj0p" path="res://esenas/niveles/nivel_joker.tscn" id="12_mw7a0"]
 [ext_resource type="Shader" path="res://esenas/plataformer/stars.gdshader" id="12_tsp2f"]
 [ext_resource type="Shader" path="res://tecno.gdshader" id="13_td35c"]
 [ext_resource type="Shader" path="res://esenas/plataformer/pixelation.gdshader" id="14_g0vih"]
@@ -182,11 +183,11 @@ offset_right = 612.0
 offset_bottom = 919.527
 pivot_offset = Vector2(0, 63.7979)
 theme_override_font_sizes/font_size = 46
-text = "Tutorial"
+text = "Joker"
 icon_alignment = 2
 script = ExtResource("4_1tpw3")
-nivel = ExtResource("5_eupjs")
-boss = "Flame"
+nivel = ExtResource("12_mw7a0")
+boss = "joker"
 
 [node name="nivel_8" type="Button" parent="Control/VBoxContainer"]
 layout_mode = 2
@@ -375,6 +376,7 @@ mesh = SubResource("QuadMesh_a4jo7")
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("15_osqj5")
 autoplay = true
+bus = &"Menú"
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = 5

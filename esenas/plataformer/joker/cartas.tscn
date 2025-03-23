@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://ctxu64lhk1q20"]
+[gd_scene load_steps=16 format=3 uid="uid://ctxu64lhk1q20"]
 
 [ext_resource type="Script" path="res://scrips/cartas.gd" id="1_mkt5v"]
 [ext_resource type="Texture2D" uid="uid://ugcxbxepnyh2" path="res://assets/bosses/joker/Attacs.png" id="2_x48i7"]
@@ -83,10 +83,32 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_o6qgt"]
-radius = 32.0
-height = 176.0
+radius = 24.0
+height = 112.0
+
+[sub_resource type="Gradient" id="Gradient_5wutu"]
+offsets = PackedFloat32Array(0, 0.190476, 0.404762, 0.630952, 0.785714, 1)
+colors = PackedColorArray(0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_cf8fn"]
+gradient = SubResource("Gradient_5wutu")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_6mmd1"]
+particle_flag_disable_z = true
+spread = 180.0
+initial_velocity_min = 136.96
+initial_velocity_max = 536.96
+angular_velocity_min = -56.62
+angular_velocity_max = 54.55
+gravity = Vector3(0, 0, 0)
+linear_accel_min = 5.85
+linear_accel_max = 8.05
+scale_min = 29.85
+scale_max = 55.7
+color_ramp = SubResource("GradientTexture1D_cf8fn")
 
 [node name="cartas" type="RigidBody2D" groups=["bala_enemy"]]
+light_mask = 4097
 collision_layer = 64
 collision_mask = 64
 gravity_scale = 0.0
@@ -97,8 +119,7 @@ position = Vector2(-9.53674e-07, -2.38419e-07)
 rotation = 1.5708
 scale = Vector2(5.5, 8)
 sprite_frames = SubResource("SpriteFrames_lalif")
-animation = &"corazon"
-frame_progress = 0.596115
+animation = &"diamante"
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 255
@@ -108,5 +129,17 @@ collision_mask = 255
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_o6qgt")
 
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+emitting = false
+amount = 60
+process_material = SubResource("ParticleProcessMaterial_6mmd1")
+one_shot = true
+explosiveness = 0.4
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 10.0
+autostart = true
+
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -1,0 +1,497 @@
+[gd_scene load_steps=22 format=3 uid="uid://c72bau56fmx8s"]
+
+[ext_resource type="Script" path="res://scrips/boses/Card_Attack.gd" id="1_270jh"]
+[ext_resource type="Texture2D" uid="uid://bxuxbtko5ucgr" path="res://assets/bosses/joker/Joker_Sheet.png" id="5_l8134"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l5nfa"]
+atlas = ExtResource("5_l8134")
+region = Rect2(768, 256, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6og0n"]
+atlas = ExtResource("5_l8134")
+region = Rect2(0, 384, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jqdun"]
+atlas = ExtResource("5_l8134")
+region = Rect2(0, 256, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xxkyg"]
+atlas = ExtResource("5_l8134")
+region = Rect2(128, 256, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iuk51"]
+atlas = ExtResource("5_l8134")
+region = Rect2(256, 256, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vdl0v"]
+atlas = ExtResource("5_l8134")
+region = Rect2(384, 256, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6otxq"]
+atlas = ExtResource("5_l8134")
+region = Rect2(512, 256, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hbgv7"]
+atlas = ExtResource("5_l8134")
+region = Rect2(640, 256, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k4gq5"]
+atlas = ExtResource("5_l8134")
+region = Rect2(768, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sc4ct"]
+atlas = ExtResource("5_l8134")
+region = Rect2(640, 128, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dbjs4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l5nfa")
+}],
+"loop": true,
+"name": &"1_B",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6og0n")
+}],
+"loop": true,
+"name": &"1_W",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jqdun")
+}],
+"loop": true,
+"name": &"2_B",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xxkyg")
+}],
+"loop": true,
+"name": &"2_W",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iuk51")
+}],
+"loop": true,
+"name": &"3_B",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vdl0v")
+}],
+"loop": true,
+"name": &"3_W",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6otxq")
+}],
+"loop": true,
+"name": &"4_B",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hbgv7")
+}],
+"loop": true,
+"name": &"4_W",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k4gq5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sc4ct")
+}],
+"loop": true,
+"name": &"Joker",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ffuke"]
+size = Vector2(733.2, 1297.2)
+
+[sub_resource type="Animation" id="Animation_3w72n"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Giratron:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_ij21k"]
+resource_name = "new_animation"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Giratron:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 3.14159, 6.28319]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_lcp3i"]
+_data = {
+"RESET": SubResource("Animation_3w72n"),
+"new_animation": SubResource("Animation_ij21k")
+}
+
+[sub_resource type="Animation" id="Animation_gs08v"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Giratron:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(3.525, 3.525)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("..:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("%Card_Joker/Area2D/CollisionShape2D:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("%Card_4/Area2D/CollisionShape2D:disabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("%Card_3/Area2D/CollisionShape2D:disabled")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("%Card_2/Area2D/CollisionShape2D:disabled")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("%Card_1/Area2D/CollisionShape2D:disabled")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("../Giratron:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_frtrd"]
+resource_name = "new_animation"
+length = 9.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Giratron:scale")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 1.5, 5, 6, 8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(3.525, 3.525), Vector2(1, 1), Vector2(1, 1), Vector2(1, 1), Vector2(1, 1), Vector2(0.025, 0.025)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("..:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(8, 9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_at2aa"]
+resource_name = "new_animation_2"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("..:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("%Card_Joker/Area2D/CollisionShape2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("%Card_4/Area2D/CollisionShape2D:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("%Card_3/Area2D/CollisionShape2D:disabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("%Card_2/Area2D/CollisionShape2D:disabled")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("%Card_1/Area2D/CollisionShape2D:disabled")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("../Giratron:scale")
+tracks/6/interp = 2
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(3.405, 3.405)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_mk8a1"]
+_data = {
+"RESET": SubResource("Animation_gs08v"),
+"new_animation": SubResource("Animation_frtrd"),
+"new_animation_2": SubResource("Animation_at2aa")
+}
+
+[node name="Card_Attack" type="Node2D"]
+script = ExtResource("1_270jh")
+Main_card = true
+color_main = "B"
+
+[node name="Giratron" type="Node2D" parent="." groups=["nivel"]]
+scale = Vector2(3.525, 3.525)
+
+[node name="Card_1" type="Node2D" parent="Giratron" groups=["bala_enemy"]]
+unique_name_in_owner = true
+position = Vector2(744, -240)
+script = ExtResource("1_270jh")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Giratron/Card_1"]
+scale = Vector2(3.5, 3.5)
+sprite_frames = SubResource("SpriteFrames_dbjs4")
+animation = &"4_B"
+frame_progress = 0.263131
+
+[node name="Area2D" type="Area2D" parent="Giratron/Card_1"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Giratron/Card_1/Area2D"]
+position = Vector2(-8.00024, -8.00012)
+scale = Vector2(0.283688, 0.283688)
+shape = SubResource("RectangleShape2D_ffuke")
+
+[node name="Card_2" type="Node2D" parent="Giratron" groups=["bala_enemy"]]
+unique_name_in_owner = true
+position = Vector2(504, 712)
+script = ExtResource("1_270jh")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Giratron/Card_2"]
+scale = Vector2(3.5, 3.5)
+sprite_frames = SubResource("SpriteFrames_dbjs4")
+animation = &"1_B"
+
+[node name="Area2D" type="Area2D" parent="Giratron/Card_2"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Giratron/Card_2/Area2D"]
+position = Vector2(-8.00024, -8.00012)
+scale = Vector2(0.283688, 0.283688)
+shape = SubResource("RectangleShape2D_ffuke")
+
+[node name="Card_3" type="Node2D" parent="Giratron" groups=["bala_enemy"]]
+unique_name_in_owner = true
+position = Vector2(-448, 696)
+script = ExtResource("1_270jh")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Giratron/Card_3"]
+scale = Vector2(3.5, 3.5)
+sprite_frames = SubResource("SpriteFrames_dbjs4")
+animation = &"1_W"
+
+[node name="Area2D" type="Area2D" parent="Giratron/Card_3"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Giratron/Card_3/Area2D"]
+position = Vector2(-8.00024, -8.00012)
+scale = Vector2(0.283688, 0.283688)
+shape = SubResource("RectangleShape2D_ffuke")
+
+[node name="Card_4" type="Node2D" parent="Giratron" groups=["bala_enemy"]]
+unique_name_in_owner = true
+position = Vector2(-752, -208)
+script = ExtResource("1_270jh")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Giratron/Card_4"]
+scale = Vector2(3.5, 3.5)
+sprite_frames = SubResource("SpriteFrames_dbjs4")
+animation = &"2_B"
+
+[node name="Area2D" type="Area2D" parent="Giratron/Card_4"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Giratron/Card_4/Area2D"]
+position = Vector2(-8.00024, -8.00012)
+scale = Vector2(0.283688, 0.283688)
+shape = SubResource("RectangleShape2D_ffuke")
+
+[node name="Card_Joker" type="Node2D" parent="Giratron" groups=["bala_enemy"]]
+unique_name_in_owner = true
+light_mask = 8192
+position = Vector2(8, -760)
+script = ExtResource("1_270jh")
+joker = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Giratron/Card_Joker"]
+scale = Vector2(3.5, 3.5)
+sprite_frames = SubResource("SpriteFrames_dbjs4")
+animation = &"Joker"
+autoplay = "Joker"
+frame_progress = 0.424046
+
+[node name="Area2D" type="Area2D" parent="Giratron/Card_Joker" groups=["enemy"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Giratron/Card_Joker/Area2D"]
+position = Vector2(-8.00024, -8.00012)
+scale = Vector2(0.283688, 0.283688)
+shape = SubResource("RectangleShape2D_ffuke")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_lcp3i")
+}
+autoplay = "new_animation"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="AnimationPlayer"]
+libraries = {
+"": SubResource("AnimationLibrary_mk8a1")
+}
+autoplay = "new_animation"
+
+[connection signal="area_entered" from="Giratron/Card_Joker/Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="animation_finished" from="AnimationPlayer/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

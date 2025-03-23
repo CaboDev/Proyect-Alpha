@@ -22,4 +22,3 @@ func _game_over():
 	$menu_cambios.muerto = true
 	$moriste/VBoxContainer/retry.grab_focus()
 	$AnimationPlayer.play("new_animation")
-

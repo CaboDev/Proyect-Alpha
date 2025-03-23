@@ -25,6 +25,3 @@ func _Clear_pinnns():
 	en_dash = false
 	$Line2D.remove_point(1)
 	$Line2D.remove_point(0)
-
-
-

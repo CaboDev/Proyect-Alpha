@@ -29,6 +29,10 @@ const BOSSES = {
 	"octopus" : {
 		"name" : "octopus",
 		"descripcion" : "octopus",
+	},
+	"joker" : {
+		"name" : "Joker",
+		"descripcion" : "is a joker",
 	}
 }
 

@@ -1,87 +1,67 @@
 extends Node2D
 
 var bala = preload("res://esenas/plataformer/joker/cartas.tscn")
+const CARD_ATTACK = preload("res://esenas/plataformer/joker/card_attack.tscn")
+
 @export var en_Braxaso : bool
 @export var B_or_W : int
 var bullet_spe = 1000
+@export var vida : float = 1000
+signal ko
+@onready var playback :AnimationNodeStateMachinePlayback = $Boss/AnimationTree.get("parameters/playback")
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	$Boss/AnimationTree.active = true
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	get_tree().get_first_node_in_group("Brazo_N").look_at(get_tree().get_first_node_in_group("pliyir").global_position)
-	get_tree().get_first_node_in_group("Brazo_B").look_at(get_tree().get_first_node_in_group("pliyir").global_position)
-	
-	
-	$Posses/Path_Negro.curve.clear_points()
-	$Posses/Path_Negro.curve.add_point($"Boss/Skeleton2D/main/brazo negro".global_position)
-	$Posses/Path_Negro.curve.add_point(get_tree().get_first_node_in_group("Brazo_N").global_position)
-	
-	$Posses/Path_blanco.curve.clear_points()
-	$Posses/Path_blanco.curve.add_point($"Boss/Skeleton2D/main/Brazo_blanco".global_position)
-	$Posses/Path_blanco.curve.add_point(get_tree().get_first_node_in_group("Brazo_B").global_position)
-	
-	
-	
+	%Nodo_master_de_obs.look_at(get_tree().get_first_node_in_group("pliyir").global_position)
 
-func _Brazaso_preparacion():
-	var rng = randi_range(1,4)
-	B_or_W = randi_range(1,2)
-	var tween = get_tree().create_tween().set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
 
-	tween.tween_property(self, "global_position", get_node("Boss/posis/"+str(rng)).global_position, 0.5)
+func lanzar_cartas(color : String):
+	var b = CARD_ATTACK.instantiate()
+	b.color_main = color
+	b.global_position = get_tree().get_first_node_in_group("pliyir").global_position
+	get_parent().call_deferred("add_child", b)
 	
 
 func _retraer_Brazaso():
-	var tween_05 = get_tree().create_tween().set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
-	var tween_02 = get_tree().create_tween().set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
-	
-	tween_05.tween_property(get_tree().get_first_node_in_group("Brazo_N"), "global_position", $"Boss/Skeleton2D/main/brazo negro".global_position, 0.5)
-	tween_02.tween_property(get_tree().get_first_node_in_group("Brazo_B"), "global_position", $"Boss/Skeleton2D/main/Brazo_blanco".global_position, 0.5)
+	pass
 
 func _Brazaso_Ya():
-	var tween_5 = get_tree().create_tween().set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
-	var player_pos = get_tree().get_first_node_in_group("pliyir").global_position
-	
-	if B_or_W == 1:
-		tween_5.tween_property(get_tree().get_first_node_in_group("Brazo_N"), "global_position", player_pos, 0.5)
-	else:
-		tween_5.tween_property(get_tree().get_first_node_in_group("Brazo_B"), "global_position", player_pos, 0.5)
+	pass
 
 
 func _Brazaso_Terminado():
-	var tween_5 = get_tree().create_tween().set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
-	var tween_2 = get_tree().create_tween().set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
-	tween_2.tween_property(get_tree().get_first_node_in_group("Brazo_N"), "global_position", Vector2(2000,760), 0.5)
-	tween_5.tween_property(get_tree().get_first_node_in_group("Brazo_B"), "global_position", Vector2(1416,808), 0.5)
-	
-	var tween = get_tree().create_tween().set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
-	tween.tween_property(self, "global_position", $Boss/posis/base.global_position, 0.5)
+	pass
 
 func _Disparar_de_la_mano():
 	var rng = randi_range(1,2)
-	var tipo
-	var grupo = "Brazo_B"
-	if B_or_W == 1: grupo = "Brazo_N"
+	var tipo : String
+	var grupo : String
+	
 	
 	match rng:
 		1:tipo = "trebol"
 		2:tipo = "diamante"
 	
 	var b1 = bala.instantiate()
+	grupo = "Punto_origen"
 	b1.Type = tipo
-	b1.global_position = get_tree().get_first_node_in_group(grupo).get_node("origen_1").global_position
-	b1.global_rotation = get_tree().get_first_node_in_group(grupo).get_node("origen_1").global_rotation
+	b1.global_position = get_tree().get_first_node_in_group(grupo).global_position
+	b1.global_rotation = get_tree().get_first_node_in_group(grupo).global_rotation
 	var b2 = bala.instantiate()
+	grupo = "Punto_origen2"
 	b2.Type = tipo
-	b2.global_position = get_tree().get_first_node_in_group(grupo).get_node("origen_2").global_position
-	b2.global_rotation = get_tree().get_first_node_in_group(grupo).get_node("origen_2").global_rotation
+	b2.global_position = get_tree().get_first_node_in_group(grupo).global_position
+	b2.global_rotation = get_tree().get_first_node_in_group(grupo).global_rotation
 	var b3 = bala.instantiate()
+	grupo = "Punto_origen3"
 	b3.Type = tipo
-	b3.global_position = get_tree().get_first_node_in_group(grupo).get_node("origen_3").global_position
-	b3.global_rotation = get_tree().get_first_node_in_group(grupo).get_node("origen_3").global_rotation
+	b3.global_position = get_tree().get_first_node_in_group(grupo).global_position
+	b3.global_rotation = get_tree().get_first_node_in_group(grupo).global_rotation
 	
 	b1.apply_impulse(Vector2(bullet_spe,0).rotated(b1.global_rotation))
 	b2.apply_impulse(Vector2(bullet_spe,0).rotated(b2.global_rotation))
@@ -91,8 +71,39 @@ func _Disparar_de_la_mano():
 	get_parent().call_deferred("add_child",b2)
 	get_parent().call_deferred("add_child",b3)
 
-func _on_animation_player_fini(anim_name):
-	if anim_name == "Static" or anim_name == "Static_2":
-		$Boss/AnimationPlayer.play("Brazaso")
-	else:
-		$Boss/AnimationPlayer.play("Static")
+
+func _on_animation_tree_animation_finished(anim_name: StringName) -> void:
+	var animaciones_validas = [
+		"Picas_y_Corazones", "Corazones", "Picas", "Diamantes", "trebol", "Cartas_Giratron",
+		"Cajas_arriba", "Cajas_lado_ambos", "Cajas_lado_der", "Cajas_lado_iz"
+	]
+	if anim_name in animaciones_validas:
+		var rng = randi_range(1,18)
+		match rng:
+			1: playback.travel("Picas_y_Corazones")
+			2: playback.travel("Corazones")
+			3: playback.travel("Picas")
+			4: playback.travel("Diamantes")
+			5: playback.travel("trebol")
+			6: playback.travel("Cartas_Giratron")
+			7: playback.travel("Cajas_arriba")
+			8: playback.travel("Cajas_lado_ambos")
+			9: playback.travel("Cajas_lado_der")
+			10: playback.travel("Cajas_lado_iz")
+			11: playback.travel("Cartas_Giratron")
+			12: playback.travel("Cajas_arriba")
+			13: playback.travel("Cajas_lado_ambos")
+			14: playback.travel("Diamantes")
+			15: playback.travel("Cajas_arriba")
+			16: playback.travel("Cartas_Giratron")
+			17: playback.travel("trebol")
+			18: playback.travel("Cajas_lado_ambos")
+			
+
+
+func _on_area_2d_area_entered(area: Area2D) -> void:
+	if area.get_parent().is_in_group("bala_player"):
+		vida -= area.get_parent().dano
+		if vida < 0.01:
+			playback.travel("muerte")
+			emit_signal("ko")

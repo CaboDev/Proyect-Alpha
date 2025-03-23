@@ -1,28 +1,54 @@
-[gd_scene load_steps=4 format=3 uid="uid://cvx816rx11i5u"]
+[gd_scene load_steps=7 format=3 uid="uid://cvx816rx11i5u"]
 
 [ext_resource type="Script" path="res://scrips/bala2.gd" id="1_6uue3"]
-
-[sub_resource type="PrismMesh" id="PrismMesh_4l7af"]
+[ext_resource type="Texture2D" uid="uid://ohk2v5orad6i" path="res://assets/Star_large.png" id="2_5qib3"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_j6wd2"]
 radius = 57.4279
+
+[sub_resource type="Animation" id="Animation_mcg2y"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_52rft"]
+resource_name = "new_animation"
+length = 1.2
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:rotation")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.898845, 0.0, 0.898845, 0.0, 0.898845, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_s41lm"]
+_data = {
+"RESET": SubResource("Animation_mcg2y"),
+"new_animation": SubResource("Animation_52rft")
+}
 
 [node name="bala" type="RigidBody2D" groups=["bala_enemy"]]
 modulate = Color(1, 1, 0, 1)
 z_index = -2
 gravity_scale = 0.0
 script = ExtResource("1_6uue3")
-
-[node name="MeshInstance2D" type="MeshInstance2D" parent="."]
-position = Vector2(9.53674e-07, 0)
-scale = Vector2(109.714, 98.2857)
-mesh = SubResource("PrismMesh_4l7af")
-
-[node name="MeshInstance2D2" type="MeshInstance2D" parent="."]
-position = Vector2(-0.318176, -28.2274)
-rotation = -3.14159
-scale = Vector2(128.636, 104.455)
-mesh = SubResource("PrismMesh_4l7af")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
 position = Vector2(3.8147e-06, -15)
@@ -34,6 +60,17 @@ scale = Vector2(0.7, 0.7)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(0, -17.1429)
 shape = SubResource("CircleShape2D_j6wd2")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-2, -16)
+scale = Vector2(7, 6.75)
+texture = ExtResource("2_5qib3")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_s41lm")
+}
+autoplay = "new_animation"
 
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

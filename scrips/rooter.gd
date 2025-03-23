@@ -18,10 +18,10 @@ var cooldown = false
 var carga_de_carga = 0
 
 var daños = {
-	"basico" : 0.9,
-	"teledirigido" : 0.7,
+	"basico" : 1.35,
+	"teledirigido" : 0.9,
 	"laser" : 6,
-	"mayor_daño" : 0.4,
+	"mayor_daño" : 0.6,
 	"bomba" : 4,
 	"cargado" : 2
 	}
@@ -175,11 +175,11 @@ func _on_telediri_timeout():
 	if arma == "Arma_basicax3" and get_parent().fin == false:
 		if Input.is_action_pressed("z"):
 			var b = bullet_teledirigida.instantiate()
-			b.global_rotation_degrees = global_rotation_degrees
+			b.global_rotation = global_rotation 
 			b.global_position = $arker2D.global_position
 			b.horizonte = true
 			b.dano = danoo
-			b.apply_impulse(Vector2(bullet_spe,0).rotated(rotation))
+			b.apply_impulse(Vector2(bullet_spe/2,0).rotated(rotation))
 			get_parent().get_parent().call_deferred("add_child",b)
 			$AnimatedSprite2D.play("tiro")
 			$bum.play("default")
@@ -229,6 +229,7 @@ func _on_cargar_timeout():
 		carga_de_carga += 1
 		$carga/AnimationPlayer.play(str(carga_de_carga))
 		
+		$GPUParticles2D5.emitting = false
 		$GPUParticles2D5.emitting = true
 
 

@@ -1,6 +1,7 @@
 [gd_scene load_steps=53 format=3 uid="uid://pnbyocgn5eho"]
 
 [ext_resource type="PackedScene" uid="uid://cd2r5atehqje7" path="res://esenas/player.tscn" id="1_j7ooj"]
+[ext_resource type="AudioStream" uid="uid://dkn0fcajkhbca" path="res://assets/auds/StellarDream.ogg" id="2_kqh8m"]
 [ext_resource type="Script" path="res://scrips/spauner.gd" id="3_2a5g6"]
 [ext_resource type="Script" path="res://scrips/boses/boss_1.gd" id="3_fvppy"]
 [ext_resource type="Texture2D" uid="uid://dm2vei3l5o1tr" path="res://assets/baa.png" id="4_v8cy4"]
@@ -20,7 +21,6 @@
 [ext_resource type="Texture2D" uid="uid://cyvkqx4y6ns7w" path="res://assets/nave/roto0000.png" id="19_cmjh8"]
 [ext_resource type="Texture2D" uid="uid://b5u0d6eiwxo7m" path="res://assets/nave/roto0001.png" id="20_72ysu"]
 [ext_resource type="Texture2D" uid="uid://coitoeigpo5wf" path="res://assets/nave/roto0003.png" id="21_smglf"]
-[ext_resource type="AudioStream" uid="uid://cjgbqt3yyo4nu" path="res://nueci.mp3" id="22_4vx7b"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_62tkt"]
 animations = [{
@@ -720,7 +720,7 @@ scale = Vector2(3, 3)
 [node name="player" parent="." instance=ExtResource("1_j7ooj")]
 position = Vector2(80, -184)
 dano_p = 0.5
-song = ExtResource("22_4vx7b")
+song = ExtResource("2_kqh8m")
 
 [node name="boss" type="Node2D" parent="." groups=["enemy"]]
 position = Vector2(-1728, -216)

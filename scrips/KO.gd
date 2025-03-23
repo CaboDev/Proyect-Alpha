@@ -1,7 +1,7 @@
 extends CanvasLayer
 
 @export_file(".tscn") var siguiente_escena 
-var mun = 1
+var mun : int = 1
 
 func _ready():
 	if Save.Mode_boss_rush == false:

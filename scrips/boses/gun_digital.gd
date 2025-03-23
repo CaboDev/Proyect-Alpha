@@ -33,7 +33,7 @@ func _process(delta):
 			disparo = false
 	else:
 		if caca == false:
-			$Area2D/CollisionShape2D.disabled = true
+			$Area2D/CollisionShape2D.queue_free()
 			$"GPUParticles2D".emitting = true
 			$AnimatedSprite2D.hide()
 			$AnimatedSprite2D2.hide()

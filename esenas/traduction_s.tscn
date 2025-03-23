@@ -1,0 +1,149 @@
+[gd_scene load_steps=5 format=3 uid="uid://6pux7eekxk4r"]
+
+[ext_resource type="Theme" uid="uid://qbghq2o1iiep" path="res://dEFAULT.tres" id="1_rxm27"]
+[ext_resource type="Script" path="res://esenas/Traduction_s.gd" id="1_tbuti"]
+[ext_resource type="Texture2D" uid="uid://c3xuh5mgj3321" path="res://assets/Boss_Rush_Mode/ui1.png" id="3_wi2c5"]
+[ext_resource type="Script" path="res://scrips/nivelels_selector.gd" id="4_qf42k"]
+
+[node name="Traduction_s" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+theme = ExtResource("1_rxm27")
+script = ExtResource("1_tbuti")
+
+[node name="Panel" type="Panel" parent="."]
+modulate = Color(0, 1, 1, 1)
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 384.0
+offset_right = 896.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Button1" type="Sprite2D" parent="Panel"]
+modulate = Color(0, 1, 1, 1)
+position = Vector2(256, 320)
+scale = Vector2(8, 10)
+texture = ExtResource("3_wi2c5")
+
+[node name="Panel2" type="Panel" parent="."]
+modulate = Color(0, 1, 1, 1)
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 384.0
+offset_top = 17.0
+offset_right = 384.0
+offset_bottom = 81.0
+grow_horizontal = 2
+
+[node name="Button1" type="Sprite2D" parent="Panel2"]
+modulate = Color(0, 1, 1, 1)
+position = Vector2(256, -140.5)
+scale = Vector2(8, 6.89063)
+texture = ExtResource("3_wi2c5")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 434.0
+offset_top = 24.0
+offset_right = 818.0
+offset_bottom = 88.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 46
+text = "lenguage_text"
+horizontal_alignment = 1
+
+[node name="butones" type="Control" parent="."]
+layout_mode = 1
+anchor_left = 0.307
+anchor_top = 0.494
+anchor_right = 0.307
+anchor_bottom = 0.494
+offset_left = 384.0
+offset_top = 8.0
+offset_right = 896.0
+offset_bottom = 648.0
+
+[node name="Ingles" type="Button" parent="butones"]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 128.0
+offset_right = 644.0
+offset_bottom = 256.0
+pivot_offset = Vector2(0, 63.7191)
+focus_neighbor_left = NodePath("../atras_")
+focus_neighbor_right = NodePath("../atras_")
+theme_override_font_sizes/font_size = 66
+text = "English"
+icon_alignment = 2
+script = ExtResource("4_qf42k")
+Min_Scale = Vector2(0.732, 0.732)
+
+[node name="Español" type="Button" parent="butones"]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 288.0
+offset_right = 644.0
+offset_bottom = 416.0
+pivot_offset = Vector2(0, 63.7191)
+focus_neighbor_left = NodePath("../atras_")
+focus_neighbor_right = NodePath("../atras_")
+theme_override_font_sizes/font_size = 66
+text = "Español"
+icon_alignment = 2
+script = ExtResource("4_qf42k")
+Min_Scale = Vector2(0.732, 0.732)
+
+[node name="Japones" type="Button" parent="butones"]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 448.0
+offset_right = 644.0
+offset_bottom = 576.0
+scale = Vector2(0.732, 0.732)
+pivot_offset = Vector2(0, 63.7191)
+focus_neighbor_left = NodePath("../atras_")
+focus_neighbor_right = NodePath("../atras_")
+theme_override_font_sizes/font_size = 66
+text = "日本語"
+icon_alignment = 2
+script = ExtResource("4_qf42k")
+Min_Scale = Vector2(0.732, 0.732)
+
+[node name="atras_" type="Button" parent="butones"]
+layout_mode = 0
+offset_left = 760.0
+offset_top = 504.0
+offset_right = 1055.0
+offset_bottom = 601.0
+pivot_offset = Vector2(0, 63.7191)
+focus_neighbor_left = NodePath("../Japones")
+focus_neighbor_right = NodePath("../Japones")
+theme_override_font_sizes/font_size = 81
+text = "atras"
+icon_alignment = 2
+script = ExtResource("4_qf42k")
+Max_Scale = Vector2(0.732, 0.732)
+
+[connection signal="focus_entered" from="butones/Ingles" to="butones/Ingles" method="_on_focus_entered"]
+[connection signal="focus_exited" from="butones/Ingles" to="butones/Ingles" method="_on_focus_exited"]
+[connection signal="pressed" from="butones/Ingles" to="." method="_on_ingles_pressed"]
+[connection signal="pressed" from="butones/Ingles" to="butones/Ingles" method="_on_pressed"]
+[connection signal="focus_entered" from="butones/Español" to="butones/Español" method="_on_focus_entered"]
+[connection signal="focus_exited" from="butones/Español" to="butones/Español" method="_on_focus_exited"]
+[connection signal="pressed" from="butones/Español" to="." method="_on_español_pressed"]
+[connection signal="pressed" from="butones/Español" to="butones/Español" method="_on_pressed"]
+[connection signal="focus_entered" from="butones/Japones" to="butones/Japones" method="_on_focus_entered"]
+[connection signal="focus_exited" from="butones/Japones" to="butones/Japones" method="_on_focus_exited"]
+[connection signal="pressed" from="butones/Japones" to="." method="_on_japones_pressed"]
+[connection signal="pressed" from="butones/Japones" to="butones/Japones" method="_on_pressed"]
+[connection signal="focus_entered" from="butones/atras_" to="butones/atras_" method="_on_focus_entered"]
+[connection signal="focus_exited" from="butones/atras_" to="butones/atras_" method="_on_focus_exited"]
+[connection signal="pressed" from="butones/atras_" to="." method="_on_atras__pressed"]
+[connection signal="pressed" from="butones/atras_" to="butones/atras_" method="_on_pressed"]

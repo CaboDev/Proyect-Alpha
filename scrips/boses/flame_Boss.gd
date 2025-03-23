@@ -41,5 +41,3 @@ func _on_timer_timeout():
 		b.global_position = global_position
 		print("sda")
 		get_parent().call_deferred("add_child",b)
-
-

@@ -43,6 +43,15 @@ func _on_config_pressed():
 	_on_config_back("ir_config_control_2", false)
 
 
+func _on_traduccion_pressed() -> void:
+	$Traduction_s._recibir_focus()
+	_on_config_back("ir_config_trad_2", false)
+
+func _on_traduction_s_back() -> void:
+	$Control/config.grab_focus()
+	_on_config_back("ir_config_trad_2", true)
+
+
 func _on_config_back(anim, regreso):
 	if regreso == true:
 		$AnimationPlayer.play_backwards(anim)
@@ -51,11 +60,11 @@ func _on_config_back(anim, regreso):
 		$AnimationPlayer.play(anim, -1, 1 , regreso)
 	if anim == "ir_config_control" or anim == "select_mode":
 		if regreso == true:
-			
 			$select_mode/play.grab_focus()
 
 
 func _on_configuracion_pressed():
+	$Control/config.grab_focus()
 	_on_config_back("ir_config_control", false)
 
 
@@ -97,3 +106,9 @@ func _on_animation_player_animation_finished(anim_name):
 func _on_freeplay_pressed():
 	siguiente_escena = "res://esenas/level_selector.tscn"
 	$select_mode/CanvasLayer/AnimationPlayer.play("0.5")
+
+
+func _on_config_control_back(anim: String, regreso: bool) -> void:
+	$Control/config.grab_focus()
+	_on_config_back(anim,regreso)
+	

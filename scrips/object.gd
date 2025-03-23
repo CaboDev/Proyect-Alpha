@@ -79,6 +79,3 @@ func _input(event):
 		var timer = get_tree().create_timer(0.2)
 		timer.connect("timeout",scan)
 		
-
-
-

@@ -60,11 +60,11 @@ focus_neighbor_bottom = NodePath("../cont")
 theme = ExtResource("2_yfw1j")
 theme_override_fonts/font = SubResource("SystemFont_4yp1l")
 theme_override_font_sizes/font_size = 70
-text = "  Retry"
 alignment = 0
 script = ExtResource("4_bklm6")
 Max_Scale = Vector2(0.578, 0.76)
 Min_Scale = Vector2(0.46, 0.605)
+no_compuesto = true
 
 [node name="Sprite2D" type="Sprite2D" parent="Control/retri"]
 position = Vector2(502.87, 38.0165)
@@ -73,6 +73,18 @@ texture = ExtResource("4_bot07")
 hframes = 10
 vframes = 10
 frame = 63
+
+[node name="Label" type="Label" parent="Control/retri"]
+layout_mode = 0
+offset_left = 34.0
+offset_top = 1.21487
+offset_right = 448.0
+offset_bottom = 65.2149
+scale = Vector2(1.04942, 0.91966)
+pivot_offset = Vector2(-0.290009, 40.9152)
+theme_override_font_sizes/font_size = 46
+text = "pause_btn_retry"
+clip_text = true
 
 [node name="cont" type="Button" parent="Control"]
 process_mode = 3
@@ -89,11 +101,11 @@ focus_neighbor_bottom = NodePath("../menu")
 theme = ExtResource("2_yfw1j")
 theme_override_fonts/font = SubResource("SystemFont_4yp1l")
 theme_override_font_sizes/font_size = 70
-text = "  continue"
 alignment = 0
 script = ExtResource("4_bklm6")
 Max_Scale = Vector2(0.578, 0.76)
 Min_Scale = Vector2(0.46, 0.605)
+no_compuesto = true
 
 [node name="Sprite2D" type="Sprite2D" parent="Control/cont"]
 position = Vector2(502.87, 38.0165)
@@ -102,6 +114,18 @@ texture = ExtResource("4_bot07")
 hframes = 10
 vframes = 10
 frame = 10
+
+[node name="Label" type="Label" parent="Control/cont"]
+layout_mode = 0
+offset_left = 34.0
+offset_top = 1.21487
+offset_right = 448.0
+offset_bottom = 65.2149
+scale = Vector2(1.04942, 0.91966)
+pivot_offset = Vector2(-0.290009, 40.9152)
+theme_override_font_sizes/font_size = 46
+text = "pause_btn_continue"
+clip_text = true
 
 [node name="menu" type="Button" parent="Control"]
 process_mode = 3
@@ -119,11 +143,11 @@ focus_neighbor_bottom = NodePath("../quit")
 theme = ExtResource("2_yfw1j")
 theme_override_fonts/font = SubResource("SystemFont_4yp1l")
 theme_override_font_sizes/font_size = 70
-text = "  Main Menu"
 alignment = 0
 script = ExtResource("4_bklm6")
 Max_Scale = Vector2(0.578, 0.76)
 Min_Scale = Vector2(0.46, 0.605)
+no_compuesto = true
 
 [node name="Sprite2D" type="Sprite2D" parent="Control/menu"]
 position = Vector2(502.87, 38.0165)
@@ -132,6 +156,18 @@ texture = ExtResource("4_bot07")
 hframes = 10
 vframes = 10
 frame = 13
+
+[node name="Label" type="Label" parent="Control/menu"]
+layout_mode = 0
+offset_left = 34.0
+offset_top = 1.21487
+offset_right = 448.0
+offset_bottom = 65.2149
+scale = Vector2(1.04942, 0.91966)
+pivot_offset = Vector2(-0.290009, 40.9152)
+theme_override_font_sizes/font_size = 46
+text = "pause_btn_mainmenu"
+clip_text = true
 
 [node name="quit" type="Button" parent="Control"]
 process_mode = 3
@@ -148,11 +184,11 @@ focus_neighbor_top = NodePath("../menu")
 theme = ExtResource("2_yfw1j")
 theme_override_fonts/font = SubResource("SystemFont_4yp1l")
 theme_override_font_sizes/font_size = 70
-text = "  Quit"
 alignment = 0
 script = ExtResource("4_bklm6")
 Max_Scale = Vector2(0.578, 0.76)
 Min_Scale = Vector2(0.46, 0.605)
+no_compuesto = true
 
 [node name="Sprite2D" type="Sprite2D" parent="Control/quit"]
 position = Vector2(502.87, 38.0165)
@@ -162,14 +198,26 @@ hframes = 10
 vframes = 10
 frame = 83
 
+[node name="Label" type="Label" parent="Control/quit"]
+layout_mode = 0
+offset_left = 34.0
+offset_top = 1.21487
+offset_right = 448.0
+offset_bottom = 65.2149
+scale = Vector2(1.04942, 0.91966)
+pivot_offset = Vector2(-0.290009, 40.9152)
+theme_override_font_sizes/font_size = 46
+text = "pause_btn_quit"
+clip_text = true
+
 [node name="Label" type="Label" parent="Control"]
 layout_mode = 0
-offset_left = 188.5
+offset_left = 160.0
 offset_top = 32.0
-offset_right = 396.5
+offset_right = 464.0
 offset_bottom = 104.0
 theme_override_font_sizes/font_size = 46
-text = "Pause"
+text = "pause_text"
 horizontal_alignment = 1
 
 [connection signal="pressed" from="Control/retri" to="." method="_on_retri_pressed"]

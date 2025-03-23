@@ -1,0 +1,15 @@
+keys,es,en,ja
+pause_btn_continue,Continuar,Resume,jotosume
+pause_btn_retry,Reintentar,Retry,????
+pause_btn_mainmenu,Menu Principal,Main Menu,???????
+pause_btn_quit,Salir del juego,Quit game,????????
+pause_text,Pausa,Pause,????
+lenguage_text,Idiomas,Language,??
+tutorial_tx_1,Presiona para saltar,Press to jump,Press to jump
+tutorial_tx_2,Presiona para dashear,Press to dash,Press to dash
+tutorial_tx_3,Presiona + para decender,Press + to decend,Press + to decend
+tutorial_tx_4,Presiona + para hacer un supersalto,Press + to superjump,Press + to superjump
+tutorial_tx_5,Manten para disparar,Hold to shoot,Hold to shoot
+tutorial_tx_6,Manten para apuntar,Hold to aim,Hold to aim
+tutorial_tx_7,Presiona para una Ulti,Press for Ulti,Press for Ulti
+tutorial_tx_8,Manten para agacharte,Hold to crouch,Hold to crouch

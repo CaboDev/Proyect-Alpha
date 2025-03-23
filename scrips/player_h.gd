@@ -49,7 +49,7 @@ func _ready():
 	amuleto = Save.game_data.AMULETO_EQUIPADO
 	if amuleto == "Amuleto_5_vidas":
 		vida = 5
-		$CanvasLayer/Label.text = str(vida)
+		$CanvasLayer/Control/Label.text = str(vida)
 	elif amuleto == "Amuleto_escudo_orbital":
 		$escudo_orbital/StaticBody2D/CollisionShape2D5.disabled = false
 		$escudo_orbital/StaticBody2D/CollisionShape2D6.disabled = false
@@ -60,8 +60,8 @@ func _ready():
 	
 	#barra de vida
 	minus_barra = 1.00/max_vida
-	$CanvasLayer/MeshInstance2D.material.set_shader_parameter("value",vida*minus_barra)
-	$CanvasLayer/MeshInstance2D.material.set_shader_parameter("segment_count",max_vida)
+	$CanvasLayer/Control/MeshInstance2D.material.set_shader_parameter("value",vida*minus_barra)
+	$CanvasLayer/Control/MeshInstance2D.material.set_shader_parameter("segment_count",max_vida)
 	
 
 func _input(event):
@@ -74,13 +74,13 @@ func _input(event):
 	var posT2 : Tween = get_tree().create_tween().set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
 	var posT : Tween = get_tree().create_tween().set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
 	if event.is_action_pressed("cure"):
-		if amuleto == "Amuleto_Curacion_hollow_knight":
+		if amuleto == "Amuleto_Curacion_hollow_knight" and $ulti_manager.energy > 29:
 			$currar.play("cura")
 			$Node2D/AnimatedSprite2D/AnimatedSprite2D.play()
 			tween.tween_property($Camera2D, "zoom", Vector2(0.5, 0.5), 1)
 			posT.tween_property($Camera2D, "global_position", global_position , 1)
 	if event.is_action_released("cure"):
-		if amuleto == "Amuleto_Curacion_hollow_knight":
+		if amuleto == "Amuleto_Curacion_hollow_knight"  and $ulti_manager.energy > 29:
 			$currar.play("RESET")
 			tween2.tween_property($Camera2D, "zoom", Zoom_de_camara, 1)
 			posT2.tween_property($Camera2D, "global_position", posisioc_de_la_camara , 1)
@@ -162,6 +162,8 @@ func _physics_process(delta):
 				en_aire = true
 				salto_disponible = false
 				$salto.start()
+			if Input.is_action_just_released("saltar"):
+				velocity.y += 0.8 
  
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
@@ -227,8 +229,8 @@ func _on_area_2d_area_entered(area):
 			vida -= 1
 			$muerte.play("muerte2")
 			$Camera2D.a_plichake()
-	$CanvasLayer/Label.text = str(vida)
-	$CanvasLayer/MeshInstance2D.material.set_shader_parameter("value",vida*minus_barra)
+	$CanvasLayer/Control/Label.text = str(vida)
+	$CanvasLayer/Control/MeshInstance2D.material.set_shader_parameter("value",vida*minus_barra)
 	
 	if vida < 3:
 		$CanvasLayer/caos.play("new_animation2")
@@ -270,9 +272,11 @@ func _on_currar_animation_finished(anim_name):
 			vida = max_vida
 		tween.tween_property($Camera2D, "zoom", Zoom_de_camara, 1)
 		tween2.tween_property($Camera2D, "global_position", posisioc_de_la_camara, 1)
-		$CanvasLayer/Label.text = str(vida)
-		$CanvasLayer/MeshInstance2D.material.set_shader_parameter("value",vida*minus_barra)
+		$CanvasLayer/Control/Label.text = str(vida)
+		$CanvasLayer/Control/MeshInstance2D.material.set_shader_parameter("value",vida*minus_barra)
 		$Node2D/AnimatedSprite2D.play()
+		$ulti_manager.energy -= 60
+		$ulti_manager._on_timer_timeout()
 
 
 
