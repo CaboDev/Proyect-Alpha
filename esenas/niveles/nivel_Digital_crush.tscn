@@ -1818,6 +1818,33 @@ tracks/1/keys = {
 "values": [Vector2(78, -13), Vector2(352, 67), Vector2(78, -13), Vector2(1712, 456)]
 }
 
+[sub_resource type="Animation" id="Animation_40k7l"]
+resource_name = "idle_0_2"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("atacador/rayos2/rayo10:lanzar_rayo")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("digital_colisionador:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(78, -13), Vector2(-192, 67), Vector2(78, -13), Vector2(1712, 456)]
+}
+
 [sub_resource type="Animation" id="Animation_rcn5d"]
 resource_name = "idle_2"
 tracks/0/type = "value"
@@ -2066,33 +2093,6 @@ tracks/6/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(3280, -32)]
-}
-
-[sub_resource type="Animation" id="Animation_40k7l"]
-resource_name = "idle_0_2"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("atacador/rayos2/rayo10:lanzar_rayo")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [false, false]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("digital_colisionador:position")
-tracks/1/interp = 2
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.5, 1, 1.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(78, -13), Vector2(-192, 67), Vector2(78, -13), Vector2(1712, 456)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_7skk4"]
